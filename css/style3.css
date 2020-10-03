@@ -1,0 +1,50 @@
+﻿.hidden_box{
+
+  display:inline-block;
+
+  margin:0;
+
+  padding:0;
+
+}
+
+.hidden_box label{
+
+  padding: 15px;
+
+  font-weight: bold;
+
+  border: solid 2px black;
+
+  cursor :pointer;
+
+}
+
+.hidden_box label:hover{background: #efefef;}
+
+.hidden_box input{display: none;}
+
+.hidden_box .hidden_show{
+
+  height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition: 0.8s;
+
+}
+
+  .hidden_box input:checked ~ .hidden_show{
+
+  padding: 10px 0;
+
+  height: auto;
+
+  opacity: 1;
+
+}
+
