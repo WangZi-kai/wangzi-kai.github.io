@@ -1,0 +1,15 @@
+#
+
+# robots.txt for Everyday Official Website
+
+#
+
+User-agent: *
+
+Allow: /index.html
+
+Allow: /download/index.html
+
+Disallow: /
+
+Sitemap: https://wangzi-kai.github.io/sitemapindex.xml
