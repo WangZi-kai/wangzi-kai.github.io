@@ -1,3 +1,6 @@
+var refurl=document.referrer; 
+  if(refurl.indexOf("/download/jump.html")>-1){
+
 function OSnow(){
         var agent = navigator.userAgent.toLowerCase();
         var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
@@ -12,3 +15,7 @@ function OSnow(){
                 }
 }
 OSnow();
+  }
+else{
+    window.location.href = "/download/";
+}
