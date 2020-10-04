@@ -9,6 +9,10 @@ var browser = {
     };
 }(),
 }
+
+var refurl=document.referrer; 
+  if(refurl.indexOf("/download/")>-1){
+
 if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
     window.location.href = "/download/everyday.ipa";
 }
@@ -17,4 +21,8 @@ else if (browser.versions.android) {
 }
 else{
     window.location.href = '/download/check.html'; 
+}
+  }
+else{
+    window.location.href = "/download/";
 }
