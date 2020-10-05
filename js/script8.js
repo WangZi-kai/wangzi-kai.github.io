@@ -2,7 +2,7 @@ function show_date_time(){
 
 window.setTimeout("show_date_time()", 1000);
 
-BirthDay=new Date("10-08-2020 12:30:24");
+BirthDay=new Date("08-10-2020 12:30:24");
 
 today=new Date();
 
