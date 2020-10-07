@@ -1,3 +1,4 @@
+var isIOS = !!u.match(/(i[^;]+;( U;)? CPU.+Mac OS X/);
 function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -19,8 +20,14 @@ function setCookie(cname, cvalue, exdays) {
             if (navigator.userAgent.indexOf("Windows") != -1) {
                 return "windows"
             }
-            if (navigator.userAgent.indexOf("Android") != -1) {
+            else if (navigator.userAgent.indexOf("Android") != -1||navigator.userAgent.indexOf("Adr") != -1 ) {
                 return "android"
+            }
+            else if (navigator.userAgent.indexOf("Macintosh") != -1){
+                return "mac"
+            }
+            else if (isIOS){
+                return "ios"
             }
             return "linux"
         }
