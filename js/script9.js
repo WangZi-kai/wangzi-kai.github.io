@@ -26,7 +26,7 @@ function setCookie(cname, cvalue, exdays) {
             else if (navigator.userAgent.indexOf("Macintosh") != -1){
                 return "mac"
             }
-            else if (isIOS){
+            else if (isIOS||navigator.userAgent.indexOf("iPad")||navigator.userAgent.indexOf("iPhone)){
                 return "ios"
             }
             return "linux"
