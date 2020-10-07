@@ -29,14 +29,14 @@ function setCookie(cname, cvalue, exdays) {
         function DoDownload() {
             var sl = document.getElementById("sl_os")
             if (sl.value == "windows") {
-                window.open('https://wwe.lanzous.com/i4ZDUfwxs3g')
+                window.open('https://')
                 var blk = document.getElementById('tag_windows')
                 blk.style.backgroundColor = '#fff'
                 blk.style.boxShadow = '2px 2px 2px #000'
                 var bd = document.getElementsByTagName('body')[0]
                 bd.style.backgroundColor = '#aaa'
             } else if (sl.value == 'linux') {
-                window.open('/download/nosupport.html')
+                window.open('/nosupport.html')
                 var blk = document.getElementById('tag_linux')
                 blk.style.backgroundColor = '#fff'
                 blk.style.boxShadow = '2px 2px 2px #000'
@@ -50,7 +50,7 @@ function setCookie(cname, cvalue, exdays) {
                 var bd = document.getElementsByTagName('body')[0]
                 bd.style.backgroundColor = '#aaa'
             } else if (sl.value == 'mac') {
-                window.open('/download/nosupport.html')
+                window.open('/nosupport.html')
                 var blk = document.getElementById('tag_mac')
                 blk.style.backgroundColor = '#fff'
                 blk.style.boxShadow = '2px 2px 2px #000'
