@@ -16,8 +16,6 @@
 
 <script src="/js/script2.js"></script>
 
-<script src="/js/script9.js"></script>
-
 <meta name="description" content="共同进步，共同成长">
 
 <meta name="keywords" content="每日,科技,官网,门户,分享,娱乐">
@@ -55,9 +53,11 @@
 <header>
 
 <p><div align="center"><a href="/"><img src="/i/logo.jpg" alt="每日科技" title="每日科技官网" border="0" /></a></div></p>
+ 
+<script src="/js/script9.js"></script>
 
-<audio src="/sound/Acreix-Visions.mp3" hidden="true" autoplay="true" loop="true"></audio>
-  
+<audio src="/sound/Acreix-Visions.mp3" id="backgroundmusic" hidden="true" autoplay="true" loop="true"></audio>
+
 </header>
 
 <br />
@@ -155,6 +155,18 @@
 <p class="outset">看看资讯：</p>
   
 <iframe width="700" height="700" src="https://news.qq.com/" scrolling="yes" ></iframe>
+  
+<hr />
+  
+<p class="outset">听听歌曲（酷狗音乐官网太臃肿），看看视频（抖音快手上不来，只有好看视频里面的好一些，火锅视频感觉不好用）：</p>
+  
+<input type="button" onclick="closePlay()" value="点这暂时把背景音乐关一下" />
+
+<input type="button" onclick="autoPlay()" value="点这恢复背景音乐播放" />
+  
+<iframe width="1000" height="700" src="https://music.163.com/" scrolling="yes" ></iframe>
+  
+<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" ></iframe>
 
 <hr />
   
