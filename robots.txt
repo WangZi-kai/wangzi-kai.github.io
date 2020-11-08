@@ -10,8 +10,8 @@ User-agent: *
 
 Allow: /index.html
 
-Allow: /download/index.html
-
 Disallow: /
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
+
+Sitemap: https://wangzi-kai.github.io/sitemap.html
