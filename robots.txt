@@ -1,6 +1,8 @@
 #
 
-# robots.txt for Everyday Official Website
+# robots.txt for Hi Official Website
+
+# robots generate from wangzi-kai.github.io
 
 #
 
@@ -12,4 +14,4 @@ Allow: /download/index.html
 
 Disallow: /
 
-Sitemap: https://wangzi-kai.github.io/sitemapindex.xml
+Sitemap: https://wangzi-kai.github.io/sitemap.xml
