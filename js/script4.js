@@ -1,6 +1,6 @@
 function autoPlay() {
             var myAuto = document.getElementById('backgroundmusic');
-            myAuto.load()
+            myAuto.load();
             myAuto.play();
         }
         function closePlay() {
