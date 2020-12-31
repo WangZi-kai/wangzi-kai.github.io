@@ -13,7 +13,7 @@ function dodown(obj){
 }
 function doup(obj){
 	obj.style.backgroundColor = "#EAEAEA";
-	if(input.value.length == 6){
+	if(input.value.length == 9){
 		if(input.value == password){
 			alert("登录成功");
 			location.href="/tj/information.html";
