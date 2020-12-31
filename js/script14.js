@@ -1,4 +1,4 @@
-var password = ahsb182467953RI;
+var password = "ahsb182467953RI";
 var enter = document.getElementById("password");
 function login(){
 if(enter == password){
