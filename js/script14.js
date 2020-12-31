@@ -1,5 +1,5 @@
 var password = "ahsb182467953RI";
-var enter = document.getElementsByClassName("input");
+var enter = document.getElementsById("password").value;
 function login(){
 if(enter == password){
 alert("登录成功");
