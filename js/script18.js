@@ -18,7 +18,7 @@ function block_Open(x, y) {
                 //找到地雷
                 block = ground[i][j];
                 if (!block.isOpen && block.isMine) {
-                    block.innerHTML = "<img src='mine.jpg' width=\"30\" height=\"30\">";
+                    block.innerHTML = "<img src='/i/mine.jpg' width=\"30\" height=\"30\">";
                 }
             }
         }
