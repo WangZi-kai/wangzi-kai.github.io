@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>扫雷(容易) - hi游戏</title>
+<title>扫雷 - hi游戏</title>
 <meta name="description" content="hi游戏，缓解你的的压力！" />
 <meta name="keywords" content="hi,游戏,扫雷,娱乐,解压,分级" />
 <meta name="copyright" content="3429442539@qq.com" />
@@ -15,27 +15,95 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
-<script src="/js/script2.js"></script>
-<script src="/js/script15.js"></script>
-<link rel="stylesheet" href="/css/style10.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="ground.css"> <link rel="stylesheet" type="text/css" href="customize_Alert.css">
+<script type="text/javascript" src="initial_Ground.js"></script>
+<script type="text/javascript" src="block_Click.js"></script>
+<script type="text/javascript" src="block_Open.js"></script>
+<script type="text/javascript" src="customize_Alert.js"></script>
 </head>
 
-<body>
-<a href="/game/minesweeper.html">容易</a>&nbsp;&nbsp;<a href="/game/minesweepermiddle.html">中等</a>&nbsp;&nbsp;<a href="/game/minesweeperdifficult.html">困难</a>
-<br />
+<!-- ondragstart:防拖拽生成新页面 oncontextmenu:屏蔽右键菜单-->
+<body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
 <noscript><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font><br /><br /></noscript>
-<div id="menu"> 
-<a href="javascript:;" onclick="init(10,10,10);">初级</a> 
-<a href="javascript:;" onclick="init(16,16,40);">中级</a> 
-<a href="javascript:;" onclick="init(30,16,99);">高级</a> 
-<input type="checkbox" id="check" /><label for="check">是否使用标记(?)</label> 
-</div> 
-<div id="submenu"> 
-剩余雷数：<span id="lastnum"></span> 
-时间：<span id="time"></span>秒 
-<span id="warning"></span> 
-</div> 
-<div id="main"></div>
+<br />
+<p id='p'>
+    <span class='span'>Mine: <label id='count'>0</label></span>
+    <span class='span'>Time: <label id='time'>0</label>s</span>
+    <button onclick="start()">Start</button>
+    <input type="button" value="Restart" align="center" onclick="restart()">
+    <select id="s">
+        <option>--请选择一个难度--</option>
+        <option>容易</option>
+        <option>中等</option>
+        <option>困难</option>
+    </select>
+</p>
+
+<table id='ground'></table>
+
+<script>
+    var row; //数组行数
+    var col; //数组列数
+    var maxCount; //最大地雷数量
+    var isFirstOpen = true; //第一次打开方格
+    var count; //剩余雷数
+    var ground;//初始化，得到二维数组
+    var time; //计时
+    var timer; //定时器 100ms执行一次
+
+    function start() {
+        swal(document.getElementById("s").value + " level")
+        switch (document.getElementById("s").value) {
+            case "容易": {
+                row = 6; //数组行数
+                col = 6; //数组列数
+                maxCount = 10; //最大地雷数量
+                isFirstOpen = true;//第一次打开方格
+                count = document.getElementById('count'); //剩余雷数
+                ground = initial_ground(); //初始化，得到二维数组
+                time = document.getElementById('time'); //计时
+                timer = setInterval(function () {
+                    let seconds = (parseFloat(time.innerHTML) + 0.1).toFixed(1); //保留一位小数
+                    time.innerHTML = seconds;
+                }, 100) //定时器 100ms执行一次
+                break;
+            }
+            case "中等": {
+                row = 15; //数组行数
+                col = 15; //数组列数
+                maxCount = 50; //最大地雷数量
+                isFirstOpen = true;//第一次打开方格
+                count = document.getElementById('count'); //剩余雷数
+                ground = initial_ground(); //初始化，得到二维数组
+                time = document.getElementById('time'); //计时
+                timer = setInterval(function () {
+                    let seconds = (parseFloat(time.innerHTML) + 0.1).toFixed(1); //保留一位小数
+                    time.innerHTML = seconds;
+                }, 100) //定时器 100ms执行一次
+                break;
+            }
+            case "困难": {
+                row = 50; //数组行数
+                col = 50; //数组列数
+                maxCount = 200; //最大地雷数量
+                isFirstOpen = true;//第一次打开方格
+                count = document.getElementById('count'); //剩余雷数
+                ground = initial_ground(); //初始化，得到二维数组
+                time = document.getElementById('time'); //计时
+                timer = setInterval(function () {
+                    let seconds = (parseFloat(time.innerHTML) + 0.1).toFixed(1); //保留一位小数
+                    time.innerHTML = seconds;
+                }, 100) //定时器 100ms执行一次
+                break;
+            }
+        }
+    }
+
+    function restart() {
+        window.location.reload();
+    }
+
+</script>
 <footer>
 <br />
 <br />
