@@ -15,258 +15,48 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
-<style type="text/css">
-table
-{
--webkit-touch-callout: none; /* iOS Safari */
+<style>
+		*{
+			padding:0px;
+			margin:0px;
+		}
+		.container{
+			width:600px;
+			height:600px;
+			border:1px solid #f00;
+			margin:0 auto;
+		}
+		.container .block{
+			width:60px;
+			height:60px;
+			background-color: #abcdef;
+			float:left;
+			border:1px solid red;
+			box-sizing:border-box;
+			cursor: pointer;
+		}
+		.container .lei{
+			/*background: url('dl.jpg') no-repeat center center/ 100% 100%;*/
+		}
+		.container .show{
+			background: url('dl.jpg') no-repeat center center/ 100% 100%;
+		}
+		.container .number{
+			background-color: #fff;
+			text-align: center;
+			line-height: 60px;
+		}
+		.container .biaoji{
+			background: url('qz.jpg') no-repeat center center/ 100% 100%;
 
--webkit-user-select: none; /* Chrome/Safari/Opera */
-
--khtml-user-select: none; /* Konqueror */
-
--moz-user-select: none; /* Firefox */
-
--ms-user-select: none; /* Internet Explorer/Edge */
-
-user-select: none; /* Non-prefixed version, currently not supported by any browser */
-}
-</style>
+		}
+	</style>
 </head>
 
 <body>
 <noscript><font size="50" color="red">本游戏为JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font><br /><br /></noscript>
-<center style="margin:150px auto;">
-<h2 style="font-family:Comic Sans Ms;">Mine Clearance（扫雷）&diams;</h2>
-<p>请设置行和列开始游戏</p>
-<p>游戏难度：<select id="level" onchange="changelevel()"><option>小白级</option><option>大神级</option></select></p>
-<p id="select_level"></p>
-行:  <input type="text" id="rows"> 
-列: <input type="text" id="cols"> 
-<button id="add" onClick="add()">PlayGame</button>
-<br>
-<p id="tips"></p>
-<p id="leiNum"></p>
-<table border="2" id="tab"  ></table>
-<p id="GScore"></p>
-
-</center>
-
-<script type="text/javascript">
-
-	var  lei =new Array("&hearts;","0","&hearts;","&hearts;","&hearts;","&hearts;");
-	var tab =$("tab");
-	var GScore=$("GScore");
-	var score=0;
-	var tip=$("tips");
-	var time;
-	var i=3;
-	var row =$("rows");
-	var col =$("cols");
-	var Total=0;
-	var lei_count =0;
-	var levels= $("level");
-	var select_level=$("select_level");
-
-	function add()
-	{
-		clear();
-		tip.innerHTML="游戏开始";
-		score=0;
-		GScore.innerHTML="当前得分："+score;
-	    lei_count=0;
-		tab.innerHTML="";
-		Total=0;
-		Total=parseInt(row.value)*parseInt(col.value);
-		for(var i=0;i<row.value;i++)
-		{
-			var newTr =document.createElement("tr");
-			newTr.id=i;//
-			newTr.style.background="black";
-			for(var j=0;j<col.value;j++)
-			{//
-				var rand=parseInt(Math.random()*lei.length);
-				newTr.innerHTML+="<td ><button id='"+i+j+"' style ='width:25px;height:25px;background:green; color:green; border:1px blue solid' οnclick='myclick(this)' οnmοuseοver='changecolor(this)' οnmοuseοut='resetcolor(this)'>"+lei[rand]+"</button></td>";
-				if(lei[rand]=="0")
-				{
-					lei_count++;
-				}
-			}
-			tab.appendChild(newTr);
-		}
-		Total=Total-lei_count;
-		var leinum =$("leiNum");
-		leinum.innerHTML="本局雷数："+lei_count;
-	}
-		
-		function $(id)
-		{
-			return document.getElementById(id);
-		}
-	
-	function change(obj)
-	{
-	
-		if(obj.innerHTML=="0")
-			{
-				time=setInterval(times,1000);
-				obj.style.backgroundColor="red";
-				obj.innerHTML="*";
-				alert("Game Over!");
-				
-			}else
-			{
-				obj.style.backgroundColor="white";
-				score=score+1;
-			}
-			GScore.innerHTML="当前得分："+score;
-	}
-	
-	function myclick(obj)
-	{
-		if(obj.style.background!="white")
-		{
-		change(obj);
-		check(obj);
-		Total--;
-		if(Total==0)
-		{
-		alert("你赢了！总分："+score);
-		}
-		
-		}
-	}
-	
-	function changecolor(obj)
-	{
-		obj.style.border="1px  red solid ";
-	}
-	function resetcolor(obj)
-	{
-		obj.style.border="1px blue solid";
-	}
-	function times()
-	{
-		
-		tip.innerHTML="游戏结束，"+i+"秒后重新开始游戏";
-		if(i==0)
-		{
-			add();
-		}
-		i--;
-	}
-	function clear()
-	{
-		clearInterval(time);
-		i=3;
-	}
-	
-	function check(obj)
-	{
-		var index=0;
-		index=Number(obj.id.substring(1));//下标
-		var boom =0;
-
-		//左节点
-		if(index-1>=0)
-		{
-			if(obj.parentNode.previousSibling.childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.previousSibling.childNodes[0].style.background="black";
-			}
-		}
-		//右节点
-		if(index!=Number(col.value)-1){
-			if(obj.parentNode.nextSibling.childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.nextSibling.childNodes[0].style.background="black";
-			}
-		}
-		//上节点
-		if(obj.parentNode.parentNode.id!="0"){
-			if(obj.parentNode.parentNode.previousSibling.childNodes[index].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.previousSibling.childNodes[index].childNodes[0].style.background="black";
-			}
-		}
-		//下节点
-		if(obj.parentNode.parentNode.id!=Number(row.value)-1){
-			if(obj.parentNode.parentNode.nextSibling.childNodes[index].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.nextSibling.childNodes[index].childNodes[0].style.background="black";
-			}
-		}
-	
-		//左上节点
-		if(index-1>=0 && obj.parentNode.parentNode.id!="0"){
-			if(obj.parentNode.parentNode.previousSibling.childNodes[index-1].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.previousSibling.childNodes[index-1].childNodes[0].style.background="black";
-			}
-		}
-		
-		//右上节点
-		if(index!=Number(col.value)-1 && obj.parentNode.parentNode.id!="0"){
-			if(obj.parentNode.parentNode.previousSibling.childNodes[index+1].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.previousSibling.childNodes[index+1].childNodes[0].style.background="black";
-			}
-		}
-		//左下节点
-		if(index-1>=0 && obj.parentNode.parentNode.id!=Number(row.value)-1){
-			if(obj.parentNode.parentNode.nextSibling.childNodes[index-1].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.nextSibling.childNodes[index-1].childNodes[0].style.background="black";
-			}
-		}
-		//右下节点
-		if(index!=Number(col.value)-1  && obj.parentNode.parentNode.id!=Number(row.value)-1){
-			if(obj.parentNode.parentNode.nextSibling.childNodes[index+1].childNodes[0].innerHTML=="0")
-			{
-			boom++;
-			if(levels.value=="小白级")
-			obj.parentNode.parentNode.nextSibling.childNodes[index+1].childNodes[0].style.background="black";
-			}
-		}
-
-	if(boom>0)
-		obj.innerHTML=boom;
-else
-obj.innerHTML="&nbsp;";
-	}
-	
-	
-	function changelevel()
-	{
-		var info=levels.value;
-		if(levels.value=="小白级")
-		{
-			info+="&nbsp;(自动排雷)"+"*";
-		}
-		else
-		{
-			info+="***";
-		}
-
-		select_level.innerHTML="你已选择："+info;
-	}
-		
-	window.onload=changelevel;
-}
-	</script>
+<div class="container">
+</div>
 <footer>
 <br />
 <br />
@@ -277,6 +67,140 @@ obj.innerHTML="&nbsp;";
 <div align="center"><script type="text/javascript" src="/js/script12.js"></script></div>
 </footer>
 </body>
+<script>
+	// 1、动态的创建表格
+
+	let container = document.querySelector(".container");
+	// 行数
+	for(let i = 0 ;i< 10 ;i++){
+		// 列数
+		for(let j = 0;j<10;j++){
+
+			// 创建div对象
+			let divObj = document.createElement("div");
+
+			// 添加类
+			divObj.classList.add('block');
+			divObj.id = "a"+i+"_"+j;
+		
+			// 将div对象追加到容器中
+			container.appendChild(divObj);
+		}
+	}
+
+
+	// 2、随机地雷
+	let count = 10;
+	// 获取所有盒子的个数
+	let block = document.querySelectorAll(".block");
+	do{
+		// 随机地雷
+		let random = Math.floor(Math.random()*block.length);
+		block[random].classList.add("lei");
+	}while(document.querySelectorAll(".lei").length<count);
+
+	// 3、给小方块绑定事件
+	block.forEach(function(item){
+		// 鼠标点击
+		item.onclick=function(){
+			leftClick(item);
+		}
+
+		// 鼠标右键标记
+		item.oncontextmenu = function(e){
+			// 阻止浏览器的默认事件
+			e.preventDefault();
+			rightClick(item);
+		}
+	});
+
+	// 右键点击方法
+
+	function rightClick(obj){
+		// 判断是否可以标记旗子
+		if (!obj.classList.contains("number")) {
+			// 标记小旗子
+			obj.classList.toggle("biaoji");
+		};
+		// 判断游戏结束
+		let biaoji = document.querySelectorAll(".biaoji.lei");
+		let biaoji2 = document.querySelectorAll(".biaoji");
+		// 判断扫雷成功
+		if (biaoji.length == count && biaoji2.length == count) {
+			alert("通过成功");
+		};
+	}
+	// 左键点击方法
+
+	function leftClick(obj){
+		// 如果标记了小旗子
+
+		if (obj.classList.contains("biaoji")) {
+			return "";
+		};
+		// 判断所点击的表格是否是地雷
+		// 如果是地雷，爆炸所有的地雷
+		if (obj.classList.contains("lei")) {
+
+			alert("游戏结束");
+
+			// 获取所有的地雷
+
+			let lei = document.querySelectorAll(".lei");
+
+			// 显示所有的地雷
+
+			lei.forEach(function(item){
+				item.classList.add("show");
+			});
+			return "";
+		};
+
+		// 点击显示数字
+		obj.classList.add("number");
+		// 如何计算地雷的个数
+		// 获取当前点击盒子的ID
+			let ids = obj.id;
+			let arr = ids.split("_");
+		// 获取行号和列号
+			let x = Number(arr[0].substr(1));
+			let y = Number(arr[1]);
+		// 计算附近地雷数
+		let num=0;
+		for(let i = x-1;i<=x+1;i++){
+			for(let j = y-1;j<=y+1;j++){
+				// 获取附近的对象
+				let objs = document.querySelector(`#a${i}_${j}`);
+				// 如果有地雷，数值增加
+				if (objs && objs.classList.contains("lei")) {
+					num++;
+				};
+			}
+		}
+
+		// 判断如果雷的个数0
+		if (num) {
+			obj.innerHTML = num;
+		};
+		// 如果是空白区域，扩散
+		if (num == 0) {
+			// 行
+			for(let i = x-1;i <= x+1;i++){
+				// 列
+				for(let j = y-1;j <= y+1;j++){
+					// 获取附近的对象
+					let objs = document.querySelector(`#a${i}_${j}`);
+					// 让小方块进行点击
+					// 如果对象存在，并且未被点击的时候
+					if (objs && !objs.classList.contains("number")) {
+						leftClick(objs);
+					};
+				}
+			}
+		};
+	}
+
+</script>
 </html>
 	
 	
