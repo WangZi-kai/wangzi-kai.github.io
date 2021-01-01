@@ -26,8 +26,7 @@ function block_Open(x, y) {
         //提示游戏结束
         swal({
             title:"游戏结束",
-            text:"太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新来重置！",
-            "error"
+            text:"太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新来重置！","error"
             showConfirmButton: false});
         setTimeout("window.location.href='/game/minesweeper.html'",3000); //长批注来了，见下
         /*这里有一个bug，失败了还能继续玩，所以刷新一下。
