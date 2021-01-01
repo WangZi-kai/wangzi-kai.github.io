@@ -73,16 +73,19 @@
 </footer>
 </body>
 <script>
-	var hang = document.getElementsByName("hang");
-	var lie = document.getElementsByName("lie");
-	var lei = document.getElementsByName("lei");
+	var hangshu = document.getElementsByName("hang").value;
+	var lieshu = document.getElementsByName("lie").value;
+	var leishu = document.getElementsByName("lei").value;
+	var hangshu = parseInt(hangshu)
+	var lieshu = parseInt(lieshu)
+	var leishu = parseInt(leishu)
 	// 1、动态的创建表格
 
 	let container = document.querySelector(".container");
 	// 行数
-	for(let i = 0 ;i< hang ;i++){
+	for(let i = 0 ;i< hangshu ;i++){
 		// 列数
-		for(let j = 0;j<lie;j++){
+		for(let j = 0;j<lieshu;j++){
 
 			// 创建div对象
 			let divObj = document.createElement("div");
