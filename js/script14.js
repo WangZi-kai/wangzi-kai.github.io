@@ -1,5 +1,5 @@
 function login(){
-var enter = document.getElementsById("password").value;
+var enter=document.getElementsById("password").value;
 if(enter == "ahsb182467953RI"){
 alert("登录成功");
 location.href="/tj/information.html";
