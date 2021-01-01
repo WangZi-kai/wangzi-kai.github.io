@@ -73,19 +73,13 @@
 </footer>
 </body>
 <script>
-	var hangshu = document.getElementsByName("hang").value;
-	var lieshu = document.getElementsByName("lie").value;
-	var leishu = document.getElementsByName("lei").value;
-	var hangshu = parseInt(hangshu)
-	var lieshu = parseInt(lieshu)
-	var leishu = parseInt(leishu)
 	// 1、动态的创建表格
 
 	let container = document.querySelector(".container");
 	// 行数
-	for(let i = 0 ;i< hangshu ;i++){
+	for(let i = 0 ;i< 10 ;i++){
 		// 列数
-		for(let j = 0;j<lieshu;j++){
+		for(let j = 0;j<10;j++){
 
 			// 创建div对象
 			let divObj = document.createElement("div");
@@ -101,7 +95,7 @@
 
 
 	// 2、随机地雷
-	let count = lei;
+	let count = 10;
 	// 获取所有盒子的个数
 	let block = document.querySelectorAll(".block");
 	do{
