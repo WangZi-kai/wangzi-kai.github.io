@@ -1,3 +1,21 @@
+@media all and (orientation : portrait) {
+#body {
+    background-image: url("/i/sweepback.jpg");
+    background-size: cover;
+    margin: 0 auto;
+    width: 500px;
+    height: 800px;
+}
+}
+@media all and (orientation : landscape) {
+#body {
+    background-image: url("/i/sweepback.jpg");
+    background-size: cover;
+    margin: 0 auto;
+    width: 800px;
+    height: 500px;
+}
+}
 #body {
     background-image: url("/i/sweepback.jpg");
     background-size: cover;
