@@ -11,7 +11,7 @@ function block_Open(x, y) {
 
     //如果该方格是雷
     if (block.isMine) {
-        block.innerHTML = "<img src='mine.jpg' width=\"30\" height=\"30\">";//显示雷
+        block.innerHTML = "<img src='/i/mine.jpg' width=\"30\" height=\"30\">";//显示雷
         //遍历矩阵打开所有的地雷方格
         for (let i = 0; i < row; i++) {
             for (let j = 0; j < col; j++) {
