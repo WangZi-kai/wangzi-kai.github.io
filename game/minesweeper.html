@@ -55,6 +55,11 @@
 
 <body>
 <noscript><font size="50" color="red">本游戏为JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font><br /><br /></noscript>
+<p>行：<input type="text" name="hang" onkeyup ="value=value.replace(/[^\d]/g,'')" placeholder="输入需要几行" value="10" /></p>
+<p>列：<input type="text" name="lie" onkeyup ="value=value.replace(/[^\d]/g,'')" placeholder="输入需要几列" value="10" /></p>
+<p>雷：<input type="text" name="lei" onkeyup ="value=value.replace(/[^\d]/g,'')" placeholder="输入需要几个雷" value="10" /></p>
+<br />
+<br />
 <div class="container">
 </div>
 <footer>
@@ -68,13 +73,16 @@
 </footer>
 </body>
 <script>
+	var hang = document.getElementsByName("hang");
+	var lie = document.getElementsByName("lie");
+	var lei = document.getElementsByName("lei");
 	// 1、动态的创建表格
 
 	let container = document.querySelector(".container");
 	// 行数
-	for(let i = 0 ;i< 10 ;i++){
+	for(let i = 0 ;i< hang ;i++){
 		// 列数
-		for(let j = 0;j<10;j++){
+		for(let j = 0;j<lie;j++){
 
 			// 创建div对象
 			let divObj = document.createElement("div");
@@ -90,7 +98,7 @@
 
 
 	// 2、随机地雷
-	let count = 10;
+	let count = lei;
 	// 获取所有盒子的个数
 	let block = document.querySelectorAll(".block");
 	do{
