@@ -25,6 +25,7 @@ function block_Open(x, y) {
         clearInterval(timer); //游戏结束停止计时，清除定时器
         //提示游戏结束
         swal("游戏结束","太遗憾了，下次努力，重新开始吧！","error");
+        sleep(3000); //休眠3秒，防止用户看不到swal提示
         window.location.href="/game/minesweeper.html"; //这里有一个bug，失败了还能继续玩，所以刷新一下，用window防止用户返回上一个页面，reload()在这里运行似乎用不了，只能这样了
     } else if (block.count === 0) { //打开计雷数为0的方格
         //遍历九宫格内的方格
