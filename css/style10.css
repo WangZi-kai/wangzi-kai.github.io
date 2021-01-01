@@ -1,6 +1,9 @@
 #body {
     background-image: url("/i/sweepback.jpg");
     background-size: cover;
+    margin: 0 auto;
+    width: 5120px;
+    height: 2880px;
 }
 
 #p {
