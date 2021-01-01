@@ -25,6 +25,8 @@ function block_Open(x, y) {
         clearInterval(timer); //游戏结束停止计时，清除定时器
         //提示游戏结束
         swal("游戏结束","太遗憾了，下次努力，重新开始吧！","error");
+        alert("老式的又回来了，这是对你的一种惩罚，不要气馁，点确定刷新一下，再战！")
+        window.location.reload()
     } else if (block.count === 0) { //打开计雷数为0的方格
         //遍历九宫格内的方格
         for (let i = x - 1; i < x + 2; i++) {
