@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SaoLei</title>
+<style type="text/css">
+table
+{
+-webkit-touch-callout: none; /* iOS Safari */
+
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+
+-khtml-user-select: none; /* Konqueror */
+
+-moz-user-select: none; /* Firefox */
+
+-ms-user-select: none; /* Internet Explorer/Edge */
+
+user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+</style>
+</head>
+
+<body>
+<center style="margin:150px auto;">
+<h2 style="font-family:Comic Sans Ms;">Mine Clearance（扫雷）&diams;</h2>
+<p>请设置行和列开始游戏</p>
+<p>游戏难度：<select id="level" onchange="changelevel()"><option>小白级</option><option>大神级</option></select></p>
+<p id="select_level"></p>
+行:  <input type="text" id="rows"> 
+列: <input type="text" id="cols"> 
+<button id="add" onClick="add()">PlayGame</button>
+<br>
+<p id="tips"></p>
+<p id="leiNum"></p>
+<table border="2" id="tab"  ></table>
+<p id="GScore"></p>
+
+</center>
+
+<script type="text/javascript">
+
+	var  lei =new Array("&hearts;","0","&hearts;","&hearts;","&hearts;","&hearts;");
+	var tab =$("tab");
+	var GScore=$("GScore");
+	var score=0;
+	var tip=$("tips");
+	var time;
+	var i=3;
+	var row =$("rows");
+	var col =$("cols");
+	var Total=0;
+	var lei_count =0;
+	var levels= $("level");
+	var select_level=$("select_level");
+
+	function add()
+	{
+		clear();
+		tip.innerHTML="游戏开始";
+		score=0;
+		GScore.innerHTML="当前得分："+score;
+	    lei_count=0;
+		tab.innerHTML="";
+		Total=0;
+		Total=parseInt(row.value)*parseInt(col.value);
+		for(var i=0;i<row.value;i++)
+		{
+			var newTr =document.createElement("tr");
+			newTr.id=i;//
+			newTr.style.background="black";
+			for(var j=0;j<col.value;j++)
+			{//
+				var rand=parseInt(Math.random()*lei.length);
+				newTr.innerHTML+="<td ><button id='"+i+j+"' style ='width:25px;height:25px;background:green; color:green; border:1px blue solid' οnclick='myclick(this)' οnmοuseοver='changecolor(this)' οnmοuseοut='resetcolor(this)'>"+lei[rand]+"</button></td>";
+				if(lei[rand]=="0")
+				{
+					lei_count++;
+				}
+			}
+			tab.appendChild(newTr);
+		}
+		Total=Total-lei_count;
+		var leinum =$("leiNum");
+		leinum.innerHTML="本局雷数："+lei_count;
+	}
+		
+		function $(id)
+		{
+			return document.getElementById(id);
+		}
+	
+	function change(obj)
+	{
+	
+		if(obj.innerHTML=="0")
+			{
+				time=setInterval(times,1000);
+				obj.style.backgroundColor="red";
+				obj.innerHTML="*";
+				alert("Game Over!");
+				
+			}else
+			{
+				obj.style.backgroundColor="white";
+				score=score+1;
+			}
+			GScore.innerHTML="当前得分："+score;
+	}
+	
+	function myclick(obj)
+	{
+		if(obj.style.background!="white")
+		{
+		change(obj);
+		check(obj);
+		Total--;
+		if(Total==0)
+		{
+		alert("你赢了！总分："+score);
+		}
+		
+		}
+	}
+	
+
+	{
+
+		obj.style.border="1px  red solid ";
+
+	}
+
+	function resetcolor(obj)
+
+	{
+
+		obj.style.border="1px blue solid";
+
+	}
+
+	function times()
+
+	{
+
+		
+
+		tip.innerHTML="游戏结束，"+i+"秒后重新开始游戏";
+
+		if(i==0)
+
+		{
+
+			add();
+
+		}
+
+		i--;
+
+	}
+
+	function clear()
+
+	{
+
+		clearIn
+
+
