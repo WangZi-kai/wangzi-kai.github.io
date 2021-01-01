@@ -27,14 +27,14 @@ function block_Open(x, y) {
         swal({
             title:"游戏结束",
             text:"太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新来重置！",
-            "error"});
+            "error"
+            showConfirmButton: false});
         setTimeout("window.location.href='/game/minesweeper.html'",3000); //长批注来了，见下
         /*这里有一个bug，失败了还能继续玩，所以刷新一下。
         休眠3秒，防止用户看不到swal提示（亲测swal不如alert在这，为了好看，只能这样了）。
         用window防止用户返回上一个页面。
         reload()在这里运行似乎用不了，只能这样了。
-        感觉浏览器bug，刷新用都用不了，链接填完整，不给别人钻空子。
-        禁止关swal（showConfirmButton: false）似乎有些冲突，按开始以后点击没反应了，反正别人手速跟不上，算了*/
+        感觉浏览器bug，刷新用都用不了，链接填完整，不给别人钻空子，我废除了，直接禁关swal*/
     } else if (block.count === 0) { //打开计雷数为0的方格
         //遍历九宫格内的方格
         for (let i = x - 1; i < x + 2; i++) {
