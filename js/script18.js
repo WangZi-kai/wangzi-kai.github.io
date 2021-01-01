@@ -28,7 +28,7 @@ function block_Open(x, y) {
             title:"游戏结束",
             text:"太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新或<a href='/game/minesweeper.html'>点击此处<a>来重置！",
             "error"
-            showConfirmButton: false});
+            showConfirmButton:false});
         setTimeout("window.location.href='/game/minesweeper.html'",3000); //长批注来了，见下
         /*这里有一个bug，失败了还能继续玩，所以刷新一下。
         休眠3秒，防止用户看不到swal提示（亲测swal不如alert在这，为了好看，只能这样了）。
