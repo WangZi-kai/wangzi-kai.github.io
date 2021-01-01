@@ -24,7 +24,7 @@ function block_Open(x, y) {
         }
         clearInterval(timer); //游戏结束停止计时，清除定时器
         //提示游戏结束
-        swal({"游戏结束","太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新来重置！","error"
+        swal({"游戏结束","太遗憾了，下次努力，重新开始吧！3秒后无反应请刷新来重置！","error",
             showConfirmButton: false});
         setTimeout("window.location.href='/game/minesweeper.html'",3000); //长批注来了，见下
         /*这里有一个bug，失败了还能继续玩，所以刷新一下。
