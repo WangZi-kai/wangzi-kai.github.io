@@ -71,6 +71,6 @@ function block_click(i, j, e) {
     }
     if (isWin) {
         clearInterval(timer); //游戏胜利结束计时，清除定时器
-        swal("游戏胜利");
+        swal("游戏胜利","恭喜！","success");
     }
 }
