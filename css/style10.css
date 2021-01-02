@@ -1,27 +1,21 @@
-@media all and (orientation : portrait) {
+@media all and (max-width: 999px) {
 #body {
     background-image: url("/i/sweepback.jpg");
     background-size: cover;
     margin: 0 auto;
-    width: 500px;
-    height: 800px;
+    width: 360px;
+    height: 780px;
 }
 }
-@media all and (orientation : landscape) {
-#body {
-    background-image: url("/i/sweepback.jpg");
-    background-size: cover;
-    margin: 0 auto;
-    width: 800px;
-    height: 500px;
-}
-}
+
+@media all and (min-width: 1000px){
 #body {
     background-image: url("/i/sweepback.jpg");
     background-size: cover;
     margin: 0 auto;
     width: 5120px;
     height: 2880px;
+}
 }
 
 #p {
