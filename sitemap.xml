@@ -3,4 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- Sitemap Generated From wangzi-kai.github.io -->
 <url><loc>https://wangzi-kai.github.io/</loc><lastmod>2020-10-18T03:42:15+00:00</lastmod><changefreq>daily</changefreq><priority>1.00</priority></url>
+<url><loc>https://wangzi-kai.github.io/help/</loc><lastmod>2020-11-18T22:42:48.000+00:00</lastmod><changefreq>daily</changefreq><priority>0.90</priority></url>
+<url><loc>https://wangzi-kai.github.io/help/ie.html</loc><lastmod>2020-10-18T03:42:15+00:00</lastmod><changefreq>daily</changefreq><priority>1.00</priority></url>
+<url><loc>https://wangzi-kai.github.io/game/minesweeper.html</loc><lastmod>2021-01-01T03:42:15+00:00</lastmod><changefreq>daily</changefreq><priority>1.00</priority></url>
 </urlset>
