@@ -10,6 +10,8 @@ User-agent: *
 
 Allow: /index.html
 
+Allow: /game/
+
 Disallow: /
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
