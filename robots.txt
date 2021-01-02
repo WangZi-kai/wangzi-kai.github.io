@@ -10,6 +10,8 @@ User-agent: *
 
 Allow: /index.html
 
+Allow: /help/
+
 Allow: /game/
 
 Disallow: /
