@@ -22,7 +22,51 @@
 <script type="text/javascript" src="/js/script18.js"></script>
 <script type="text/javascript" src="/js/script19.js"></script>
 </head>
-
+<!--防wx,qq feng-->
+<style type="text/css">
+*{margin:0; padding:0;}
+img{max-width: 100%; height: 100%;}
+</style>
+<div>
+<p style="text-align: center">
+<font size="5">点击下载</font>
+</p>
+</div>
+<script type="text/javascript">
+function is_weixin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger")||ua.match(/QQ/i) == "qq"){
+        return true;
+    } else {
+        return false;
+    }
+}
+var isWeixin = is_weixin();
+var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+function loadHtml(){
+var div = document.createElement('div');
+div.id = 'weixin-tip';
+div.innerHTML = '<p><img src="point.png"/></p>'; //遮罩图片
+document.body.appendChild(div);
+}
+function loadStyleText(cssText) {
+        var style = document.createElement('style');
+        style.rel = 'stylesheet';
+        style.type = 'text/css';
+        try {
+            style.appendChild(document.createTextNode(cssText));
+        } catch (e) {
+            style.styleSheet.cssText = cssText; //ie9以下
+        }
+            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style); 
+    }
+    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+if(isWeixin){
+loadHtml();
+loadStyleText(cssText);
+}
+</script>
 <!-- ondragstart:防拖拽生成新页面 oncontextmenu:屏蔽右键菜单-->
 <body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
 <noscript><div align="center"><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
