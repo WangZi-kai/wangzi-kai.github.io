@@ -17,7 +17,8 @@
 <meta http-equiv="expires" content="-1">
 <link rel="stylesheet" type="text/css" href="/css/style10.css">
 <link rel="stylesheet" type="text/css" href="/css/style11.css">
-<!--wx,qq干游戏，所以写遮罩，1，引入脚本，head引入保险-->
+<script type="text/javascript" src="/js/script2.js"></script>
+<!--wx,qq干游戏，所以写遮罩，1，引入脚本（用了jq），head引入保险-->
 <script src="/js/script3.js"></script>
 <script type="text/javascript" src="/js/script16.js"></script>
 <script type="text/javascript" src="/js/script17.js"></script>
@@ -26,9 +27,19 @@
 </head>
 <!-- ondragstart:防拖拽生成新页面 oncontextmenu:屏蔽右键菜单-->
 <body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
-<!--2.遮罩实现（安卓和苹果会有不同的）-->
-<div id="WeChatiPhone" style="position: absolute; width: 100%; height: 100000%; left: 0px; top: 0px; background: #434343;opacity: 0.9; filter: alpha(opacity=40);z-index:99999999999;"><img style="width: 100%" src="/i/iphone.png"></div>
-<div id="WeChatAndroid" style="position: absolute; width: 100%; height: 100000%; left: 0px; top: 0px; background: #434343;opacity: 0.9; filter: alpha(opacity=40);z-index:99999999999;"><img style="width: 100%" src="/i/android.png"></div>
+<!--2.遮罩实现（div里面的就是遮罩内容）-->
+<div class="weixin-tip">
+<p>
+<img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
+</p>
+<br />
+<p>
+<font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/minesweeper.html">https://wzkbr.gitee.io/game/minesweeper.html</a></mark></u></b></font>
+</p>
+<p>
+<mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑</mark>
+</p>
+</div>
 <noscript><div align="center"><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
 <br />
 <p id='p'>
