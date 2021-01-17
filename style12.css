@@ -1,0 +1,90 @@
+    .wrapper {
+        width: 420px;
+        height: 420px;
+        background-color: #C3C0B7;
+        margin: 0 auto;
+        border-radius: 15px;
+        position: relative;
+    }
+    .square {
+        float: left;
+        width: 90px;
+        height: 90px;
+        margin: 7.5px;
+        background-color:#FBEFE3;
+        border-radius: 7.5px;
+        color: #59503F;
+        text-align: center;
+        line-height: 90px;
+        font-size: 35px;
+    }
+    .direction {
+        width: 120px;
+        height: 75px;
+        border: none;
+        border-radius: 7.5px;
+        color: white;
+        background-color: #C6BFB9;
+        font-size: 45px;
+        font-weight: bolder;
+        line-height: 75px;
+    }
+    #new_game {
+        width: 120px;
+        height: 75px;
+        border: none;
+        border-radius: 15px;
+        background-color: #C6BFB9;
+        font-size: 30px;
+        color: #FFFBF7;
+        position: absolute;
+        top:430px;
+        left: 0px;
+    }
+    #up {
+        position: absolute;
+        top:430px;
+        left:150px;
+    }
+    #left {
+        position: absolute;
+        top:512px;
+        left:0px;
+    }
+    #right {
+        position: absolute;
+        top:512px;
+        left:300px;
+    }
+    #down {
+        position: absolute;
+        top:512px;
+        left:150px;
+    }
+    #game_over {
+        width: 300px;
+        height: 100px;
+        color: #FFFFFF;
+        border-radius:20px ;
+        background-color: burlywood;
+        font-size: 40px;
+        position: absolute;
+        top: 160px;
+        left: 60px;
+        text-align: center;
+        line-height: 100px;
+        visibility: hidden;
+    }
+    #score {
+        width: 120px;
+        height: 75px;
+        border-radius: 15px;
+        background-color: #C6BFB9;
+        font-size: 20px;
+        color: #FFFBF7;
+        position: absolute;
+        top:430px;
+        left: 300px;
+        text-align: center;
+        line-height: 75px;
+    }
