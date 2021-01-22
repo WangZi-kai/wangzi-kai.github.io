@@ -110,5 +110,43 @@ function play(){
     }
   });
   swal("我知道了","你想的数字是"+num,"success");
-  swal()
+  swal({
+    title:"我猜对了吧？",
+    type:"info",
+    confirmButtonText: "Yes！",
+    cancelButtonText: "No！",
+    },
+       function(isConfirm){
+    if (isConfirm) {
+      swal("好的！", "点一下按钮再来一次吧",
+"success");
+      swal({
+  title: "留言",
+  text: "输入一些感想吧，不想写退出：",
+  type: "input",
+  showCancelButton: true,
+  closeOnConfirm: false,
+  animation: "slide-from-top",
+  inputPlaceholder: "输入一些话"
+},
+function(inputValue){
+  if (inputValue === false) returnfalse;
+  
+  if (inputValue === "") {
+    swal.showInputError("你需要输入一些话！");
+    return false
+  }
+  
+  swal("非常好！", "你发出了感想：" + inputValue,"success");
+});
+  } else {
+    swal({
+      title:"这不科学！",
+      text:"是不是你<span style="color:#F8BB86">搞错了？</span>",
+      type:"warning",
+      html:ture
+    });
+    swal("再来一次","眼睛👀看清楚点","error");
+  });
+    }
   
