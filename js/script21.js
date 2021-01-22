@@ -13,10 +13,10 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-    var num = num+1;
-    swal('好的');
-  } else {
-    swal("OK！");
-  }
-});
+      var num = num+1;
+      swal("好的👌🏻","继续下一个！","success");
+    } else {
+      swal("好的👌🏻","继续下一个！","success");
+    }
+  });
        
