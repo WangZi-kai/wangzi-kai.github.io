@@ -102,11 +102,11 @@ function play(){
     closeOnCancel: false
   },
        function(isConfirm){
-    if (isConfirm) {
+    if (isConfirm) { //不知道怎么写跳过，swal教程少，不敢删else，干脆在控制台上输出信息
       var num = num+32;
-      swal("好的👌🏻","继续下一个！","success");
+      console.log("finish");
     } else {
-      swal("好的👌🏻","继续下一个！","success");
+      console.log("finish");
     }
   });
   swal("我知道了","你想的数字是"+num,"success");
