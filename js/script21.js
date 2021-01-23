@@ -13,7 +13,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-      var num = num+1;
+      var num = num + 1;
       swal("好的👌🏻","继续下一个！","success");
     } else {
       swal("好的👌🏻","继续下一个！","success");
@@ -31,7 +31,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-      var num = num+2;
+      var num = num + 2;
       swal("好的👌🏻","继续下一个！","success");
     } else {
       swal("好的👌🏻","继续下一个！","success");
@@ -49,7 +49,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-      var num = num+4;
+      var num = num + 4;
       swal("好的👌🏻","继续下一个！","success");
     } else {
       swal("好的👌🏻","继续下一个！","success");
@@ -67,7 +67,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-      var num = num+8;
+      var num = num + 8;
       swal("好的👌🏻","继续下一个！","success");
     } else {
       swal("好的👌🏻","继续下一个！","success");
@@ -85,7 +85,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) {
-      var num = num+16;
+      var num = num + 16;
       swal("好的👌🏻","继续下一个！","success");
     } else {
       swal("好的👌🏻","继续下一个！","success");
@@ -103,7 +103,7 @@ function play(){
   },
        function(isConfirm){
     if (isConfirm) { //不知道怎么写跳过，swal教程少，不敢删else，干脆在控制台上输出信息
-      var num = num+32;
+      var num = num + 32;
       console.log("finish");
     } else {
       console.log("finish");
@@ -142,7 +142,7 @@ function(inputValue){
   } else {
     swal({
       title:"这不科学！",
-      text:"是不是你<span style="color:#F8BB86">搞错了？</span>",
+      text:"是不是你<span style="color:#F8BB86">搞错了？<span>",
       type:"warning",
       html:ture
     });
