@@ -1,6 +1,6 @@
 #body {
     background-image: url("/i/sweepback.jpg");
-    cursor: url("/i/curser.cur");
+    cursor:url("/i/curser.cur"),auto;
     }
 button.play{
     width: 100px;
