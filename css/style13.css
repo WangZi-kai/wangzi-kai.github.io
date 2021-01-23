@@ -2,7 +2,7 @@
     background-image: url("/i/sweepback.jpg");
     cursor: url("/i/curser.cur");
     }
-.button{
+button.play{
     width: 100px;
     height: 100px;
     }
