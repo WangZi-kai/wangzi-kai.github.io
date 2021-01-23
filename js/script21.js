@@ -21,7 +21,7 @@ var num = 0;
   swal({
     title:"这张卡片里有没有你想的数字",
     text:"有就点“是”，没有就点“否”",
-    imageUrl: "/i/age/2.jpg"
+    imageUrl: "/i/numguess/2.jpg"
     confirmButtonColor: "#DD6B55",
     confirmButtonText: "是",
     cancelButtonText: "否",
