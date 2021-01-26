@@ -69,7 +69,7 @@
     var timer; //定时器 100ms执行一次
 
     function start() {
-        swal(document.getElementById("s").value + "等级")
+        swal(document.getElementById("s").value + "等级","开始吧！","info")
         switch (document.getElementById("s").value) {
             case "容易": {
                 row = 6; //数组行数
@@ -88,7 +88,7 @@
             case "中等": {
                 row = 15; //数组行数
                 col = 15; //数组列数
-                maxCount = 50; //最大地雷数量
+                maxCount = 100; //最大地雷数量
                 isFirstOpen = true;//第一次打开方格
                 count = document.getElementById('count'); //剩余雷数
                 ground = initial_ground(); //初始化，得到二维数组
@@ -102,7 +102,7 @@
             case "困难": {
                 row = 50; //数组行数
                 col = 50; //数组列数
-                maxCount = 200; //最大地雷数量
+                maxCount = 1000; //最大地雷数量
                 isFirstOpen = true;//第一次打开方格
                 count = document.getElementById('count'); //剩余雷数
                 ground = initial_ground(); //初始化，得到二维数组
@@ -124,7 +124,7 @@
 <footer>
 <br />
 <br />
-<p><div align="center"><font size="5"><a href="/" title="点击这里进入官网">点击这里进入官网</a></font></div></p>
+<p><div align="center"><font size="5"><a href="/game/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
 <div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
 <a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
 </div>
