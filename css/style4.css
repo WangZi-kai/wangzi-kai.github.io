@@ -1,6 +1,6 @@
 ﻿#container {
 
-	width: 400px;	height: 300px;
+	width: 500px;	height: 250px;
 
 	overflow: hidden;
 
@@ -10,44 +10,139 @@
 
 #photo {
 
-	width: 1200px;
+	width: 2000px;
 
-	animation: switch 5s ease-out infinite;
+	animation: logo 5s ease-out infinite;
+
+        -moz-animation:logo 5s ease-out infinite; /* Firefox */
+
+        -webkit-animation:logo 5s ease-out infinite; /* Safari and Chrome */
+
+        -o-animation:logo 5s ease-out infinite; /* Opera */
 
 }
-
  
 
 #photo > img {
 
 	float: left;
 
-	width: 400px;
+	width: 500px;
 
-	height: 300px;
+	height: 250px;
 
 }
 
  
 
-@keyframes switch {
+@keyframes logo {
 
-	0%, 25% {
+            0%, 25% {
 
-		margin-left: 0;
+                margin-left: 0px;
 
-	}
+            }
 
-	35%, 60% {
+            30%, 50% {
 
-		margin-left: -400px;
+                margin-left: -500px;
 
-	}
+            }
 
-	70%, 100% {
+            55%, 75% {
 
-		margin-left: -800px;
+                margin-left: -1000px;
 
-	}
+            }
+
+            80%, 100% {
+
+                margin-left: -1500px;
+
+            }
+
+}
+
+@-moz-keyframes logo{ /* Firefox */
+
+            0%, 25% {
+
+                margin-left: 0px;
+
+            }
+
+            30%, 50% {
+
+                margin-left: -500px;
+
+            }
+
+            55%, 75% {
+
+                margin-left: -1000px;
+
+            }
+
+            80%, 100% {
+
+                margin-left: -1500px;
+
+            }
+
+}
+
+@-webkit-keyframes logo{ /* Safari and Chrome */
+
+            0%, 25% {
+
+                margin-left: 0px;
+
+            }
+
+            30%, 50% {
+
+                margin-left: -500px;
+
+            }
+
+            55%, 75% {
+
+                margin-left: -1000px;
+
+            }
+
+            80%, 100% {
+
+                margin-left: -1500px;
+
+            }
+
+}
+
+@-o-keyframes logo{ /* Opera */
+
+            0%, 25% {
+
+                margin-left: 0px;
+
+            }
+
+            30%, 50% {
+
+                margin-left: -500px;
+
+            }
+
+            55%, 75% {
+
+                margin-left: -1000px;
+
+            }
+
+            80%, 100% {
+
+                margin-left: -1500px;
+
+            }
 
 }
