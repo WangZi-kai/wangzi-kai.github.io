@@ -12,13 +12,14 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <meta name="description" content="hi游戏，缓解你的的压力！" />
-<meta name="keywords" content="hi,游戏,娱乐,解压,分级" />
+<meta name="keywords" content="hi,游戏,娱乐,解压" />
 <link rel="stylesheet" href="/css/style2.css" type="text/css" />
 <link rel="stylesheet" href="/css/style9.css" type="text/css" />
 <meta name="copyright" content="3429442539@qq.com" />
 <title>hi游戏</title>
 <script src="/js/script11.js"></script>
 <script type="text/javascript" src="/js/script2.js"></script>
+<script type="text/javascript" src="/js/script23.js"></script>
 <!--为防止用户需要重新验证，写一个遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
 <script src="/js/script3.js"></script>
 <link rel="stylesheet" href="/css/style7.css" type="text/css" />
@@ -69,11 +70,7 @@ ready : function() {
 success : function() {
 $('#btnOK').prop("disabled", "");//验证成功，将登录按钮设为可用
 $("#btnOK").css("background-color", "#008cba");
-function setCookie(name,value) { 
-var exp = new Date(); 
-exp.setTime(exp.getTime() + 60 * 60 * 1000); 
-document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/"; 
-};
+$.cookie('verify', 'ok', { expires: 1, path: '/' });
 },
 error : function() {
 alert('验证失败！');
