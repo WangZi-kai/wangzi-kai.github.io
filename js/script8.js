@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 function show_date_time(){
 
 window.setTimeout("show_date_time()", 1000);
@@ -28,8 +30,10 @@ minsold=Math.floor((hrsold-e_hrsold)*-60);
 
 seconds=Math.floor((minsold-e_minsold)*-60);
 
-momk.innerHTML="本站已安全运行："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒" ;
+time.innerHTML="本站已安全运行："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒" ;
 
 }
 
 show_date_time();
+  
+});
