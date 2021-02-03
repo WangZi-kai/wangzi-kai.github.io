@@ -1,2 +1,14 @@
-#momk{animation:change 10s infinite;font-weight:800; }
-@keyframes change{0%{color:#5cb85c;}25%{color:#556bd8;}50%{color:#e40707;}75%{color:#66e616;}100% {color:#67bd31;}}
+/*from https://wangzi-kai.github.io/
+*/
+#time{
+  animation:time 20s infinite;font-weight:800;
+}
+@keyframes time{
+  0%{color:#FF0000;}
+  15%{color:#FF7D00;}
+  30%{color:#FFFF00;}
+  45%{color:#00FF00;}
+  70%{color:#00FFFF;}
+  85%{color:#0000FF;}
+  100%{color:#FF00FF;}
+}
