@@ -1,6 +1,8 @@
-var name = $.cookie('verify');
-if(name == "ok") {
-consule("Welcome!")
-}else{
-window.location.href("/game/verify.html')
-}
+$(document).ready(function(){
+  verify = $.cookie('verify');
+  if(verify == 'ok'){
+    consule.log('Welcome!');
+  }else{
+    window.location.href('/game/verify.html');
+  }
+});
