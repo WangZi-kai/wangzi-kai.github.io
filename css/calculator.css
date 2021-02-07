@@ -1,6 +1,39 @@
-BODY {
-	FONT-SIZE: 9pt; BACKGROUND-ATTACHMENT: fixed; COLOR: #0001fc; FONT-FAMILY: "宋体", "Arial", "Times New Roman"; BACKGROUND-COLOR: #edf0e1
-}
-TD {
-	FONT-SIZE: 9pt; FONT-FAMILY: "宋体", "Arial Narrow", "Times New Roman"; font-color: #000000
-}
+table {
+            margin: 15px auto;
+            font-size: 22px;
+            border: 5px outset orange;
+
+        }
+
+        #tab-1,
+        #tab-2,
+        #tab-3 {
+            border: 3px outset rgba(15, 10, 10, 0.3);
+        }
+
+        input {
+            outline: none;
+            box-shadow: 5px 5px 2px rgba(100, 100, 100, 0.8) inset;
+        }
+
+        #txtnum {
+            text-align: right;
+            height: 50px;
+            width: 100%;
+            background: #fff;
+            font-size: 22px;
+        }
+
+        td {
+            padding: 5px;
+            background: #ccc;
+
+        }
+
+        [type=button] {
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 5px 3px 2px rgba(100, 100, 100, 0.6) inset;
+        }
