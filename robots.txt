@@ -14,6 +14,8 @@ Allow: /help/
 
 Allow: /game/
 
+Allow: /tool/
+
 Disallow: /
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
