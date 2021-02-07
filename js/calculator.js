@@ -75,7 +75,7 @@
                     case 'asin': result = asin(onum); break;
                     case 'acos': result = acos(onum); break;
                     case 'atan': result = atan(onum); break;
-                    case 'π': result = PI; break;
+                    case 'PI': result = PI; break;
                     case '1/x': result = 1 / onum; break;
                     case 'e': result = E; break;
                     case 'lnx': result = log(onum); break;
