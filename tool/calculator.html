@@ -22,177 +22,95 @@
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
 <body ondragstart='return false' id="body">
-<DIV align=center>
-<FORM name=calc>
-<TABLE height=250 width=500 border=1>
-  <TBODY>
-  <TR>
-    <TD height=50>
-      <TABLE width=500>
-        <TBODY>
-        <TR>
-          <TD></TD>
-          <TD>
-            <DIV align=center><INPUT readOnly size=40 value=0 name=display> 
-            </DIV></TD></TR></TBODY></TABLE></TD></TR>
-  <TR>
-    <TD>
-      <TABLE width=500>
-        <TBODY>
-        <TR>
-          <TD width=290><INPUT οnclick=inputChangCarry(16) type=radio 
-            name=carry> 十六进制 <INPUT οnclick=inputChangCarry(10) type=radio 
-            CHECKED name=carry> 十进制 <INPUT οnclick=inputChangCarry(8) type=radio 
-            name=carry> 八进制 <INPUT οnclick=inputChangCarry(2) type=radio 
-            name=carry> 二进制 </TD>
-          <TD></TD>
-          <TD width=135><INPUT οnclick="inputChangAngle('d')" type=radio 
-            CHECKED value=d name=angle> 角度制 <INPUT 
-            οnclick="inputChangAngle('r')" type=radio value=r name=angle> 弧度制 
-        </TD></TR></TBODY></TABLE>
-      <TABLE width=500>
-        <TBODY>
-        <TR>
-          <TD width=170><INPUT οnclick=inputshift() type=checkbox 
-            name=shiftf>上档功能 <INPUT οnclick=inputshift() type=checkbox 
-            name=hypf>双曲函数 </TD>
-          <TD><INPUT style="BACKGROUND-COLOR: lightgrey" readOnly size=3 
-            name=bracket> <INPUT style="BACKGROUND-COLOR: lightgrey" readOnly 
-            size=3 name=memory> <INPUT style="BACKGROUND-COLOR: lightgrey" 
-            readOnly size=3 name=operator> </TD>
-          <TD width=183><INPUT style="COLOR: red" οnclick=backspace() type=button value=" 退格 "> 
-<INPUT style="COLOR: red" οnclick="document.calc.display.value = 0 " type=button value=" 清屏 "> 
-<INPUT style="COLOR: red" οnclick=clearall() type=button value=" 全清"> 
-          </TD></TR></TBODY></TABLE>
-      <TABLE width=500>
-        <TBODY>
-        <TR>
-          <TD>
-            <TABLE>
-              <TBODY>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" οnclick="inputfunction('pi','pi')" type=button value=" PI " name=pi> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputfunction('e','e')" type=button value=" E  " name=e> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('dms','deg')" type=button value=d.ms name=bt> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick=addbracket() type=button value=" (  "> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick=disbracket() type=button value=" )  "> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('ln','exp')" type=button value=" ln " name=ln> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputtrig('sin','arcsin','hypsin','ahypsin')" type=button value="sin " name=sin> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="operation('^',7)" type=button value="x^y "> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('log','expdec')" type=button value="log " name=log> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputtrig('cos','arccos','hypcos','ahypcos')" type=button value="cos " name=cos> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('cube','cubt')" type=button value="x^3 " name=cube> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('!','!')" type=button value=" n! "> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputtrig('tan','arctan','hyptan','ahyptan')" type=button value="tan " name=tan> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('sqr','sqrt')" type=button value="x^2 " name=sqr> 
-                </TD>
-                <TD><INPUT style="COLOR: #ff00ff" οnclick="inputfunction('recip','recip')" type=button value="1/x "> 
-                </TD></TR></TBODY></TABLE></TD>
-          <TD width=30></TD>
-          <TD>
-            <TABLE>
-              <TBODY>
-              <TR>
-                <TD><INPUT style="COLOR: red" οnclick=putmemory() type=button value=" 储存 "> 
-                </TD></TR>
-              <TR>
-                <TD><INPUT style="COLOR: red" οnclick=getmemory() type=button value=" 取存 "> 
-                </TD></TR>
-              <TR>
-                <TD><INPUT style="COLOR: red" οnclick=addmemory() type=button value=" 累存 "> 
-                </TD></TR>
-              <TR>
-                <TD><INPUT style="COLOR: red" οnclick=multimemory() type=button value=" 积存 "> 
-                </TD></TR>
-              <TR>
-                <TD height=33><INPUT style="COLOR: red" οnclick=clearmemory() type=button value=" 清存 "> 
-                </TD></TR></TBODY></TABLE></TD>
-          <TD width=30></TD>
-          <TD>
-            <TABLE>
-              <TBODY>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('7')" type=button value=" 7 " name=k7> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('8')" type=button value=" 8 " name=k8> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('9')" type=button value=" 9 " name=k9> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('/',6)" type=button value=" / "> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('%',6)" type=button value=取余> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('&',3)" type=button value=" 与 "> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('4')" type=button value=" 4 " name=k4> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('5')" type=button value=" 5 " name=k5> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('6')" type=button value=" 6 " name=k6> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('*',6)" type=button value=" * "> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="inputfunction('floor','deci')" type=button value=取整 name=floor> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('|',1)" type=button value=" 或 "> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('1')" type=button value=" 1 "> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('2')" type=button value=" 2 " name=k2> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('3')" type=button value=" 3 " name=k3> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('-',5)" type=button value=" - "> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('<',4)" type=button value=左移> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="inputfunction('~','~')" type=button value=" 非 "> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('0')" type=button value=" 0 "> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick=changeSign() type=button value=+/-> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" οnclick="inputkey('.')" type=button value=" . " name=kp> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('+',5)" type=button value=" + "> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick=result() type=button value=" ＝ "> 
-                </TD>
-                <TD><INPUT style="COLOR: red" οnclick="operation('x',2)" type=button value=异或> 
-                </TD></TR>
-              <TR align=middle>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('a')" type=button value=" A " name=ka> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('b')" type=button value=" B " name=kb> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('c')" type=button value=" C " name=kc> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('d')" type=button value=" D " name=kd> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('e')" type=button value=" E" name=ke> 
-                </TD>
-                <TD><INPUT style="COLOR: blue" disabled οnclick="inputkey('f')" type=button value=" F" name=kf> 
-                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM></DIV><%referer=Request.ServerVariables ("HTTP_REFERER")%>
+    <!-- 主表设计 -->
+    <table id="main" cellspacing="0">
+        <!-- (tr>td*3)*2 快捷方式-->
+        <tr>
+            <td colspan="2">
+                <input type="text" id="txtnum" value="0">
+            </td>
+            <td>
+                <table id="tab-1">
+                    <tr>
+                        <td><input type="button" id="cc" value="清除" onclick="txtnum.value='0';result=0 "></td>
+                        <td><input type="button" id="tg" value="退格" onclick="backspace()"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="tab-2">
+                    <!-- (tr>(td>input)*3)*4 -->
+                    <tr>
+                        <td><input type="button" id="sin" value="sin" onclick="math('sin')"></td>
+                        <td><input type="button" id="cos" value="cos" onclick="math('cos')"></td>
+                        <td><input type="button" id="tan" value="tan" onclick="math('tan')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="asin" value="asin" onclick="math('asin')"></td>
+                        <td><input type="button" id="acon" value="acon" onclick="math('acon')"></td>
+                        <td><input type="button" id="atan" value="atan" onclick="math('atan')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="π" value="π" onclick="math('PI')"></td>
+                        <td><input type="button" value="1/x" onclick="math('1/x')"></td>
+                        <td><input type="button" value="e" onclick="math('e')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="lnx" onclick="math('lnx')"></td>
+                        <td><input type="button" value="lgx" onclick="math('lgx')"></td>
+                        <td><input type="button" value="sqrt" onclick="math('sqrt')"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table id="tab-3">
+                    <!-- (tr>(td>input)*3)*4 -->
+                    <tr>
+                        <td><input type="button" id="" value="7" onclick="num('7')"></td>
+                        <td><input type="button" id="" value="8" onclick="num('8')"></td>
+                        <td><input type="button" id="" value="9" onclick="num('9')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="" value="4" onclick="num('4')"></td>
+                        <td><input type="button" id="" value="5" onclick="num('5')"></td>
+                        <td><input type="button" id="" value="6" onclick="num('6')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="" value="1" onclick="num('1')"></td>
+                        <td><input type="button" value="2" onclick="num('2')"></td>
+                        <td><input type="button" value="3" onclick="num('3')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="0" onclick="num('0')"></td>
+                        <td><input type="button" value="." onclick="decimal()"></td>
+                        <td><input type="button" value="=" onclick="compute('=')"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table id="tab-3">
+                    <tr>
+                        <td><input type="button" id="" value="+" onclick="compute('+')"></td>
+                        <td><input type="button" id="" value="取整" onclick="math('i')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="" value="-" onclick="compute('-')"></td>
+                        <td><input type="button" id="" value="取余" onclick="compute('%')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="" value="*" onclick="compute('*')"></td>
+                        <td><input type="button" id="" value="x^y" onclick="compute('x^y')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="" value="/" onclick="compute('/')"></td>
+                        <td><input type="button" id="" value="+/-" onclick="reverse()"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 <footer>
 <br />
 <br />
