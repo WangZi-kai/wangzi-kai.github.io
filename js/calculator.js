@@ -83,7 +83,7 @@
 
                     case 'i': result = floor(onum); break;
 
-                    case 'sqrt': result = jc(onum); break;
+                    case 'sqrt': result = sqrt(onum); break;
                     default: result = parseFloat(onum); break;
                 }
             }
