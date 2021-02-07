@@ -83,7 +83,7 @@
 
                     case 'i': result = floor(onum); break;
 
-                    case 'sqrt': result = Math.pow(result,1/onum); break;
+                    case 'sqrt': result = pow(result,1/onum); break;
                     default: result = parseFloat(onum); break;
                 }
             }
