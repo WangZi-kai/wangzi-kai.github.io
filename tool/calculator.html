@@ -26,7 +26,7 @@
         <!-- (tr>td*3)*2 快捷方式-->
         <tr>
             <td colspan="2">
-                <input type="text" id="txtnum" value="0">
+                <input type="text" id="txtnum" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')" value="0" placeholder="输入待计算的数">
             </td>
             <td>
                 <table id="tab-1">
