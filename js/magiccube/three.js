@@ -7,7 +7,7 @@ $(document).ready(function(){
 	var roy=-30;
 	var sfid;               //鼠标点击魔方的位置
 	/**
-	 * 初始化魔方六个面，包括颜色，位置
+	 * 初始化魔方六个面，包括颜色、位置
 	 */
 	for(var i=1;i<=6;i++){
 		surface[i]=new Array();
