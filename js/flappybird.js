@@ -3,7 +3,7 @@
 
         //创建一个图片
         var img = new Image();
-        img.src = "./imgs/flappybird_imgs/bird_down.png";
+        img.src = "/i/flappybird/bird_down.png";
         var birdX = 200;
         var birdY = 100;
         var birdTimer = null;
@@ -23,11 +23,11 @@
         }
 
         document.onmousedown = function() {
-            img.src = "./imgs/flappybird_imgs/bird_up.png";
+            img.src = "/i/flappybird/bird_up.png";
             birdY = birdY - 30;
         }
         document.onmouseup = function() {
-            img.src = "./imgs/flappybird_imgs/bird_down.png";
+            img.src = "/i/flappybird/bird_down.png";
         }
 
         //设定按钮
@@ -57,8 +57,8 @@
             column.positionY = -Math.round(Math.random() * 100 + 100);
             column.imgA = new Image();
             column.imgB = new Image();
-            column.imgA.src = "./imgs/flappybird_imgs/pipe_revese.png";
-            column.imgB.src = "./imgs/flappybird_imgs/pipe_yes.png";
+            column.imgA.src = "/i/flappybird/pipe_revese.png";
+            column.imgB.src = "/i/flappybird/pipe_yes.png";
             column.id = new Date().getTime();
             columnArr.push(column);
         };
@@ -91,13 +91,13 @@
                         //判断奖牌
                         oRes.children[0].innerHTML = "<h3>" + "最终得分：" + mark + "</h3>";
                         if (mark > 0 && mark < 10) {
-                            oRes.children[1].src = "./imgs/flappybird_imgs/success1.png";
+                            oRes.children[1].src = "/i/flappybird/success1.png";
                         }
                         if (mark > 10 && mark < 30) {
-                            oRes.children[1].src = "./imgs/flappybird_imgs/success2.png";
+                            oRes.children[1].src = "/i/flappybird/success2.png";
                         }
                         if (mark > 30 && mark < 100) {
-                            oRes.children[1].src = "./imgs/flappybird_imgs/success3.png";
+                            oRes.children[1].src = "/i/flappybird/success3.png";
                         }
                         setTimeout(function() {
                             oRes.innerHTML = "<p>游戏3秒后重新开始</p>";
