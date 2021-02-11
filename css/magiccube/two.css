@@ -1,0 +1,28 @@
+			#stage
+			{
+				background-color: grey;
+				margin: auto;
+				width: 500px;
+				height: 500px;
+			}
+			#screen
+			{
+				width: 500px;
+				height: 500px;
+				-webkit-perspective:550px;
+				-webkit-perspective-origin: 100% 60%;
+				transform-style: preserve-3d;
+			}
+			.block
+			{
+				position:absolute;
+				left:200px;
+				top: 200px;
+				height: 80px;
+				width: 80px;
+				border: 0px solid red;
+				background-color: rgba(255, 0, 0, 0.3);
+				line-height: 80px;
+				font-size: 60px;
+				color: black;
+			}
