@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(78, 78, 99, 0.247);
+        }
+        
+        #canvas {
+            margin-top: 50px;
+            background-color: #fff;
+            margin-left: 250px;
+            border-radius: 2%;
+        }
+        
+        .btt {
+            width: 400px;
+            height: 50px;
+            margin-left: 450px;
+            margin-top: 30px;
+        }
+        
+        .btt .mark {
+            width: 120px;
+            height: 50px;
+            float: left;
+            margin-left: 30px;
+        }
+        
+        .mark h2 {
+            margin-top: 8px;
+            color: rgba(100, 98, 100, 0.589);
+            user-select: none;
+        }
+        
+        .btt .bt1,
+        .btt .bt2 {
+            width: 80px;
+            height: 50px;
+            float: left;
+            margin-left: 30px;
+            border-radius: 20px;
+            background-color: rgba(225, 158, 238, 0.425);
+            font-size: 18px;
+            font-weight: bold;
+            outline: none;
+            user-select: none;
+        }
+        
+        #res {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: rgba(61, 61, 68, 0.452);
+            display: none;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        #res h3 {
+            text-align: center;
+            padding: 5px 0;
+            user-select: none;
+        }
+        
+        #res p {
+            line-height: 200px;
+        }
+        
+        #res img {
+            width: 120px;
+            height: 120px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            margin-top: -40px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="btt">
+        <div class="mark" id="mark">
+            <h2>得分：0</h2>
+        </div>
+        <button id="bt1" class="bt1">暂停</button>
+        <button id="bt2" class="bt2">继续</button>
+    </div>
+
+    <canvas id="canvas" width="800" height="400"></canvas>
+
+    <div class="res" id="res">
+        <h3>得分：100</h3>
+        <img src="./imgs/flappybird_imgs/success1.png" alt="">
+    </div>
+    <script>
+        //
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //创建一个图片
+        var img = new Image();
+        img.src = "./imgs/flappybird_imgs/bird_down.png";
+        var birdX = 200;
+        var birdY = 100;
+        var birdTimer = null;
+        img.onload = function() {
+            if (birdTimer == null) {
+                birdTimer = setInterval(game_bird, 10);
+            }
+        }
+
+        function game_bird() {
+            if (birdY <= 355) {
+                birdY++;
+            }
+            context.clearRect(0, 0, 800, 400);
+            drawColumn();
+            context.drawImage(img, birdX, birdY);
+        }
+
+        document.onmousedown = function() {
+            img.src = "./imgs/flappybird_imgs/bird_up.png";
+            birdY = birdY - 30;
+        }
+        document.onmouseup = function() {
+            img.src = "./imgs/flappybird_imgs/bird_down.png";
+        }
+
+        //设定按钮
+        var bt1 = document.getElementById("bt1");
+        var bt2 = document.getElementById("bt2");
+        bt1.onclick = function() {
+            clearInterval(columnTimer);
+            clearInterval(birdTimer);
+        }
+        bt2.onclick = function() {
+            birdTimer = setInterval(game_bird, 10);
+            columnTimer = setInterval(game_column, 2000);
+        }
+
+
+        //柱子
+        var columnArr = [];
+        var columnTimer = null;
+
+        function createColumn() {
+            columnTimer = setInterval(game_column, 2000);
+        };
+
+        function game_column() {
+            var column = {};
+            column.positionX = 800;
+            column.positionY = -Math.round(Math.random() * 100 + 100);
+            column.imgA = new Image();
+            column.imgB = new Image();
+            column.imgA.src = "./imgs/flappybird_imgs/pipe_revese.png";
+            column.imgB.src = "./imgs/flappybird_imgs/pipe_yes.png";
+            column.id = new Date().getTime();
+            columnArr.push(column);
+        };
+
+        createColumn();
+        var same = null;
+        var mark = -1;
+
+        function drawColumn() {
+            for (var i = 0; i < columnArr.length; i++) {
+                columnArr[i].positionX--;
+                context.drawImage(columnArr[i].imgA, columnArr[i].positionX, columnArr[i].positionY);
+                context.drawImage(columnArr[i].imgB, columnArr[i].positionX, columnArr[i].positionY + 350);
+
+                //加分
+                if (birdX + 40 >= columnArr[i].positionX && birdX - 70 <= columnArr[i].positionX) {
+                    if (columnArr[i].id != same) {
+                        mark++;
+                        same = columnArr[i].id;
+                        document.getElementById("mark").innerHTML = " <h2>" + "得分：" + mark + "</h2>";
+                    }
+
+                    //碰撞
+                    if (birdY < columnArr[i].positionY + 250 || birdY + 40 > columnArr[i].positionY + 350) {
+                        clearInterval(columnTimer);
+                        clearInterval(birdTimer);
+
+                        var oRes = document.getElementById("res");
+                        oRes.style.display = "block";
+                        //判断奖牌
+                        oRes.children[0].innerHTML = "<h3>" + "最终得分：" + mark + "</h3>";
+                        if (mark > 0 && mark < 10) {
+                            oRes.children[1].src = "./imgs/flappybird_imgs/success1.png";
+                        }
+                        if (mark > 10 && mark < 30) {
+                            oRes.children[1].src = "./imgs/flappybird_imgs/success2.png";
+                        }
+                        if (mark > 30 && mark < 100) {
+                            oRes.children[1].src = "./imgs/flappybird_imgs/success3.png";
+                        }
+                        setTimeout(function() {
+                            oRes.innerHTML = "<p>游戏3秒后重新开始</p>";
+                            setTimeout(function() {
+                                location.reload();
+                            }, 3000);
+                        }, 5000);
+                    }
+
+
+                }
+
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
