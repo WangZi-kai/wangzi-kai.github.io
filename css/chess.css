@@ -1,0 +1,24 @@
+#chess_box{
+	width:360px;
+	height:400px;
+	padding:20px;
+	margin:0 auto;
+	position:relative;
+	background:url("../images/chess.jpg") no-repeat;
+	cursor:pointer;
+}
+#chess_box>div{
+	width:33px;
+	height:33px;
+	position:absolute;
+	background:url("../images/chess.png") no-repeat;
+	border:1px solid #D3BF9A;
+	border-radius:50%;
+}
+#chess_box>div:hover{box-shadow:1px 2px 5px rgba(116,95,59,0.7);}
+#chess_border{
+	width:36px;
+	height:36px;
+	background:url("../images/chess_boder.png") no-repeat;
+	position:absolute;
+}
