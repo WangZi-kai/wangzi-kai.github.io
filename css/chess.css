@@ -1,24 +1,48 @@
-#chess_box{
-	width:360px;
-	height:400px;
-	padding:20px;
+@charset "utf8";
+body input{
+	font-size: 14px;
+	line-height: 200%;
+	font-family: 'Microsoft Yahei';
+}
+.box {
 	margin:0 auto;
-	position:relative;
-	background:url("../images/chess.jpg") no-repeat;
+	width:460px;
+	position: relative;
+}
+.chess_left {
+	float:left;
+	text-align:center;
+	margin-top:20px;
+}
+.chess_right {
+	float:left;
+	display:none
+}
+.move_info {
+	float:left;
+	margin-top:20px
+}
+.bill_box {
+	height: 320px;
+	width: 80px;
+	overflow:auto;
+}
+.bill_box li {
 	cursor:pointer;
+	text-align:left
 }
-#chess_box>div{
-	width:33px;
-	height:33px;
-	position:absolute;
-	background:url("../images/chess.png") no-repeat;
-	border:1px solid #D3BF9A;
-	border-radius:50%;
+.bill_box li:hover {
+	cursor:pointer;
+	background: #C6A577;
 }
-#chess_box>div:hover{box-shadow:1px 2px 5px rgba(116,95,59,0.7);}
-#chess_border{
-	width:36px;
-	height:36px;
-	background:url("../images/chess_boder.png") no-repeat;
-	position:absolute;
+.bill_box li:active {
+	cursor:pointer;
+	background: #fff;
+}
+#billList {
+	margin-top:20px
+}
+.bn_box {
+	display:none;
+	margin-top: 20px;
 }
