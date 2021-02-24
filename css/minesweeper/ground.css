@@ -1,21 +1,6 @@
-@media all and (max-width: 999px) {
 #body {
-    background-image: url("/i/sweepback.jpg");
+    background-image: url("/i/sweepback.jpg") no-repeat;
     background-size: cover;
-    margin: 0 auto;
-    width: 360px;
-    height: 780px;
-}
-}
-
-@media all and (min-width: 1000px){
-#body {
-    background-image: url("/i/sweepback.jpg");
-    background-size: cover;
-    margin: 0 auto;
-    width: 5120px;
-    height: 2880px;
-}
 }
 
 #p {
