@@ -147,10 +147,30 @@
 </form></div>
 
 <br />
+  
+<div class="hidden_box">
+  
+<label for="label1">点击查看更多工具</label>
 
-<p class="inset">bing、Google搜索</p>
+<div class="hidden_show">
 
-<div align="center">
+<p class="inset">Sogou搜索</p>
+
+<p align="center">
+
+<form action="https://www.sogou.com/web" method="get" target="_blank">
+
+<input type="text" name="query" size="38" x-webkit-speech="x-webkit-speech" />
+
+<input type="submit" value="搜狗搜索" />
+
+</form></p>
+
+<br />
+
+<p class="inset">其他搜索</p>
+
+<p align="center">
 
 <form action="https://cn.bing.com/search" method="get" target="_blank">
 
@@ -159,8 +179,12 @@
 <input type="submit" value="必应搜索" onclick="this.form.action='https://cn.bing.com/search'" />
   
 <input type="submit" value="谷歌搜索" onclick="this.form.action='https://www.google.com/search'" />
+  
+<input type="submit" value="360搜索" onclick="this.form.action='https://www.so.com/s'" />
+  
+<input type="submit" value="神马搜索" onclick="this.form.action='https://quark.sm.cn/s'" />
 
-</form></div>
+</form></p>
 
 <hr />
   
@@ -171,12 +195,16 @@
 <hr />
   
 <p class="outset">看看视频（抖音快手上不来，只有好看视频里面的好一些）：</p>
+
+<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" ></iframe>
+  
+</div>
+
+</div>
   
 <input type="button" onclick="closePlay()" value="点这暂时把背景音乐关一下" />
 
 <input type="button" onclick="autoPlay()" value="点这恢复背景音乐播放" />
-  
-<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" ></iframe>
 
 <hr />
   
