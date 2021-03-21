@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-cmn-Hans-CN">
+<html>
+<head>
+<meta charset="utf-8">
+<title>flappybird - hi游戏</title>
+<meta name="description" content="hi游戏，缓解你的的压力！" />
+<meta name="keywords" content="hi,游戏,flappybird,娱乐,解压,分级" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<script src="/js/russiasquare/frame.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/russiasquare/graph.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/russiasquare/change.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/css/russiasquare.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
+<script src="/js/wechatqq.js"></script>
+<link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
+</head>
+<!-- ondragstart:防拖拽生成新页面-->
+<body onload="initGame()" ondragstart='return false' id="body">
+<!--2.遮罩实现（div里面的就是遮罩内容）-->
+<div class="weixin-tip">
+<p>
+<img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
+</p>
+<br />
+<p>
+<font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/russiasquare.html">https://wangzi-kai.github.io/game/russiasquare.html</a></mark></u></b></font>
+</p>
+<p>
+<mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
+</p>
+</div>
+<noscript><div align="center"><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
+<br />
+  <div id="control">
+    难度：
+    <div><select id="level" onchange="changespeed()">
+      <option value="1000">简单
+      <option value="500">一般
+      <option value="200">困难
+    </select></div>
+    <input type="button" id="regame" value="重 新 开 始" onclick="regame()">
+    <p>
+      ↑：变换<br>
+      ←：左移<br>
+      →：右移<br>
+      ↓：加速<br>
+    </p>
+  </div>
+  <div id="TFrime"></div>
+  <div id="info">
+    下一个图形:
+    <div id="nextfigure">
+    </div>
+    <div>分数：<span id="score">0</span></div>
+  </div>
+</div>
+<div style="text-align:center;margin:10px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗。不支持IE8及以下浏览器，不支持手机浏览器。</p>
+</div>
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/game/" title="点击这里返回首页">点击这里返回首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></noscript></div>
+</footer>
+</body>
+</html>
