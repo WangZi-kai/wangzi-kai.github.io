@@ -16,7 +16,15 @@ Allow: /game/
 
 Allow: /tool/
 
-Disallow: /
+Disallow: /css/
+
+Disallow: /i/
+
+Disallow: /js/
+
+Disallow: /sound/
+
+Disallow: /v/
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
 
