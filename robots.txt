@@ -26,6 +26,8 @@ Disallow: /sound/
 
 Disallow: /v/
 
+Disallow: /test/
+
 Disallow: /404.html
 
 Disallow: /README.md
