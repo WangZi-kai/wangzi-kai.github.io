@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/hls.min.js"></script>
+    <script src="/js/flv.min.js"></script>
+    <script src="/js/dash.all.min.js"></script>
+    <script src="/js/webtorrent.min.js"></script>
+    <script src="/js/dplayer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/dplayer.min.css" />
+  </head>
+  <body>
+    <script>
+      const dp = new DPlayer({
+    container: document.getElementById('dplayer'),
+    live: true,
+    danmaku: false,
+    video: {
+        url: 'http://ivi.bupt.edu.cn/hls/cctv9hd.m3u8',
+        type: 'hls',
+    },
+});
+    </script>
+  <div id="dplayer"></div>
+  </body>
+</html>
