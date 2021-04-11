@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script src="/js/hls.min.js"></script>
+  </head>
+  <body>
+    <script>
+  if(Hls.isSupported()) {
+    var video = document.getElementById('video');
+    var hls = new Hls();
+    hls.loadSource('http://ivi.bupt.edu.cn/hls/cctv9hd.m3u8');
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      video.play();
+  });
+ }
+</script>
+  <video id="video"></div>
+  </body>
+</html>
