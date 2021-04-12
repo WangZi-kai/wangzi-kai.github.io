@@ -1,4 +1,4 @@
-<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">@charset "UTF-8";
+@charset "UTF-8";
 .vjs-modal-dialog .vjs-modal-dialog-content, .video-js .vjs-modal-dialog, .vjs-button &gt; .vjs-icon-placeholder:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
   position: absolute;
   top: 0;
@@ -1662,4 +1662,3 @@ video::-webkit-media-text-track-display {
   outline: none;
   background: none;
 }
-</pre></body></html>
