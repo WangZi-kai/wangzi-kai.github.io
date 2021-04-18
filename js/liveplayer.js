@@ -90,6 +90,5 @@
   
 
 videojs("hi-live").ready(function(){
-var myPla
 this.play();
 });
