@@ -82,13 +82,11 @@
   "Beginning of dialog window. Escape will cancel and close the window.": "开始对话视窗。离开会取消及关闭视窗",
   "End of dialog window.": "结束对话视窗"
 });
-  
-  
-  
-  
-  
-  
-
+videojs(video, {html5: {
+  hls: {
+    withCredentials: true
+  }
+}});
 videojs("hi-live").ready(function(){
 this.play();
 });
