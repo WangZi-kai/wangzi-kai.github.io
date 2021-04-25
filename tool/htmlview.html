@@ -18,6 +18,8 @@
 <script src="/js/wechatqq.js"></script>
 <link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
 <script type="text/javascript" src="/js/favorite.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/javascript.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/css.js"></script>
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" href="/css/htmlview.css" type="text/css" />
 <meta name="copyright" content="3429442539@qq.com" />
@@ -107,6 +109,22 @@
 </body>
 </html>
 </textarea>
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,     // 显示行数
+        indentUnit: 4,         // 缩进单位为4
+        styleActiveLine: true, // 当前行背景高亮
+        matchBrackets: true,   // 括号匹配
+        mode: 'htmlmixed',     // HTML混合模式
+        lineWrapping: true,    // 自动换行
+    });
+    editor.setOption("extraKeys", {
+        // Tab键换成4个空格
+        Tab: function(cm) {
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection(spaces);
+        },
+</script>	
                 <div class="WSt1" style=" text-align:center">
                     <br>
                     <input class="Sub" type="button" name="Submit" value="运行代码" onclick="runCode('content')"
