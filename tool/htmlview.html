@@ -18,12 +18,18 @@
 <script src="/js/wechatqq.js"></script>
 <link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
 <script type="text/javascript" src="/js/favorite.js"></script>
+<script type="text/javascript" src="/js/codemirror.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/javascript.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/css.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/xml.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/htmlmixed.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/activeline.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/matchbrackets.js"></script>
+<script type="text/javascript" src="/js/codemirrortools/fullscreen.js"></script>
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link href="/css/codemirror.css" rel="stylesheet" type="text/css">
 <link href="/css/codemirrortools/monokai.css" rel="stylesheet" type="text/css">
-<link href="/css/codemirrortools/fullscreen.css" rel="stylesheet" type="text/css">！
+<link href="/css/codemirrortools/fullscreen.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/css/htmlview.css" type="text/css" />
 <meta name="copyright" content="3429442539@qq.com" />
 <title>html在线运行 - hi工具</title>
@@ -113,13 +119,14 @@
 </html>
 </textarea>
 <script>
-    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    var editor = CodeMirror.fromTextArea(document.getElementById("content"), {
         lineNumbers: true,     // 显示行数
         indentUnit: 4,         // 缩进单位为4
         styleActiveLine: true, // 当前行背景高亮
         matchBrackets: true,   // 括号匹配
-        mode: 'htmlmixed',     // HTML混合模式
+        mode: 'htmlmixed',     // HMTL混合模式
         lineWrapping: true,    // 自动换行
+        theme: 'monokai',      // 使用monokai模版
     });
     editor.setOption("extraKeys", {
         // Tab键换成4个空格
@@ -127,6 +134,15 @@
             var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
             cm.replaceSelection(spaces);
         },
+        // F11键切换全屏
+        "F11": function(cm) {
+            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        // Esc键退出全屏
+        "Esc": function(cm) {
+            if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+    });
 </script>	
                 <div class="WSt1" style=" text-align:center">
                     <br>
