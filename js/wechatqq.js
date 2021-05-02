@@ -2,7 +2,7 @@
       var winHeight = $(window).height();
       function is_weixin() {
         var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == "micromessenger"||ua.match(/QQ/i) == "qq"){
+        if (ua.match(/MicroMessenger\/[0-9]/i)||ua.match(/QQ\/[0-9]/i)){
           return true;
         } else {
           return false;
