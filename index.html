@@ -31,20 +31,10 @@
 <meta http-equiv="expires" content="-1">
 
 <script src="/js/jquery.min.js"></script>
-  
+
+<script src="/js/backgroundmusiccontrol.js"></script>
+
 <script src="/js/time.js"></script>
-  
-<script>
-
-//解决部分浏览器autoplay不能自动播放背景音乐的问题。
-
-$(window).load(function(){
-
-document.getElementById("backgroundmusic").play();
-
-});
-  
-</script>
   
 <!--下面一行的代码，是为了保证本站能够正常被搜索使用，不会收集您的隐私-->
   
@@ -82,13 +72,13 @@ document.getElementById("backgroundmusic").play();
 
 </head>
 
-<body>
+<!--onload解决部分浏览器不支持音频自动播放，背景音乐无法播放的问题-->
+
+<body onload="autoPlay()">
   
 <header>
 
 <p><div align="center"><a href="/"><img src="/i/logo.jpg" alt="hi科技" title="hi科技官网" border="0" /></a></div></p>
- 
-<script src="/js/backgroundmusiccontrol.js"></script>
 
 <audio src="/sound/Richard_Clayderman-Childhood_Memories.mp3" id="backgroundmusic" hidden="true" autoplay="true" loop="true"></audio>
 
