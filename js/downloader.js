@@ -20,7 +20,7 @@ $(document).ready(function(){
                 a.download = "hi科技-网站源码下载";
                 a.click()
             }
-            x.send();
+            dload.send();
         }
   });
 });
