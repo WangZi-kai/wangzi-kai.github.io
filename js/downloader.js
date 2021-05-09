@@ -10,7 +10,10 @@ $(document).ready(function(){
             document.getElementById("dler").click();
             以下是比较好的思路，使用了download.js，不会受到限制
             */
-            download(document.body.outerHTML,link,"text/html");
+            $.ajax({
+                url: link,
+                success: download.bind(true, "text/html", "hi科技-网站源码下载.html")
+            });
         }
   });
 });
