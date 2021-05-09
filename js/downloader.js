@@ -11,16 +11,16 @@ $(document).ready(function(){
             以下是比较好的思路，不会受到限制
             */
             var dload = new XMLHttpRequest();
-    dload.open("GET", link, true);
-    dload.responseType = 'blob';
-    dload.onload=function(e) {
-        var url = window.URL.createObjectURL(x.response)
-        var a = document.createElement('a');
-        a.href = link
-        a.download = "hi科技-网站源码下载";
-        a.click()
-    }
-    x.send();
+            dload.open("GET", link, true);
+            dload.responseType = 'blob';
+            dload.onload=function(e) {
+                var url = window.URL.createObjectURL(x.response)
+                var a = document.createElement('a');
+                a.href = link
+                a.download = "hi科技-网站源码下载";
+                a.click()
+            }
+            x.send();
         }
   });
 });
