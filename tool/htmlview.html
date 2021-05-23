@@ -25,11 +25,9 @@
 <script type="text/javascript" src="/js/codemirrortools/htmlmixed.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/activeline.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/matchbrackets.js"></script>
-<script type="text/javascript" src="/js/codemirrortools/fullscreen.js"></script>
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link href="/css/codemirror.css" rel="stylesheet" type="text/css">
 <link href="/css/codemirrortools/monokai.css" rel="stylesheet" type="text/css">
-<link href="/css/codemirrortools/fullscreen.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/css/htmlview.css" type="text/css" />
 <meta name="copyright" content="3429442539@qq.com" />
 <title>html在线运行 - hi工具</title>
@@ -127,13 +125,6 @@
         mode: 'htmlmixed',
         lineWrapping: true,
         theme: 'monokai',
-    });
-        "F11": function(cm) {
-            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-        },
-        "Esc": function(cm) {
-            if (cm.getOption("fullScreen")) {cm.setOption("fullScreen", false)};
-        }
     });
 </script>	
                 <div class="WSt1" style=" text-align:center">
