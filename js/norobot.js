@@ -1,9 +1,9 @@
 function pass(){
   $("#menu").show();
-  $.cookie('pass', 'pass', { expires: 3 });
+  document.cookie="pass=pass";
 }
-var check = $.cookie('pass');
-if (check == "pass") {
+var check = document.cookie;
+if (check == "pass=pass") {
   $("#menu").show();
 } else {
   $("#menu").hide();
