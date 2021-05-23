@@ -24,7 +24,6 @@
 <script type="text/javascript" src="/js/codemirrortools/xml.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/htmlmixed.js"></script>
 <script type="text/javascript" src="/js/codemirrortools/activeline.js"></script>
-<script type="text/javascript" src="/js/codemirrortools/matchbrackets.js"></script>
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link href="/css/codemirror.css" rel="stylesheet" type="text/css">
 <link href="/css/codemirrortools/monokai.css" rel="stylesheet" type="text/css">
@@ -119,9 +118,7 @@
 <script>
     var editor = CodeMirror.fromTextArea(document.getElementById("content"), {
         lineNumbers: true,
-        indentUnit: 4,
         styleActiveLine: true,
-        matchBrackets: true,
         mode: 'htmlmixed',
         lineWrapping: true,
         theme: 'monokai',
