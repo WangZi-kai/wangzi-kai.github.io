@@ -1,8 +1,8 @@
 function pass(){
   $("#menu").show();
-  document.cookie="pass=pass";
+  $.cookie('pass', 'true', { expires: 3 });
 }
-if (document.cookie.indexOf("pass=pass") != -1) {
+if (document.cookie.indexOf("pass=true") != -1) {
   $("#menu").show();
 } else {
   $("#menu").hide();
