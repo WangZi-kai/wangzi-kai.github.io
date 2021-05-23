@@ -1,10 +1,10 @@
 function pass(){
-  $("#.weixin-tip").hide();
-  $.cookie('pass', 'pass', { expires: 7 });
+  $("#menu").show();
+  $.cookie('pass', 'pass', { expires: 3 });
 }
 var check = $.cookie('pass');
 if (check == "pass") {
-  $("#.weixin-tip").hide();
+  $("#menu").show();
 } else {
-  $("#.weixin-tip").show();
+  $("#menu").hide();
 }
