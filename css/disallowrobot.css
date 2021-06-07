@@ -13,7 +13,7 @@
     overflow: hidden;
     text-align: center;
 }
-.slideunlock-slider.success{
+#verify.success{
     background-color: #E5EE9F;
 }
 .slideunlock-label{
