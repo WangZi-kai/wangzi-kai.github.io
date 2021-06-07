@@ -1,11 +1,11 @@
-.slideunlock-wrapper{
+.slideunlock-wrappe{
     width: 360px;
     position: relative;
     padding: 50px;
     background: #ECF0F1;
     margin: 0 auto;
 }
-.slideunlock-slider{
+#verify{
     padding:20px;
     position: relative;
     border-radius: 2px;
