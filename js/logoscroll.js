@@ -1,5 +1,6 @@
 var swiper = new Swiper("#logoscroll", {
-  direction: 'horizontal', 
+  direction: 'horizontal',
+  noSwiping : false,
   loop: true,
   autoplay: true,
 });
