@@ -1,3 +1,5 @@
 var swiper = new Swiper("#logo", {
-  autoplay:true,
+  direction: 'horizontal', 
+  loop: true,
+  autoplay: true,
 });
