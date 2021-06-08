@@ -35,7 +35,15 @@
 <script src="/js/backgroundmusiccontrol.js"></script>
 
 <script src="/js/time.js"></script>
-  
+
+<script src="/js/swiper.min.js"></script>
+
+<link rel="stylesheet" href="/css/swiper.min.css"/>
+
+<script src="/js/logoscroll.js"></script>
+
+<link rel="stylesheet" href="/css/logoscroll.css"/>
+
 <!--下面一行的代码，是为了保证本站能够正常被搜索使用，不会收集您的隐私-->
   
 <meta name="baidu-site-verification" content="code-cdS9hSOz0g" />
@@ -55,24 +63,6 @@
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 
 <link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
-
-<script src="https://recaptcha.net/recaptcha/api.js" async defer></script>
-
-<script type="text/javascript">
-
-if (performance.navigation.type == 1) {
-
-$(".weixin-tip").show();
-
-}
-
-function pass(){
-
-$(".weixin-tip").hide(2000);
-
-}
-
-</script>
 
 <link rel="stylesheet" href="/css/homepage.css" type="text/css" />
 
@@ -98,16 +88,6 @@ $(".weixin-tip").hide(2000);
   
 <header>
 
-<div class="weixin-tip">
-
-<span style="color:red;font-size:30px">网站疑似受到流量攻击，请完成验证</span>
-
-<br />
-
-<div class="g-recaptcha" data-callback="pass" data-sitekey="6LdOcOMaAAAAAFixYzHh7DNASIP-jA7sHBfXQDUW"></div>
-
-</div>
-
 <p><div align="center"><a href="/"><img src="/i/logo.jpg" alt="hi科技" title="hi科技官网" border="0" /></a></div></p>
 
 <audio src="/sound/Richard_Clayderman-Childhood_Memories.mp3" id="backgroundmusic" hidden="true" autoplay="true" loop="true" style="display:none;visible:hidden"></audio>
@@ -130,7 +110,7 @@ $(".weixin-tip").hide(2000);
   
 <br />
 
-<p><noscript><font color="red">Oh，您的浏览器不支持JavaScript脚本，自动加首页和收藏、安全运行时间、站点统计、google,360,神马搜索以及调节背景音乐无法使用。其他方面无影响！</font></noscript></p>
+<p><noscript><font color="red">Oh，您的浏览器不支持JavaScript脚本，自动加首页和收藏、安全运行时间、站点统计、google,360,神马搜索、老logo轮播以及调节背景音乐无法使用。其他方面无影响！</font></noscript></p>
 
 <p>
 
@@ -351,20 +331,20 @@ $(".weixin-tip").hide(2000);
 
 <p class="hidden">我们以前的logo（均被添加了nofollow）：</p>
 
-<div id="container">
+<div id="logo">
 
-<div id="photo">
+<div class="swiper-wrapper">
 
-<img src="/i/oldlogo1.jpg" alt="老logo1" title="曾经的logo1" border="0" />
+<div class="swiper-slide"><img src="/i/oldlogo1.jpg" alt="老logo1" title="曾经的logo1" width="500" height="250" border="0" /></div>
 
-<img src="/i/oldlogo2.jpg" alt="老logo2" title="曾经的logo2" border="0" />
+<div class="swiper-slide"><img src="/i/oldlogo2.jpg" alt="老logo2" title="曾经的logo2" width="500" height="250" border="0" /></div>
 
-<img src="/i/oldlogo3.jpg" alt="老logo3" title="曾经的logo3" border="0" />
+<div class="swiper-slide"><img src="/i/oldlogo3.jpg" alt="老logo3" title="曾经的logo3" width="500" height="250" border="0" /></div>
 
-<img src="/i/oldlogo4.jpg" alt="老logo4" title="曾经的logo4" border="0" />
+<div class="swiper-slide"><img src="/i/oldlogo4.jpg" alt="老logo4" title="曾经的logo4" width="500" height="250" border="0" /></div>
 
 </div>
-  
+
 </div>
   
 <hr />
