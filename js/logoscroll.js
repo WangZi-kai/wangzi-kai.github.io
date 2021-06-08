@@ -1,6 +1,10 @@
 var swiper = new Swiper("#logoscroll", {
   direction: 'horizontal',
-  noSwiping : false,
-  loop: true,
+  effect: 'fade',
+  noSwiping: false,
   autoplay: true,
+  navigation: {
+     nextEl: '.swiper-button-next',
+     prevEl: '.swiper-button-prev',
+  },
 });
