@@ -1,4 +1,5 @@
-const editor = new window.wangEditor("#edit")
+const E = windiw.wangEditor;
+const editor = new E("#edit");
 editor.create();
 function htmlshow(){
   $("#htmlshowcontainer").show();
