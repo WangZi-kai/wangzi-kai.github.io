@@ -1,4 +1,4 @@
-const editor = new window.wangEditor("#hitool-richtext")
+const editor = new window.wangEditor("#edit")
 editor.create();
 function htmlshow(){
   $("#htmlshowcontainer").show();
