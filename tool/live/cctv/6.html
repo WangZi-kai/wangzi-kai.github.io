@@ -17,6 +17,11 @@
 <meta http-equiv="expires" content="-1">
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" type="text/css" href="/css/hidebar.css" />
+<script src="/js/videojsie8.min.js"></script>
+<script src="/js/video.min.js"></script>
+<link href="/css/video.min.css" rel="stylesheet">
+<script src="/js/videojscontribhls.min.js"></script>
+<link href="/css/liveplayer.css" rel="stylesheet">
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
 <body ondragstart='return false' id="body">
@@ -32,10 +37,11 @@
 </div>
 <hr />
 <h1>CCTV&nbsp;6</h1>
-<video width="1500" height="1300" controls="controls">
-<source src="http://cctvalih5ca.v.myalicdn.com/live/cctv6_2/index.m3u8">
+<video id="hitool-live" width="1500" height="1300" class="video-js vjs-default-skin" controls="controls">
+<source src="http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8">
 Oh,您的浏览器不支持 video 标签，请升级或更换浏览器后再观看！
 </video>
+<script src="/js/liveplayer.js"></script>
 <hr />
 <p style="text-align="center"><a href="/tool/live/cctv/5.html">CCTV&nbsp;5</a><u>﹤﹤</u>当前在<b>CCTV&nbsp;6</b><u>﹥﹥</u><a href="/tool/live/cctv/7.html">CCTV&nbsp;7</a></p>
 <br />
