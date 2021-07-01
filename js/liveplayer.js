@@ -82,4 +82,4 @@
   "Beginning of dialog window. Escape will cancel and close the window.": "开始对话视窗。离开会取消及关闭视窗",
   "End of dialog window.": "结束对话视窗"
 });
-var player = videojs('#hitool-live', {}, function () { console.log('初始化成功') })
+var player = videojs('#hitool-live', {type: 'application/x-mpegURL'}, function () { console.log('初始化成功') })
