@@ -51,10 +51,10 @@
     </select></div>
     <input type="button" id="regame" value="重 新 开 始" onclick="regame()">
     <p>
-      ↑：变换<br>
-      ←：左移<br>
-      →：右移<br>
-      ↓：加速<br>
+      <div onclick="frame.Change()">↑：变换</div><br>
+      <div onclick="frame.MoveLeft()">←：左移</div><br>
+      <div onclick="frame.MoveRight()">→：右移</div><br>
+      <div onclick="frame.MoveDown()">↓：加速</div><br>
     </p>
   </div>
   <div id="TFrime"></div>
