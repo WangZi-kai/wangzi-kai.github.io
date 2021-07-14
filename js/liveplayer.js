@@ -1,5 +1,5 @@
 //设置中文
-  videojs.addLanguage('zh-CN', {
+videojs.addLanguage('zh-CN', {
   "Play": "播放",
   "Pause": "暂停",
   "Current Time": "当前时间",
@@ -82,10 +82,20 @@
   "Beginning of dialog window. Escape will cancel and close the window.": "开始对话视窗。离开会取消及关闭视窗",
   "End of dialog window.": "结束对话视窗"
 });
-var player = videojs('hitool-live', {
+videojs('hitool-live', {
     type: 'application/x-mpegURL',
     language: 'zh-CN',
-    playbackRates: [0.25, 0.5, 1, 1.25, 1.5, 2],
+    controls: true,
+    preload: 'aoto',
+    bigPlayButton: false,
+    textTrackDisplay: false,
+    posterImage: false,
+    errorDisplay: false,
+    controlBar: true,
+    playbackRates: [0.25, 0.5, 0.8, 1, 1.25, 1.5, 2],
+    hls: {
+        withCredentials: true;
+    }
 }, function () {
-    console.log('初始化成功')
+    this.play();
 });
