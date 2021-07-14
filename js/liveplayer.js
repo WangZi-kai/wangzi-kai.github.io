@@ -85,12 +85,6 @@
 var player = videojs('hitool-live', {
     type: 'application/x-mpegURL',
     language: 'zh-CN',
-    controls: true,
-    preload: 'aoto',
-    bigPlayButton: true,
-    textTrackDisplay: false,
-    posterImage: false,
-    errorDisplay: true,
     playbackRates: [0.25, 0.5, 1, 1.25, 1.5, 2],
 }, function () {
     console.log('初始化成功')
