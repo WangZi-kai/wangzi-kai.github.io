@@ -39,5 +39,3 @@ Disallow: /README.md
 Disallow: /web.xml
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
-
-Sitemap: https://wangzi-kai.github.io/sitemap.html
