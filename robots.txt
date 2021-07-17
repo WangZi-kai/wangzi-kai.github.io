@@ -36,8 +36,6 @@ Disallow: /404.html
 
 Disallow: /README.md
 
-Disallow: /sitemap.xsl
-
 Disallow: /web.xml
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
