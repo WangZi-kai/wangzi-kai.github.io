@@ -1,0 +1,17 @@
+
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:773431
+#EXT-X-TARGETDURATION:10
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705686000.ts
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705696000.ts
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705706000.ts
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705716000.ts
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705726000.ts
+#EXTINF:10.000,
+http://ivi.bupt.edu.cn/hls/cctv1hd-1626705736000.ts
