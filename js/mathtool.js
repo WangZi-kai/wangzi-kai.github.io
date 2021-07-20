@@ -1,5 +1,5 @@
 var check = $.url().param('choose');
-var header = "/tool/math/";
-var footer = ".html";
+const header = "/tool/math/";
+const footer = ".html";
 var result = header+check+footer;
 $("#toolshow").attr("src",result);
