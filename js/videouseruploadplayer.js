@@ -23,7 +23,7 @@
     }
     function loadlink(){
         var link = $("#link").val();
-        check = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/;
+        check = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-_]+)\.)+([A-Za-z0-9-_\/])+$/;
         if (!check.test(link)) {
             alert("网址无效，请重新输入");
         } else {
