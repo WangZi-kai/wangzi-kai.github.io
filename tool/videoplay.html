@@ -22,8 +22,9 @@
 <noscript><div align="center"><font size="50" color="red">本工具为JavaScript+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
 <strong style="color:red">支持Ogg、MPEG4、WebM视频，不支持IE播放，不支持过旧浏览器播放！</strong>
 <br />
-<video style="height:auto;display:none;" src="" id="video0" controls="controls"></video>
-<input class="form-control" type="file" style="height:auto;" id="video" name="video" /> 
+<video style="height:auto;display:none;" src="" id="video0" controls="controls"></video><br />
+<input class="form-control" type="file" style="height:auto;" id="video" name="video" /><br />
+<input type="text" id="link" placeholder="你也可以粘贴链接到此处播放"></input><button onclick="loadlink()">提交链接</button>
 <footer>
 <br />
 <br />
@@ -58,6 +59,10 @@
             url = window.webkitURL.createObjectURL(file);
         }
         return url;
+    }
+    function loadlink(){
+        var link = $("#link").val()
+        $("#video0").attr("src",link);
     }
 </script>
 </html>
