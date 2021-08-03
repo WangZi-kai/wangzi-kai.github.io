@@ -23,6 +23,11 @@
     }
     function loadlink(){
         var link = $("#link").val();
-        $("#video0").show();
-        $("#video0").attr("src",link);
+        check = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- ,./?%&=]*)?$/;
+        if (!check.test(link)) {
+            alert("网址无效，请重新输入");
+        } else {
+            $("#video0").show();
+            $("#video0").attr("src",link);
+        }
     }
