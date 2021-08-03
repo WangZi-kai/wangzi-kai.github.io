@@ -1,4 +1,4 @@
-// hTML5实现表单内的上传文件框，上传前预览视频，刷新预览video，使用HTML5 的File API,
+    // HTML5实现表单内的上传文件框，上传前预览视频，刷新预览video，使用HTML5 的File API,
     // 建立一个可存取到该file的url，一个空的video标签，ID为video0,把选择的文件显示在video标签中，实现视频预览功能。
     // 需要选择支持HTML API的浏览器。
     $("#video").change(function () {
@@ -21,8 +21,10 @@
         }
         return url;
     }
+    //粘贴链接播放部分
     function loadlink(){
         var link = $("#link").val();
+        //使用正则判断是否是链接
         check = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- ,./?%&=]*)?$/;
         if (!check.test(link)) {
             alert("网址无效，请重新输入");
