@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>unicode及中文互转 - hi工具</title>
+<title>文本编码互转 - hi工具</title>
 <meta name="description" content="hi工具，方便你的的生活！" />
-<meta name="keywords" content="hi,工具,方便,实用,unicode,中文,互转" />
+<meta name="keywords" content="hi,工具,方便,实用,文本,编码,ANSII,unicode,中文,互转" />
 <meta name="copyright" content="3429442539@qq.com" />
 <meta http-equiv="Server" content="Hi" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,14 +16,23 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
-<script src="/js/cn2unicode.js"></script>
+<script src="/js/codechange.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/codechange.css" />
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
 <body ondragstart='return false' id="body">
-<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
+<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+css+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
 <br />
-<textarea width="1000" height="500" id="in" placeholder="输入将要被转换的字符"></textarea>
-<button onclick="douni()">中文转unicode</button>&nbsp;&nbsp;<button onclick="docn()">unicode转中文</button>
+<div class='divider'></div>
+<textarea id="input_area" name="input_area" placeholder="贴入要处理的Unicode或Ascii字符" value=""></textarea>
+<div class='row'>
+<button onclick="javascript:a('CONVERT_FMT2');">中文汉字转Unicode</button>
+<button onclick="javascript:a('RECONVERT');">Unicode转中文汉字</button>		
+<button onclick="javascript:a('RECONVERT')">ASCII转换Unicode</button>
+<button onclick="javascript:a('CONVERT_FMT3');">Unicode转换ASCII</button>
+<button onclick="javascript:a('CONVERT_FMT1');">中文转换&#XXXX</button>
+</div>
+<textarea name="output_area" id="output_area" onclick="this.select();" placeholder="处理之后的Unicode或Ascii字符" value=""></textarea>
 <footer>
 <br />
 <br />
