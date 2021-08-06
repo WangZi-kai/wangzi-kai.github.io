@@ -1,58 +1,59 @@
-function douni(){
-function ch2Unicdoe(str){
-	if(!str){
-		return;
-	}
-	var unicode = '';
-	for (var i = 0; i <  str.length; i++) {
-		var temp = str.charAt(i);
-		if(isChinese(temp)){
-			unicode += '\\u' +  temp.charCodeAt(0).toString(16);
-		}
-		else{
-			unicode += temp;
-		}
-	}
-	return unicode;
-}
-var str = document.getElementById("in").value();
-var res = ch2Unicdoe(str);
-document.getElementById("in").innerHTML = res;
-}
-function docn(){
-
-function unicode2Ch(str){
-	if(!str){
-		return;
-	}
-	// 控制循环跃迁
-	var len = 1;
-	var result = '';
-        // 注意，这里循环变量的变化是i=i+len 了
-	for (var i = 0; i < str.length; i=i+len) {
-		len = 1;
-		var temp = str.charAt(i);
-		if(temp == '\\'){
-			// 找到形如 \u 的字符序列
-			if(str.charAt(i+1) == 'u'){
-				// 提取从i+2开始(包括)的 四个字符
-				var unicode = str.substr((i+2),4); 
-                                // 以16进制为基数解析unicode字符串，得到一个10进制的数字
-				result += String.fromCharCode(parseInt(unicode,16).toString(10));
-				// 提取这个unicode经过了5个字符， 去掉这5次循环
-				len = 6;
+		function a(pChoice){
+			var inputEle = document.getElementById('input_area');
+			var outputEle = document.getElementById('output_area');
+			switch(pChoice){ 
+				case "CONVERT_FMT1":
+					outputEle.value = ascii(inputEle.value);
+					break; 
+				case "CONVERT_FMT2":
+					outputEle.value = unicode(inputEle.value);
+					break; 
+				case "CONVERT_FMT3":
+					outputEle.value = unicode1(inputEle.value);
+					break; 
+				case "RECONVERT":
+					outputEle.value = reconvert(inputEle.value);
+					break; 
+			} 
+		} 
+		function ascii(str){ 
+			var value='';
+			for (var i = 0; i < str.length; i++) {
+				value += '\&#x' + left_zero_4(parseInt(str.charCodeAt(i)).toString(16))+';';
 			}
-			else{
-				result += temp;
+			return value;
+		} 
+		function unicode(str){
+			var value='';
+			for (var i = 0; i < str.length; i++) {
+				value += '\\u' + left_zero_4(parseInt(str.charCodeAt(i)).toString(16));
 			}
+			return value;
 		}
-		else{
-			result += temp;
+		function left_zero_4(str) {
+			if (str != null && str != '' && str != 'undefined') {
+				if (str.length == 2) {
+					return '00' + str;
+				}
+			}
+			return str;
 		}
-	}
-	return result;
-}
-var str = document.getElementById("in").value();
-var res = unicode2Ch(str);
-document.getElementById("in").innerHTML = res;
-}
+		function unicode1(str){ 
+			var value='';
+			for (var i = 0; i < str.length; i++)
+				value += '&#' + str.charCodeAt(i) + ';';
+			return value;
+		} 
+		function reconvert(str){ 
+			str = str.replace(/(\\u)(\w{1,4})/gi,function($0){ 
+				return (String.fromCharCode(parseInt((escape($0).replace(/(%5Cu)(\w{1,4})/g,"$2")),16))); 
+			}); 
+			str = str.replace(/(&#x)(\w{1,4});/gi,function($0){ 
+				return String.fromCharCode(parseInt(escape($0).replace(/(%26%23x)(\w{1,4})(%3B)/g,"$2"),16)); 
+			}); 
+			str = str.replace(/(&#)(\d{1,6});/gi,function($0){ 
+				return String.fromCharCode(parseInt(escape($0).replace(/(%26%23)(\d{1,6})(%3B)/g,"$2"))); 
+			}); 
+			
+			return str; 
+		}
