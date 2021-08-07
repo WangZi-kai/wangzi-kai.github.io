@@ -1,6 +1,7 @@
 		function a(pChoice){
 			var inputEle = document.getElementById('input_area');
 			var outputEle = document.getElementById('output_area');
+			outputEle.removeAttribute("disabled");
 			switch(pChoice){ 
 				case "CONVERT_FMT1":
 					outputEle.value = ascii(inputEle.value);
