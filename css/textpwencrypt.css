@@ -390,3 +390,14 @@ color: #006cbf;
 .separateColor {
 background-color: #f4f4f4;
 }
+      .head { height:60px;} .copyright { color:rgb(102,102,102); text-align:center;
+      font:12px Verdana,Arial,Tahoma; } .copyright a { color:#4d4d4d; text-decoration:none;
+      } .copyright a:visited { text-decoration:none; } .copyright a:hover { color:#04aeda;
+      text-decoration:underline; } .copyright a:active { color:#04aeda; }
+      <!-- .head a:link { color: #999999; text-decoration: none; } .head a:visited
+      { text-decoration: none; color: #999999; } .head a:hover { text-decoration:
+      none; color: #CC6600; } .head a:active { text-decoration: none; color:
+      #999999; } -->
+          .leftBar .title,.rightBar .title{margin-bottom:10px;} .OptDetail{text-align:left;margin-left:10px;}
+          .OptDetail li{width:120px;margin:5px 0px 10px 0px;} .Button input{margin:5px
+          0px 10px 0px;} #pwd{width:110px;}
