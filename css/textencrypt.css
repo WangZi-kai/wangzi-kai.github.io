@@ -7,13 +7,13 @@ padding: 0;
 
 body,button,input,select,textarea {
 font-size: 14px;
-font-family: Microsoft YaHei, 寰蒋闆呴粦, Verdana, sans-serif, 瀹嬩綋;
+font-family: Microsoft YaHei, 微软雅黑, Verdana, sans-serif, 瀹嬩綋;
 background-color: #fff;
 line-height: 18px;
 }
 
 body{
-background:url(//www.5axxw.com/tools/web/img/bg_maplist.gif);
+background-color:#F8F8FF;
 }
 
 ul,li {
