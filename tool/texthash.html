@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-cmn-Hans-CN">
+<html>
+<head>
+<meta charset="utf-8">
+<title>文本特征值提取 - hi工具</title>
+<meta name="description" content="hi工具，方便你的的生活！" />
+<meta name="keywords" content="hi,工具,方便,实用,文本,特征,值,提取,hash,sha,1,2,3,4,5,6,8,md5,pbkdf2" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<link rel="stylesheet" href="/css/textencrypt.css" type="text/css" />
+    <script type="text/javascript" src='/js/jquery.min.js'>
+    </script>
+    <link rel="stylesheet" href='/css/bootstrap.min.css' />
+    <script src='/js/bootstrap.min.js'>
+    </script>
+  </head>
+  
+  <!-- ondragstart:防拖拽生成新页面-->
+<body ondragstart='return false' id="body">
+<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+css+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
+<br />
+    <div class="wrapper">
+    </div>
+    <script type="text/javascript" src="/js/encrypt/core.min.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/sha1.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/sha256.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/sha512.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/md5.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.sha1.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.sha224.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.sha256.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.sha384.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.sha512.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/hmac.md5.js">
+    </script>
+    <script type="text/javascript" src="/js/encrypt/hash/pbkdf2.js">
+    </script>
+    <div id="mainContent" class="wrapper">
+          <div class='clear'>
+        <style>
+          #tool_content h1 {margin:10px 0 30px 0; font-size:12pt;} #message_source
+          {margin-top:10px;} #hash_result {font-size:12pt;resize:none;margin-top:10px;}
+          #btn_hash {background:#666;padding:5px 8px;color:#fff;background:#006CBF;}
+          #error_msg {border:1px dashed #C00; padding:5px; color:#C00;margin:10px
+          2px;display:none;} .toolButton{width:120px;} .bottomBar textarea{height:60px;}
+        </style>
+        <table sytle="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+              <label>
+                明文：
+              </label>
+              <div class="topBar">
+                <textarea name='message' id='message_source' value=""
+                onfocus="this.select();" class="text_source"></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                散列/哈希算法：
+              </label>
+              <div>
+                <div style="height:45px;margin:5px 0 5px 0;">
+                  <button id="btn_sha1" class="btn btn-primary span2" onclick="javascript:hash('sha1');">
+                    SHA1
+                  </button>
+                  <button id="btn_sha224" class="btn btn-primary span2" onclick="javascript:hash('sha224');">
+                    SHA224
+                  </button>
+                  <button id="btn_sha256" class="btn btn-primary span2" onclick="javascript:hash('sha256');">
+                    SHA256
+                  </button>
+                  <button id="btn_sha384" class="btn btn-primary span2" onclick="javascript:hash('sha384');">
+                    SHA384
+                  </button>
+                  <button id="btn_sha512" class="btn btn-primary span2" onclick="javascript:hash('sha512');">
+                    SHA512
+                  </button>
+                  <button id="btn_md5" class="btn btn-primary span2" onclick="javascript:hash('md5');">
+                    MD5
+                  </button>
+                </div>
+                <div style="height:45px;margin:5px 0 5px 0;">
+                  <div class="btn-group" data-toggle="buttons-radio">
+                    <button id="btn_hmacsha1" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacsha1');">
+                      HmacSHA1
+                    </button>
+                    <button id="btn_hmacsha224" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacsha224');">
+                      HmacSHA224
+                    </button>
+                    <button id="btn_hmacsha256" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacsha256');">
+                      HmacSHA256
+                    </button>
+                    <button id="btn_hmacsha384" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacsha384');">
+                      HmacSHA384
+                    </button>
+                    <button id="btn_hmacsha512" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacsha512');">
+                      HmacSHA512
+                    </button>
+                    <button id="btn_hmacmd5" class="btn btn-primary span2" onclick="javascript:show_pwd('hmacmd5');">
+                      HmacMD5
+                    </button>
+                    <button id="btn_pbkdf2" class="btn btn-primary span2" onclick="javascript:show_pwd('pbkdf2');">
+                      PBKDF2
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display:none;height:45px;" id="p_div">
+                <form class="well form-inline">
+                  <input type="hidden" id="hmac_type" value="" />
+                  <span style="display:none;height:45px;" id="p_span">
+                    <div class="input-prepend">
+                      <span class="add-on">
+                        密钥
+                      </span>
+                      <input type="text" length="40" id="pwd" placeholder="在此输入密钥" />
+                    </div>
+                  </span>
+                  <span style="display:none;height:45px;" id="k_span">
+                    <label>
+                      key长度：
+                      <select id="key_size" class="input-small">
+                        <option value="4" selected="selected">
+                          128位
+                        </option>
+                        <option value="8">
+                          256位
+                        </option>
+                        <option value="16">
+                          512位
+                        </option>
+                      </select>
+                    </label>
+                    <div class="input-prepend">
+                      <span class="add-on">
+                        盐：
+                      </span>
+                      <input type="text" id="salt" class="input-small" placeholder="在此输入盐">
+                      </input>
+                    </div>
+                    <div class="input-prepend">
+                      <span class="add-on">
+                        迭代次数：
+                      </span>
+                      <input type="text" id="iterations" class="input-small" placeholder="输入迭代次数">
+                      </input>
+                    </div>
+                  </span>
+                  <a class="btn" href="javascript:hash($('#hmac_type').val(),true);">
+                    哈希/散列
+                    <i class="icon-chevron-down icon-black">
+                    </i>
+                  </a>
+                </form>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                哈希值:
+              </label>
+              <div class="bottomBar">
+                <textarea name='cipher' id='hash_result' onclick="this.focus();this.select();"></textarea>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <script type='text/javascript' src='/js/texthash.js'>
+        </script>
+      </div>
+<footer class="copyright">
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/tool/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></a></noscript></div>
+</footer> 
+</body>
+</html>
