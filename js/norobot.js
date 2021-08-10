@@ -8,3 +8,6 @@ if (check == "true") {
 } else {
   $("#menu").hide();
 }
+function hide(){
+  $("#menu").hide();
+}
