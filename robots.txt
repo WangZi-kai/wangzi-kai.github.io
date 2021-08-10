@@ -28,8 +28,6 @@ Disallow: /v/
 
 Disallow: /test/
 
-Disallow: /download/
-
 Disallow: /fonts/
 
 Disallow: /404.html
