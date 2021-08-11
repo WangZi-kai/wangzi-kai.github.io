@@ -26,8 +26,6 @@ Disallow: /sound/
 
 Disallow: /v/
 
-Disallow: /test/
-
 Disallow: /fonts/
 
 Disallow: /404.html
