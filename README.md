@@ -1,5 +1,4 @@
 # hi科技-点滴记录，健康生活
-# hi-tech - recording and healthy life
 
 #### 共同进步，共同成长！hi科技源码，欢迎学习，但不要随意使用！
 
