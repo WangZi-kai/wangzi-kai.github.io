@@ -1,3 +1,4 @@
 body {background-image:url(/i/background.jpg);}
-* {cursor:url("/i/curser.cur"),auto;}
+* {cursor:url("/i/curser.cur"),auto;
+border-radius:25px;}
 iframe {cursor:url("/i/curser.cur"),auto;}
