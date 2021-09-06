@@ -130,7 +130,7 @@
 
 <img src="/i/horn.jpg" width="30" height="30" alt="公告"/><font size="30" color="red"><u><b><i><mark>公告：</mark></i></b></u></font></p>
 
-<marquee onMouseout="this.start()" onMouseover="this.stop()" align="left" behavior="scroll" direction="left" height="30" scrollamount="20" scrolldelay="10" bgcolor="#ffff66"><font color="red"><a href="/help/">点击访问本站帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;本站已经正式改名为hi科技，未来logo也会换&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大部分拦截的广告都不是本站的广告，而是第三方应用的广告（比如看新闻、视频等），本站不盈利，请不要误认为我们会投放广告</font></marquee>
+<marquee onMouseout="this.start()" onMouseover="this.stop()" align="left" behavior="scroll" direction="left" height="30" scrollamount="20" scrolldelay="10" bgcolor="#ffff66"><font color="red"><a href="/help/">点击访问本站帮助</a>&nbsp;&nbsp;&nbsp;&nbsp;看资讯和视频，需要点一下文字才可以显示，为了节省流量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本站已经正式改名为hi科技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站UI和易用性都有所升级，快体验吧&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大部分拦截的广告都不是本站的广告，而是第三方应用的广告（比如看新闻、视频等），本站不盈利，请不要误认为我们会投放广告</font></marquee>
 
 <br />
 
@@ -138,11 +138,11 @@
 
 <br />
 
-<strong>将网站分享给更多人</strong>
+<strong style="display:none">将网站分享给更多人</strong>
 
-<br />
+<!--<br />-->
 
-<div id="qrcodeshow"></div>
+<div id="qrcodeshow" style="display:none"></div>
 
 <br />
 
@@ -226,15 +226,15 @@
 
 <hr />
   
-<p class="outset">看看资讯：</p>
+<p class="outset" onclick="document.getElementById('news').setAttribute('src','https://news.qq.com/')">看看资讯：</p>
   
-<iframe width="700" height="700" src="https://news.qq.com/" scrolling="yes" rel="external nofollow"></iframe>
+<iframe width="700" height="700" scrolling="yes" id="news" rel="external nofollow"></iframe>
   
 <hr />
   
-<p class="outset">看看视频（抖音快手上不来，只有好看视频里面的好一些）：</p>
+<p class="outset" onclick="document.getElementById('vid').setAttribute('src','https://www.bilibili.com/')">看看视频：</p>
 
-<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" rel="external nofollow"></iframe>
+<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" id="vid" rel="external nofollow"></iframe>
   
 <br />
   
