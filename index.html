@@ -164,7 +164,7 @@
 
 <hr />
 
-<p class="outset">快速搜索（支持语音输入<script type="text/javascript" src="/js/somegametips.js"></script>）：</p>
+<p class="outset">快速搜索：</p>
 
 <p class="inset">baidu搜索</p>
 
@@ -226,15 +226,15 @@
 
 <hr />
   
-<p class="outset" onclick="document.getElementById('news').setAttribute('src','https://news.qq.com/')">看看资讯：</p>
+<p class="outset" onclick="document.getElementById('news').setAttribute('src','https://news.qq.com/');document.getElementById('news').style.display='block';">看看资讯：</p>
   
-<iframe width="700" height="700" scrolling="yes" id="news" rel="external nofollow"></iframe>
+<iframe width="700" height="700" scrolling="yes" style="display:none;" id="news" rel="external nofollow"></iframe>
   
 <hr />
   
-<p class="outset" onclick="document.getElementById('vid').setAttribute('src','https://www.bilibili.com/')">看看视频：</p>
+<p class="outset" onclick="document.getElementById('vid').setAttribute('src','https://www.bilibili.com/');document.getElementById('news').style.display='block';">看看视频：</p>
 
-<iframe width="700" height="1000" src="https://haokan.baidu.com/" scrolling="yes" id="vid" rel="external nofollow"></iframe>
+<iframe width="700" height="1000" style="display:none;" scrolling="yes" id="vid" rel="external nofollow"></iframe>
   
 <br />
   
