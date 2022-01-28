@@ -1,14 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="zh-cmn-Hans-CN">
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- We only include this to explicitly loosen the CSP of various packager environments. It does not provide any security. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:">
-  <meta name="description" content="hi游戏，缓解你的的压力！" />
-<meta name="keywords" content="hi,游戏,贪吃蛇,手机,手游,娱乐,解压,分级" />
+<meta name="description" content="hi游戏，缓解你的的压力！" />
+<meta name="keywords" content="hi,游戏,贪吃蛇,娱乐,解压,分级" />
 <meta name="copyright" content="3429442539@qq.com" />
 <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=0" charset="UTF-8" />
 <meta http-equiv="Server" content="Hi" />
@@ -19,7 +14,14 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="-1">
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
-  <title>贪吃蛇手机-hi游戏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- We only include this to explicitly loosen the CSP of various packager environments. It does not provide any security. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:">
+  <title>贪吃蛇-hi游戏</title>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
+<script src="/js/wechatqq.js"></script>
+<link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
   <style>
     body {
       color: #ffffff;
@@ -148,28 +150,25 @@
     
   </style>
   <meta name="theme-color" content="#000000">
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
-<!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
-<script src="/js/wechatqq.js"></script>
-<link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
+  
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
 <body ondragstart='return false' id="body">
-  <!--2.遮罩实现（div里面的就是遮罩内容）-->
-  <div class="weixin-tip">
-  <p>
-  <img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
-  </p>
-  <br />
-  <p>
-  <font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/catchthecat.html">https://wangzi-kai.github.io/game/catchthecat.html</a></mark></u></b></font>
-  </p>
-  <p>
-  <mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
-  </p>
-  </div>
-  <noscript><div align="center"><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
-  <br />
+<!--2.遮罩实现（div里面的就是遮罩内容）-->
+<div class="weixin-tip">
+<p>
+<img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
+</p>
+<br />
+<p>
+<font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/greedysnake.html">https://wangzi-kai.github.io/game/greedysnake.html</a></mark></u></b></font>
+</p>
+<p>
+<mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
+</p>
+</div>
+<noscript><div align="center"><font size="50" color="red">本游戏为css+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
+<br />
 
   <div id="app"></div>
 
