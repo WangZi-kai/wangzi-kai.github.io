@@ -28,6 +28,8 @@ Disallow: /v/
 
 Disallow: /fonts/
 
+Disallow: /download/
+
 Disallow: /404.html
 
 Disallow: /README.md
