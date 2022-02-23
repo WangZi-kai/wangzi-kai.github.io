@@ -2,7 +2,7 @@
 
 # robots.txt for Hi Official Website
 
-# robots generate from wangzi-kai.github.io
+# robots generate from https://wangzi-kai.github.io/
 
 #
 
@@ -27,8 +27,6 @@ Disallow: /sound/
 Disallow: /v/
 
 Disallow: /fonts/
-
-Disallow: /download/
 
 Disallow: /404.html
 
