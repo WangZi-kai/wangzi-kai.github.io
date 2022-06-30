@@ -1,0 +1,3 @@
+#EXTM3U
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=600000,RESOLUTION=640x360
+http://cctvwbndbd.a.bdydns.com/cctvwbnd/cctv13_2/index.m3u8?BR=single
