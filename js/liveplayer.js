@@ -82,7 +82,6 @@ videojs.addLanguage('zh-CN', {
   "End of dialog window.": "结束对话视窗"
 });
 videojs('hitool-live', {
-    type: 'application/x-mpegURL',
     language: 'zh-CN',
     controls: true,
     preload: true,
