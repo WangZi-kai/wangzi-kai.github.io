@@ -1,4 +1,3 @@
-//设置中文
 videojs.addLanguage('zh-CN', {
   "Play": "播放",
   "Pause": "暂停",
@@ -93,7 +92,6 @@ videojs('hitool-live', {
             }
         },
     aspectRatio: "16:9"
-    bigPlayButton: false,
     textTrackDisplay: false,
     posterImage: false,
     errorDisplay: false,
