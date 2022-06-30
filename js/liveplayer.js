@@ -86,7 +86,13 @@ videojs('hitool-live', {
     type: 'application/x-mpegURL',
     language: 'zh-CN',
     controls: true,
-    preload: 'aoto',
+    preload: true,
+    html5: {
+        hls: {
+            withCredentials: false
+            }
+        },
+    aspectRatio: "16:9"
     bigPlayButton: false,
     textTrackDisplay: false,
     posterImage: false,
