@@ -3,6 +3,9 @@
 <html lang="zh-cmn-Hans-CN">
 <html>
 <head>
+<!--[if lt IE 9]>
+<script src="/js/html5.min.js"></script>
+<![endif]-->
 <meta charset="utf-8">
 <title>“CCTV13”在线直播 - hi工具</title>
 <meta name="description" content="hi工具，方便你的的生活！" />
@@ -25,7 +28,7 @@
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
 <body ondragstart='return false' id="body">
-<noscript><div align="center"><font size="50" color="red">本工具为css+H5工具，检测到你的浏览器不支持JavaScript，不影响观看体验！</font></div><br /><br /></noscript>
+<noscript><div align="center"><font size="50" color="red">本工具为css+JavaScript+H5工具，检测到你的浏览器不支持JavaScript，在手机上无影响，但在电脑上会无法播放，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
 <br />
 <div class="hidden_box">
 <label for="label1"><font face="KaiTi" size="35" color="green"><b>导航</b></font></label>
@@ -37,11 +40,7 @@
 </div>
 <hr />
 <h1>CCTV&nbsp;13</h1>
-<video id="hitool-live" width="1500" height="1300" class="video-js vjs-default-skin" controls="controls">
-<source src="/v/live/cctv13.m3u8" type="application/x-mpegURL">
-Oh,您的浏览器不支持 video 标签，请升级或更换浏览器后再观看！
-</video>
-<script src="/js/liveplayer.js"></script>
+<iframe width="1500" height="1300" src="http://wzkbr.gitee.io/live/cctv13.html"></iframe>
 <hr />
 <p style="text-align="center"><a href="/tool/live/cctv/12.html">CCTV&nbsp;12</a><u>﹤﹤</u>当前在<b>CCTV&nbsp;13</b><u>﹥﹥</u><a href="/tool/live/cctv/14.html">CCTV&nbsp;14</a></p>
 <br />
