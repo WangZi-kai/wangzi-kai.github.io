@@ -1,5 +1,6 @@
 #body {
-    background-image: url("/i/sweepback.jpg") no-repeat;
+    background-image: url("/i/sweepback.jpg");
+    backgroud: top, center, no-repeat;
     background-size: cover;
 }
 
