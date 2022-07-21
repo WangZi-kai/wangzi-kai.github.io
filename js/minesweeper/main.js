@@ -26,9 +26,9 @@ function start() { //开始按钮
             break;
         }
         case "中等": {
-            row = 15; //数组行数
-            col = 15; //数组列数
-            maxCount = 100; //最大地雷数量
+            row = 10; //数组行数
+            col = 10; //数组列数
+            maxCount = 30; //最大地雷数量
             isFirstOpen = true;//第一次打开方格保证不点到雷
             count = document.getElementById('count'); //剩余雷数
             ground = initial_ground(); //初始化，得到二维数组
@@ -40,9 +40,9 @@ function start() { //开始按钮
             break;
         }
         case "困难": {
-            row = 50; //数组行数
-            col = 50; //数组列数
-            maxCount = 1000; //最大地雷数量
+            row = 20; //数组行数
+            col = 20; //数组列数
+            maxCount = 100; //最大地雷数量
             isFirstOpen = true;//第一次打开方格保证不点到雷
             count = document.getElementById('count'); //剩余雷数
             ground = initial_ground(); //初始化，得到二维数组
