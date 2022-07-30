@@ -62,6 +62,7 @@ window.onload = function(){
 	com.createMans(com.initMap)		//生成棋子	
 	com.bg.show();
 	com.get("bnBox").style.display = "block";
+    com.get("billBn").style.display = "inline";
 	//play.init();
 	com.get("billBn").addEventListener("click", function(e) {
 		if (confirm("是否结束对局，开始棋局研究？")){
