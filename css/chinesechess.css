@@ -41,5 +41,6 @@ body {
 	margin-top:20px
 }
 .bn_box {
-	display:none
+	//display:none
+    display: inline: 
 }
