@@ -803,7 +803,7 @@ class Game {
         const state = this.moveResultState();
         console.log(state);
         if (!state.moves && !state.captures) {
-            alert(state.stalemate ? "绝杀" : `${this.turn === "WHITE" ? "黑棋" : "白棋"}胜利`);
+            alert(state.stalemate ? "逼和" : `${this.turn === "WHITE" ? "黑棋" : "白棋"}胜利`);
         }
         return castledId;
     }
