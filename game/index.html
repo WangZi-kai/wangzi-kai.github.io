@@ -16,11 +16,12 @@
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" href="/css/border.css" type="text/css" />
 <link rel="stylesheet" href="/css/helpgameback.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="https://wangzi-kai.github.io/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="https://wangzi-kai.github.io/css/slideunlock.css">
 <meta name="copyright" content="3429442539@qq.com" />
 <title>hi游戏</title>
 <script src="/js/baidustatistics.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/norobot.js"></script>
 <!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
 <script src="/js/wechatqq.js"></script>
 <link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
@@ -44,11 +45,21 @@
 <mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
 </p>
 </div>
+<div class="slideunlock-wrapper">
+<input type="hidden" value="" class="slideunlock-lockable" />
+<div class="slideunlock-slider">
+<span class="slideunlock-label"></span>
+<span class="slideunlock-lable-tip">向右滑动完成验证</span>
+</div>
+</div>
+<script type="text/javascript" src="https://wangzi-kai.github.io/js/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="https://wangzi-kai.github.io/js/jquery.slideunlock.min.js"></script>
+<script type="text/javascript" src="https://wangzi-kai.github.io/js/norobot.js"></script>
 <p><font size="50">共</font>&nbsp;<font size="30">13</font>&nbsp;<font size="50">款游戏</font>
 <br />
 <hr />
 <br />
-<font id="menu" style="display:block" size="20" color="#2894FF">
+<font id="menu" style="display:none" size="20" color="#2894FF">
 <p class="solid"><a href="/game/minesweeper.html"><u>扫雷</u></a></p>
 <hr />
 <p class="solid"><a href="/game/2048.html"><u>2048</u></a></p>
