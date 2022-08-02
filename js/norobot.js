@@ -1,13 +1,6 @@
-function pass(){
-  $("#menu").show();
-  $.cookie('pass', 'true', { expires: 3 });
-}
-var check = $.cookie("pass")
-if (check == "true") {
-  $("#menu").show();
-} else {
-  $("#menu").hide();
-}
-function hide(){
-  $("#menu").hide();
-}
+$(function () {
+    var slider = new SliderUnlock(".slideunlock-slider", {}, function () {
+        $("#menu").show();
+    }, function(){});
+    slider.init();
+});
