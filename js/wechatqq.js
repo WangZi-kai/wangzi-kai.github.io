@@ -13,6 +13,6 @@
         $(".weixin-tip").css("height",winHeight);
         $(".weixin-tip").show();
       }else{
-          consule.log("非微信，QQ");
+          console.log("非微信，QQ");
       }
     })
