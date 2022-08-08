@@ -8,7 +8,7 @@ game.States.boot = function(){
 			this.scale.forcePortrait = true;
 			this.scale.refresh();
 		}
-		game.load.image('loading','assets/preloader.gif');
+		game.load.image('loading','/i/flappybirdmobile/preloader.gif');
 	};
 	this.create = function(){
 		game.state.start('preload'); //跳转到资源加载页面
