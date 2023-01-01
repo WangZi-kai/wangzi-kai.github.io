@@ -16,6 +16,8 @@ Allow: /game/
 
 Allow: /tool/
 
+Allow: /software/
+
 Disallow: /css/
 
 Disallow: /i/
