@@ -37,3 +37,7 @@ Disallow: /README.md
 Disallow: /README_en.md
 
 Sitemap: https://wangzi-kai.github.io/sitemap.xml
+
+User-agent: GPTBot
+
+Disallow: /
