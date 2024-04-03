@@ -1,0 +1,42 @@
+#freecell{background:#fff;cursor:default;padding:5px;background:#fff;text-align:center;font-size:12px;font-family:Arial;}
+#fc-body{width:660px;}
+#fc-toolbar{margin:0 0 5px 1px;text-align:left;}
+.fc-buttons a:link,.fc-buttons a:visited{width:auto !important;width:50px;min-width:50px;padding:1px 5px;text-align:center;margin:2px 5px;border:1px #06c solid;display:inline-block;text-decoration:none;color:#06c;background:#fff;}
+.fc-buttons a:hover{color:#fff;background:#06c;}
+#fc-table{clear:left;float:left;border:1px #eee solid;height:auto !important;height:364px;min-height:364px;}
+.fc-column{float:left;width:80px;text-align:center;padding:90px 0px;}
+.fc-card{width:64px;text-align:left;background-color:#fff;position:relative;}
+.fc-column .fc-card{margin-top:-78px;}
+#fc-cells{margin-right:10px;}
+.fc-cell{width:64px;border:1px #666 solid;height:103px;margin:2px;float:left;padding:1px;}
+#fc-info{width:64px;border-style:none;font-size:40px;text-align:left;float:left;}
+#fc-logo span{display:block;padding:0 5px;margin:-30px 0;}
+#fc-logo span.fc-top{margin-top:-10px !important;margin-top:-5px;}
+#fc-logo span.fc-down{margin-bottom:-10px;}
+#fc-score{font-weight:bold;font-size:10px;color:#06c;margin-top:10px !important;margin-top:6px;}
+#fc-score span{width:26px;display:inline-block;text-align:right;}
+#fc-score span.fc-label{width:30px;}
+#fc-time{clear:left;margin-bottom:5px;}
+#fc-time span{width:auto !important;width:30px;min-width:30px;display:inline-block;text-align:right;margin-right:40px;}
+#fc-time span.fc-label{font-weight:bold;width:65px;margin-right:5px;}
+.fc-animate{position:absolute;}
+.fc-right{text-align:right;}
+.fc-card-content{border:1px #666 solid;border-style:none solid;}
+.fc-card h2{font-size:16px;padding:0 1px;margin:0;}
+.fc-card h2 span{display:block;font-size:16px !important;margin-top:-7px !important;margin-top:0;font-size:11px;padding:2px 0;}
+.fc-red{color:red;}
+.fc-black{color:black;}
+.fc-card .fc-card-pattern{font-size:40px !important;font-size:22px;text-align:center;height:36px !important;height:19px;margin-top:-12px !important;;margin-top:0;overflow:hidden;}
+.fc-card-border-1,.fc-card-border-2,.fc-card-border-3,.fc-card-border-4{margin:0 1px;height:1px;border:1px #666 solid;border-style:none solid;overflow:hidden;}
+.fc-card-border-2{margin:0 2px;}
+.fc-card-border-3{margin:0 3px;}
+.fc-card-border-4{margin:0 4px;border-style:none;border-top:1px #666 solid;}
+.fc-select,.fc-select .fc-card-border-1,.fc-select .fc-card-border-2,.fc-select .fc-card-border-3,.fc-select .fc-card-border-4{background:#3ff;color:#fff;}
+#fc-highlight{position:absolute;z-index:10000;}
+#fc-msgbox{width:220px;margin:-40px 0 0 -110px;left:50%;top:50%;position:absolute;border:1px #666 solid;background:#fff;display:none;z-index:1000;}
+#fc-msgbox-title{background:#ccc;text-align:left;}
+#fc-msgbox-content{padding:10px;border:1px #ccc solid;}
+#fc-msgbox-buttons{text-align:center;padding:5px;}
+#fc-msgbox-buttons input{width:60px;margin:0 5px;}
+#fc-mask{width:100%;height:100%;top:0;left:0;position:absolute;background:#fff;filter:alpha(opacity=50);opacity:0.5;display:none;z-index:100;}
+#mine td{width:18px;height:18px;border:1px #666 solid;text-align:center;background:#f0f0f0;overflow:hidden;display:block;overflow:hidden;font-size:16px;padding:0;border-color:#fff #666 #666 #fff;cursor:default;}
