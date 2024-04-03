@@ -46,9 +46,9 @@ var Freecell={
         this.msgbox.append(this.msgboxButtons);
         this.msgboxButtonOK=$('<a>').text('OK').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonOK);
-        this.msgboxButtonRetry=$('<a>').text('Play again?').attr('href','javascript:void(0)');
+        this.msgboxButtonRetry=$('<a>').text('重玩？').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonRetry);
-        this.msgboxButtonCancel=$('<a>').text('Cancel').attr('href','javascript:void(0)');
+        this.msgboxButtonCancel=$('<a>').text('取消').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonCancel);
         this.mask=$('<div id="fc-mask">');
         this.body.append(this.mask);
@@ -207,7 +207,7 @@ var Freecell={
             Freecell.stopTimer();
             Freecell.setBestTime();
             Freecell.finished=true;
-            Freecell.msg('You win!',1);
+            Freecell.msg('您赢了！',1);
             Freecell.win++;
             Freecell.score();
             Freecell.disableButton(true);
@@ -236,7 +236,7 @@ var Freecell={
                 Freecell.finished=true;
                 Freecell.lose++;
                 Freecell.score();
-                Freecell.msg('You lose!',1);
+                Freecell.msg('您输了！',1);
                 Freecell.mask.show();
             }
         }
@@ -276,7 +276,7 @@ var Freecell={
         });
         this.startButton.click(function(){
             if(!Freecell.finished){
-                if(confirm('You want to give up this match?')){
+                if(confirm('放弃当前进度？')){
                     Freecell.stopTimer();
                     Freecell.lose++;
                     Freecell.score();
@@ -617,7 +617,7 @@ Card.prototype.SendTo=function(target,availableCells,emptyCols){
                         if(!target.IsEmpty()){
                             availableCells=emptyCols*availableCells+availableCells;
                             if(cellsNeeded>availableCells){
-                                alert('You need '+cellsNeeded+' cells, only '+availableCells+' available');
+                                alert('您需要'+cellsNeeded+'组cell，只有'+availableCells+'个可用');
                                 return;
                             }
                         }else{
