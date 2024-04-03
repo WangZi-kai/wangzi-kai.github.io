@@ -8,15 +8,15 @@ window._windon_handler = setInterval(
                 window.location.reload();
 				//window.location.href="about:blank";
 				clearInterval(_windon_handler);
-				}else{
-					Anti_numtots++;
-					if(Anti_numtots>=1){
-                        window.location.reload();
-						//window.location.href="about:blank";
-						clearInterval(_windon_handler);
-					}
+			}else{
+                Anti_numtots++;
+                if(Anti_numtots>=1){
+                    window.location.reload();
+					//window.location.href="about:blank";
+					clearInterval(_windon_handler);
 				}
-		}else{
-			Anti_numtots = 0;
-		}
-	}, 1000)
+			}
+        }else{
+            Anti_numtots = 0;
+        }
+    }, 1000)
