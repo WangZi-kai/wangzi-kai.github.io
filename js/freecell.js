@@ -46,7 +46,7 @@ var Freecell={
         this.msgbox.append(this.msgboxButtons);
         this.msgboxButtonOK=$('<a>').text('确认').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonOK);
-        this.msgboxButtonRetry=$('<a>').text('重玩？').attr('href','javascript:void(0)');
+        this.msgboxButtonRetry=$('<a>').text('重玩').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonRetry);
         this.msgboxButtonCancel=$('<a>').text('取消').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonCancel);
