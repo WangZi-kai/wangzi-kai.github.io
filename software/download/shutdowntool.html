@@ -173,6 +173,8 @@
         <meta name="description" content="hi软件，解决您的问题！" />
         <meta name="keywords" content="hi,软件,方便,解决,问题,定时,关机,重启,注销,睡眠,休眠,锁定,工具,下载" />
         <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+        <link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+        <script src="/js/antidebugger.js"></script>
         <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script src="/js/wechatqq.js"></script>
         <link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
@@ -180,7 +182,7 @@
 	</head>
 	
 	
-	<body>
+	<body oncontextmenu='self.event.returnValue=false'>
 		<div class="weixin-tip">
             <p>
                 <img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
