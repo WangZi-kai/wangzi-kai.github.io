@@ -290,19 +290,23 @@ var Freecell={
         });
         this.startButton.click(function(){
             if(!Freecell.finished){
-                if(swal({
+                swal.fire({
                     title: '确认放弃当前进度，开始新游戏？',
-                    type: 'info',
+                    icon: 'warning',
                     showCancelButton: 'true',
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
-                })){
+                    confirmButtonColor: '#208ADB',
+                    cancelButtonColor: '#626F75'
+                }).then((result) => {
+            if (result.isConfirmed) {
                     Freecell.stopTimer();
                     Freecell.lose++;
                     Freecell.score();
                 }else{
                     return;
                 }
+                });
             }
             Freecell.start();
         });
