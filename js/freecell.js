@@ -298,8 +298,8 @@ var Freecell={
                     cancelButtonText: '取消',
                     confirmButtonColor: '#208ADB',
                     cancelButtonColor: '#626F75'
-                }).then((result) => {
-                    if (result.isConfirmed) {
+                }), function (isConfirm) {
+                    if (isConfirm) {
                         Freecell.stopTimer();
                         Freecell.lose++;
                         Freecell.score();
