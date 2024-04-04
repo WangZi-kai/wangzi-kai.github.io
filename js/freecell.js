@@ -303,12 +303,10 @@ var Freecell={
                         Freecell.stopTimer();
                         Freecell.lose++;
                         Freecell.score();
-                    }else{
-                        return;
+                        Freecell.start();
                     }
                 });
             }
-            Freecell.start();
         });
         $('#freecell .fc-column').click(function(e){
             stopBubble(e);
