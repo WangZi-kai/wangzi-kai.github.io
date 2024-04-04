@@ -306,6 +306,8 @@ var Freecell={
                         Freecell.start();
                     }
                 });
+            }else{
+                Freecell.start();
             }
         });
         $('#freecell .fc-column').click(function(e){
