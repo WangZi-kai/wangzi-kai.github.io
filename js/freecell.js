@@ -5,6 +5,8 @@ $(function(){
         $("#fc-mask").hide;
     });
     $("#msgboxButtonRetry").click(function(){
+        $("#fc-msgbox").hide(1000);
+        $("#fc-mask").hide();
         document.getElementById("fc-toolbar-start").click();
     });
     $("#msgboxButtonCancel").click(function(){
