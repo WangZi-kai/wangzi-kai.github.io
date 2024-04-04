@@ -3,7 +3,7 @@
 #fc-toolbar{margin:0 0 5px 1px;text-align:left;}
 .fc-buttons a:link,.fc-buttons a:visited{width:auto !important;width:50px;min-width:50px;padding:1px 5px;text-align:center;margin:2px 5px;border:1px #06c solid;display:inline-block;text-decoration:none;color:#06c;background:#fff;}
 .fc-buttons a:hover{color:#fff;background:#06c;}
-#fc-table{clear:left;float:left;border:1px #eee solid;height:auto !important;height:364px;min-height:364px;}
+#fc-table{clear:left;float:left;border:1px #eee solid;height:auto !important;height:364px;min-height:364px;min-width:673px;}
 .fc-column{float:left;width:84px;text-align:center;padding:90px 0px;}
 .fc-card{width:64px;text-align:left;background-color:#fff;position:relative;}
 .fc-column .fc-card{margin-top:-78px;}
