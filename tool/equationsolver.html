@@ -21,11 +21,9 @@
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" href="/css/fontawesome.min.css" type="text/css" />
 <script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/download.min.js"></script>
-<script type="text/javascript" src="/js/downloader.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
 </head>
-<!-- ondragstart:防拖拽生成新页面-->
-<body>
+<body oncontextmenu='self.event.returnValue=false'>
 <b>方程求解</b><br>
 <form name="form1" action="https://zh.numberempire.com/equationsolver.php" method="post">
 输入逗号以分隔多个方程:<br>
