@@ -52,16 +52,16 @@ var Freecell={
         this.msgboxButtons.append(this.msgboxButtonCancel);
         $("#msgboxButtonOK").click(function(){
             $("#fc-msgbox").hide(1000);
-            $("#fc-mask").hide;
+            Freecell.mask.hide();
         });
         $("#msgboxButtonRetry").click(function(){
             $("#fc-msgbox").hide(1000);
-            $("#fc-mask").hide();
+            Freecell.mask.hide();
             document.getElementById("fc-toolbar-start").click();
         });
         $("#msgboxButtonCancel").click(function(){
             $("#fc-msgbox").hide(1000);
-            $("#fc-mask").hide();
+            Freecell.mask.hide();
         });
         this.mask=$('<div id="fc-mask">');
         this.body.append(this.mask);
@@ -224,6 +224,7 @@ var Freecell={
             Freecell.win++;
             Freecell.score();
             Freecell.disableButton(true);
+            Freecell.msgboxButtons.show();
             return;
         }
         if(collectSth){
