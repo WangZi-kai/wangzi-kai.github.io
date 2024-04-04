@@ -22,17 +22,17 @@
 <link rel="stylesheet" href="/css/fontawesome.min.css" type="text/css" />
 <script src="/js/antidebugger.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/download.min.js"></script>
 <script type="text/javascript" src="/js/downloader.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
-<body ondragstart='return false' id="body">
+<body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
 <noscript><div align="center"><font size="50" color="red">本工具为JavaScript+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
 <br />
 <div style="text-align:center">
 <input type="text" id="link" placeholder="输入网址"></input>
 <button id="dl">点击下载&nbsp;&nbsp;<i class="fa fa-download"></i></button>
-<a id="dler" style="display:none">This is a downloader,needn't show!</a>
+<a id="dler" download="download" style="display:none">This is a downloader,needn't show!</a>
 </div>
 <footer>
 <p style="text-align:center;color:red"><strong>温馨提示：本工具不支持手机，链接请使用小写的http://或https://开头，如果有#号请删除，此符号只用于页面定位，无影响；有时可能会直接打开，无法下载，代表我们不支持这个网站（可能是浏览器的原因，请<a href="https://www.google.cn/intl/zh-CN/chrome/">点击此处</a>下载浏览器）或者网站在您的设备上无法打开，后者请检查网络和链接是否能正常访问；如果下载时扩展名有问题，下载以后修改扩展名即可！</strong></p>
