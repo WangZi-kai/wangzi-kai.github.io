@@ -27,6 +27,7 @@
 <meta name="renderer" content="webkit">
 <link rel="stylesheet" type="text/css" id="layuicss-layer" href="/css/choice/layer.css"/>
 <link rel="stylesheet" type="text/css" href="/css/fontawesome.min.css"/>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
 <script src="/js/antidebugger.js"></script>
 <style>
 body {
@@ -43,7 +44,7 @@ body {
 <script src="/js/jquery.min.js"></script>
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
-<body ondragstart='return false' class="group-page">
+<body ondragstart='return false' oncontextmenu='self.event.returnValue=false' class="group-page">
 <div id="body" class="container">
 <div style="text-align: center;" id="wrapper">
 <div class="search-area container">
