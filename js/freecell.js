@@ -1,5 +1,14 @@
 $(function(){
     Freecell.Initialize();
+    $("#msgboxButtonOK").click(function(){
+        $("#fc-msgbox").hide(1000);
+    });
+    $("#msgboxButtonRetry").click(function(){
+        document.getElementById("fc-toolbar-start").click();
+    });
+    $("#msgboxButtonCancel").click(function(){
+        $("#fc-msgbox").hide(1000);
+    });
 });
 var Freecell={    
     Initialize:function(){
@@ -44,11 +53,11 @@ var Freecell={
         this.msgbox.append(this.msgboxContent);
         this.msgboxButtons=$('<div id="fc-msgbox-buttons" class="fc-buttons">');
         this.msgbox.append(this.msgboxButtons);
-        this.msgboxButtonOK=$('<a>').text('确认').attr('href','javascript:void(0)');
+        this.msgboxButtonOK=$('<a>').text('确认').attr('id','msgboxButtonOK').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonOK);
-        this.msgboxButtonRetry=$('<a>').text('重玩').attr('href','javascript:void(0)');
+        this.msgboxButtonRetry=$('<a>').text('重玩').attr('id','msgboxButtonRetry').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonRetry);
-        this.msgboxButtonCancel=$('<a>').text('取消').attr('href','javascript:void(0)');
+        this.msgboxButtonCancel=$('<a>').text('取消').attr('id','msgboxButtonCancel').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonCancel);
         this.mask=$('<div id="fc-mask">');
         this.body.append(this.mask);
