@@ -2,12 +2,14 @@ $(function(){
     Freecell.Initialize();
     $("#msgboxButtonOK").click(function(){
         $("#fc-msgbox").hide(1000);
+        $("#fc-mask").hide;
     });
     $("#msgboxButtonRetry").click(function(){
         document.getElementById("fc-toolbar-start").click();
     });
     $("#msgboxButtonCancel").click(function(){
         $("#fc-msgbox").hide(1000);
+        $("#fc-mask").hide();
     });
 });
 var Freecell={    
