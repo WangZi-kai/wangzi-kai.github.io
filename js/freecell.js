@@ -292,7 +292,7 @@ var Freecell={
             if(!Freecell.finished){
                 swal({
                     title: '确认放弃当前进度，开始新游戏？',
-                    icon: 'warning',
+                    type: 'info',
                     showCancelButton: 'true',
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
