@@ -11,7 +11,7 @@ var Freecell={
         fc.append(this.body);
         this.toolbar=$('<div id="fc-toolbar" class="fc-buttons">');
         this.body.append(this.toolbar);
-        this.startButton=$('<a id="fc-toolbar-start" href="javascript:void(0)">开始/重玩</a>');
+        this.startButton=$('<a id="fc-toolbar-start" href="javascript:void(0)">新游戏</a>');
         this.toolbar.append(this.startButton);
         this.oprZone=$('<div id="fc-oprzone">');
         this.body.append(this.oprZone);
