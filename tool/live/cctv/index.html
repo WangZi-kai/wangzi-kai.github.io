@@ -18,9 +18,10 @@
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" href="/css/fontawesome.min.css" type="text/css" />
 <script src="/js/antidebugger.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
 </head>
 <!-- ondragstart:防拖拽生成新页面-->
-<body ondragstart='return false' id="body">
+<body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
 <noscript><div align="center"><font size="50" color="red">本工具为H5工具，检测到你的浏览器不支持JavaScript，对本页面无影响，对观看体验可能会有影响</font></div><br /><br /></noscript>
 <br />
 <a href="/tool/live/">返回直播首页</a>
