@@ -4,18 +4,18 @@
 .fc-buttons a:link,.fc-buttons a:visited{width:auto !important;width:50px;min-width:50px;padding:1px 5px;text-align:center;margin:2px 5px;border:1px #06c solid;display:inline-block;text-decoration:none;color:#06c;background:#fff;}
 .fc-buttons a:hover{color:#fff;background:#06c;}
 #fc-table{clear:left;float:left;border:1px #eee solid;height:auto !important;height:364px;min-height:364px;}
-.fc-column{float:left;width:80px;text-align:center;padding:90px 0px;}
+.fc-column{float:left;width:84px;text-align:center;padding:90px 0px;}
 .fc-card{width:64px;text-align:left;background-color:#fff;position:relative;}
 .fc-column .fc-card{margin-top:-78px;}
 #fc-cells{margin-right:10px;}
 .fc-cell{width:64px;border:1px #666 solid;height:103px;margin:2px;float:left;padding:1px;}
-#fc-info{width:64px;border-style:none;font-size:40px;text-align:left;float:left;}
+#fc-info{width:80px;border-style:none;font-size:40px;text-align:left;float:left;}
 #fc-logo span{display:block;padding:0 5px;margin:-30px 0;}
 #fc-logo span.fc-top{margin-top:-10px !important;margin-top:-5px;}
 #fc-logo span.fc-down{margin-bottom:-10px;}
 #fc-score{font-weight:bold;font-size:10px;color:#06c;margin-top:10px !important;margin-top:6px;}
 #fc-score span{width:26px;display:inline-block;text-align:right;}
-#fc-score span.fc-label{width:30px;}
+#fc-score span.fc-label{width:50px;}
 #fc-time{clear:left;margin-bottom:5px;}
 #fc-time span{width:auto !important;width:30px;min-width:30px;display:inline-block;text-align:right;margin-right:40px;}
 #fc-time span.fc-label{font-weight:bold;width:65px;margin-right:5px;}
