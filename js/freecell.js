@@ -306,7 +306,7 @@ var Freecell={
                     }else{
                         return;
                     }
-                });
+                };
             }
             Freecell.start();
         });
