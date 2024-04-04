@@ -290,7 +290,7 @@ var Freecell={
         });
         this.startButton.click(function(){
             if(!Freecell.finished){
-                swal.fire({
+                swal({
                     title: '确认放弃当前进度，开始新游戏？',
                     icon: 'warning',
                     showCancelButton: 'true',
