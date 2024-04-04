@@ -299,13 +299,13 @@ var Freecell={
                     confirmButtonColor: '#208ADB',
                     cancelButtonColor: '#626F75'
                 }).then((result) => {
-            if (result.isConfirmed) {
-                    Freecell.stopTimer();
-                    Freecell.lose++;
-                    Freecell.score();
-                }else{
-                    return;
-                }
+                    if (result.isConfirmed) {
+                        Freecell.stopTimer();
+                        Freecell.lose++;
+                        Freecell.score();
+                    }else{
+                        return;
+                    }
                 });
             }
             Freecell.start();
