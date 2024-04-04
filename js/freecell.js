@@ -1,18 +1,5 @@
 $(function(){
     Freecell.Initialize();
-    $("#msgboxButtonOK").click(function(){
-        $("#fc-msgbox").hide(1000);
-        $("#fc-mask").hide;
-    });
-    $("#msgboxButtonRetry").click(function(){
-        $("#fc-msgbox").hide(1000);
-        $("#fc-mask").hide();
-        document.getElementById("fc-toolbar-start").click();
-    });
-    $("#msgboxButtonCancel").click(function(){
-        $("#fc-msgbox").hide(1000);
-        $("#fc-mask").hide();
-    });
 });
 var Freecell={    
     Initialize:function(){
@@ -63,6 +50,19 @@ var Freecell={
         this.msgboxButtons.append(this.msgboxButtonRetry);
         this.msgboxButtonCancel=$('<a>').text('取消').attr('id','msgboxButtonCancel').attr('href','javascript:void(0)');
         this.msgboxButtons.append(this.msgboxButtonCancel);
+        $("#msgboxButtonOK").click(function(){
+            $("#fc-msgbox").hide(1000);
+            $("#fc-mask").hide;
+        });
+        $("#msgboxButtonRetry").click(function(){
+            $("#fc-msgbox").hide(1000);
+            $("#fc-mask").hide();
+            document.getElementById("fc-toolbar-start").click();
+        });
+        $("#msgboxButtonCancel").click(function(){
+            $("#fc-msgbox").hide(1000);
+            $("#fc-mask").hide();
+        });
         this.mask=$('<div id="fc-mask">');
         this.body.append(this.mask);
         this.availableCells=0;
