@@ -290,7 +290,13 @@ var Freecell={
         });
         this.startButton.click(function(){
             if(!Freecell.finished){
-                if(confirm('放弃当前进度？')){
+                if(swal({
+                    title: '确认放弃当前进度，开始新游戏？',
+                    type: 'info',
+                    showCancelButton: 'true',
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                })){
                     Freecell.stopTimer();
                     Freecell.lose++;
                     Freecell.score();
