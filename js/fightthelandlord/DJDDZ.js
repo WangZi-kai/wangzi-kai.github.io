@@ -142,7 +142,7 @@ DJDDZ.ToPlay=function(){//出牌
                 GMain.DealerNum++;
                 DJDDZ.ToPlay();//下一位出牌
             }else{
-                alert("出牌不符合规则，请重新选择！");
+                swal("出牌不符合规则，请重新选择！","","warning");
             }
         }
         var Button3=new JControls.Button({x:450,y:0},{width:100,height:50}).setText("提示").setBGImage(ResourceData.Images.btn);
