@@ -720,7 +720,7 @@ JFunction.PreLoadData = function (url) {
                     imageLoadPost();
                 }
                 ResourceData.Images[m2].data.onerror = function () {
-                    alert("资源加载失败！")
+                    swal("资源加载失败","请检查浏览器设置、网络连接，刷新页面重试","error")
                     return;
                 }
             }
@@ -744,7 +744,7 @@ JFunction.PreLoadData = function (url) {
                     audioLoadPost();
                 }, false);
                 ResourceData.Sound[m1].data.addEventListener("error", function () {
-                    alert("资源加载失败！")
+                    swal("资源加载失败","请检查浏览器设置、网络连接，刷新页面重试","error")
                     return;
                 }, false);
             }
