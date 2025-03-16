@@ -1,0 +1,955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-cmn-Hans-CN">
+<head>
+<meta charset="utf-8">
+<title>色环电阻参数计算器 - hi工具</title>
+<meta name="keywords" content=""/>
+<meta name="description" content="hi工具，方便你的的生活！" />
+<meta name="keywords" content="hi,工具,方便,实用,色环电阻,在线,读取,阻值,转换,电阻色环,四环电阻,五环电阻,六环电阻,电阻器,颜色,编码,计算器,4频带,5频带,6频带,电阻值,公差,参数" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+<script src="/js/antidebugger.js"></script>
+<script type="text/javascript" src="/js/sweetalert.js"></script>
+<style type="text/css">
+.color_black1 {text-align:center; padding:5PX; width:40px;}
+.color_black1 {background-color:#000; color:#FFF;}
+.color_black1 {text-align:center; padding:5PX; width:40px;}
+.color_black1 {background-color:#000; color:#FFF;}
+.color_blue1 {text-align:center; padding:5PX; width:40px;}
+.color_blue1 {background-color:#00F; color:#FFF;}
+.color_blue1 {text-align:center; padding:5PX; width:40px;}
+.color_blue1 {background-color:#00F; color:#FFF;}
+.color_brown1 {text-align:center; padding:5PX; width:40px;}
+.color_brown1 {background-color:#630; color:#FFF;}
+.color_brown1 {text-align:center; padding:5PX; width:40px;}
+.color_brown1 {background-color:#630; color:#FFF;}
+.color_golden1 {text-align:center; padding:5PX; width:40px;}
+.color_golden1 {background-color:#D8A649; color:#FFF;}
+.color_golden1 {text-align:center; padding:5PX; width:40px;}
+.color_golden1 {background-color:#D8A649; color:#FFF;}
+.color_gray1 {text-align:center; padding:5PX; width:40px;}
+.color_gray1 {background-color:#666; color:#FFF;}
+.color_gray1 {text-align:center; padding:5PX; width:40px;}
+.color_gray1 {background-color:#666; color:#FFF;}
+.color_green1 {text-align:center; padding:5PX; width:40px;}
+.color_green1 {background-color:#0C0; color:#FFF;}
+.color_green1 {text-align:center; padding:5PX; width:40px;}
+.color_green1 {background-color:#0C0; color:#FFF;}
+.color_local1 {text-align:center; padding:5PX; width:40px;}
+.color_local1 {border:#000 solid 2PX; color:#000;}
+.color_local1 {text-align:center; padding:5PX; width:40px;}
+.color_local1 {border:#000 solid 2PX; color:#000;}
+.color_orange1 {text-align:center; padding:5PX; width:40px;}
+.color_orange1 {background-color:#F60; color:#FFF;}
+.color_orange1 {text-align:center; padding:5PX; width:40px;}
+.color_orange1 {background-color:#F60; color:#FFF;}
+.color_purple1 {text-align:center; padding:5PX; width:40px;}
+.color_purple1 {background-color:#90F; color:#FFF;}
+.color_purple1 {text-align:center; padding:5PX; width:40px;}
+.color_purple1 {background-color:#90F; color:#FFF;}
+.color_red1 {text-align:center; padding:5PX; width:40px;}
+.color_red1 {background-color:#F00; color:#FFF;}
+.color_red1 {text-align:center; padding:5PX; width:40px;}
+.color_red1 {background-color:#F00; color:#FFF;}
+.color_silvery1 {text-align:center; padding:5PX; width:40px;}
+.color_silvery1 {background-color:#D1D1D1; color:#000;}
+.color_silvery1 {text-align:center; padding:5PX; width:40px;}
+.color_silvery1 {background-color:#D1D1D1; color:#000;}
+.color_write1 {text-align:center; padding:5PX; width:40px;}
+.color_write1 {background-color:#FFF; color:#000;}
+.color_write1 {text-align:center; padding:5PX; width:40px;}
+.color_write1 {background-color:#FFF; color:#000;}
+.color_yellow1 {text-align:center; padding:5PX; width:40px;}
+.color_yellow1 {background-color:#FF0; color:#000;}
+.color_yellow1 {text-align:center; padding:5PX; width:40px;}
+.color_yellow1 {background-color:#FF0; color:#000;}
+</style>
+<!--[if lt IE 9]>
+<script src="/js/html5.min.js"></script>
+<![endif]-->
+</head>
+  <style>
+table { border:1px; border-collapse:collapse;}
+input { padding:5px; font-size:18px;  border:none;}
+input:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+.none { display:none;}
+.cursor { cursor:pointer;}
+.cursor:hover { background-color:#eee; color:#f00; font-weight:bold;}
+.headbg { background-color:#f7f7f7; padding:10px 0; margin-top:0px; border-top:#ff6600 solid 5px;}
+.inputbg { background-color:#eee; padding:10px 0; margin-top:10px; border-bottom:#666 solid 2px;}
+.button {padding:10px 60px; background-color:#327EE7; border:none; font-size:20px; color:#FFF; cursor:pointer; border-top-left-radius:18px;  border-top-right-radius:18px;}
+.color_black,.color_brown,.color_red,.color_orange,
+.color_yellow,.color_green,.color_blue,.color_purple,
+.color_gray,.color_write,.color_golden,.color_silvery,
+.color_local { text-align:center; padding:5PX; width:40px;}
+
+.color_black { background-color:#000; color:#FFF;}
+.color_brown { background-color:#630; color:#FFF;}
+.color_red { background-color:#F00; color:#FFF;}
+.color_orange { background-color:#F60; color:#FFF;}
+.color_yellow { background-color:#FF0; color:#000;}
+.color_green { background-color:#0C0; color:#FFF;}
+.color_blue { background-color:#00F; color:#FFF;}
+.color_purple { background-color:#90F; color:#FFF;}
+.color_gray { background-color:#666; color:#FFF;}
+.color_write { background-color:#FFF; color:#000;}
+.color_golden { background-color:#D8A649; color:#FFF;}
+.color_silvery { background-color:#D1D1D1; color:#000;}
+.color_local { border:#000 solid 2PX; color:#000;}
+.mi {font-size:8px; font-style:normal; vertical-align:8px;}
+  </style>
+<body>
+<div style="width:1264px; text-align:center; margin:10px auto; font-size:36px;">
+  色环电阻参数计算器
+</div>
+<div style="height:100px; width:220px; position:relative; margin:80px auto 0 auto;">
+	<div style=" position:absolute; background-color:#c9c9c9; height:20px; width:320px; margin:10px 0; top:19px; left:-50px;"></div>
+    <div style=" position:absolute; background-color:#46B6EC; height:80px; width:50px; top:0; left:0; border-radius:18px 10px 10px 18px ;"></div>
+    <div style=" position:absolute; background-color:#46B6EC; height:60px; width:120px; margin:10px 0; top:0; left:50px;"></div>
+    <div style=" position:absolute; background-color:#46B6EC; height:80px; width:50px; top:0; right:0; border-radius: 10px 18px 18px 10px ;"></div>
+    
+
+    <div id="color1-color" style=" position:absolute; padding:0; height:80px; width:12px; top:0; left:25px; "></div>
+    <div id="color2-color" style=" position:absolute; padding:0; height:60px; width:12px; top:10px; left:60px;"></div>
+    <div id="color5-color" style=" position:absolute; padding:0; height:60px; width:12px; top:10px; left:90px;"></div><!-- threeth -->
+    <div id="color3-color" style=" position:absolute; padding:0; height:60px; width:12px; top:10px; left:120px;"></div><!-- chengshu -->
+    <div id="color4-color" style=" position:absolute; padding:0; height:60px; width:12px; top:10px; left:150px;"></div><!-- wucha -->    
+    <div id="color6-color" style=" position:absolute; padding:0; height:80px; width:12px; top:0; right:25px; "></div><!-- wendu -->
+    
+    <div id="color1-line" style=" position:absolute; padding:0; background-color:#000; height:30px; width:1px; top:-35px; left:30px; display:none; "></div>
+    <div id="color2-line" style=" position:absolute; padding:0; background-color:#000; height:40px; width:1px; top:-35px; left:65px; display:none; "></div>
+    <div id="color5-line" style=" position:absolute; padding:0; background-color:#000; height:40px; width:1px; top:-35px; left:95px; display:none; "></div><!-- threeth -->
+    <div id="color3-line" style=" position:absolute; padding:0; background-color:#000; height:40px; width:1px; top:-35px; left:125px; display:none; "></div><!-- chengshu -->
+    <div id="color4-line" style=" position:absolute; padding:0; background-color:#000; height:40px; width:1px; top:-35px; left:155px; display:none; "></div><!-- wucha -->    
+    <div id="color6-line" style=" position:absolute; padding:0; background-color:#000; height:30px; width:1px; top:-35px; right:30px; display:none;  "></div><!-- wendu -->
+    
+    <div id="color1-text" style=" position:absolute; height:20px; width:12px; top:-57px; left:25px; "></div>
+    <div id="color2-text" style=" position:absolute; height:20px; width:12px; top:-57px; left:60px;"></div>
+    <div id="color5-text" style=" position:absolute; height:20px; width:12px; top:-57px; left:90px;"></div><!-- threeth -->
+    <div id="color3-text" style=" position:absolute; height:20px; width:12px; top:-57px; left:120px;"></div><!-- chengshu -->
+    <div id="color4-text" style=" position:absolute; height:20px; width:12px; top:-57px; left:150px;"></div><!-- wucha -->    
+    <div id="color6-text" style=" position:absolute; height:20px; width:12px; top:-57px; right:25px; "></div><!-- wendu -->
+
+</div>
+<div style="width:1264px; text-align:center; margin:10px auto 0px auto;">
+<input class="button" type="button" id="sel4" value=" 4 色环 " onclick="sel(4);" style=" margin-top:10px; margin-bottom:0px; background-color:#F60; padding-bottom:12px;" />
+      <input class="button" type="button" id="sel5" value=" 5 色环 " onclick="sel(5);" style=" margin-top:10px; margin-bottom:0px; background-color:gray;" />
+      <input class="button" type="button" id="sel6" value=" 6 色环 " onclick="sel(6);" style=" margin-top:10px; margin-bottom:0px; background-color:gray;" />
+</div>
+
+<div style="width:1264px; text-align:center; margin:0 auto;">
+<table border="0" style="margin: 0 auto;">
+  <tr>
+    <td>
+      <div class="headbg">第1位数字</div>
+      <table width="200" border="1">
+        <tr>
+          <td>颜色</td>
+          <td align="left">参数</td>
+        </tr>
+        <tr>
+          <td class="color_black cursor" onclick="set('color1',0,'color_black');">黑</td>
+          <td align="left">0</td>
+        </tr>
+        <tr>
+          <td class="color_brown cursor" onclick="set('color1',1,'color_brown');">棕</td>
+          <td align="left">1</td>
+        </tr>
+        <tr>
+          <td class="color_red cursor" onclick="set('color1',2,'color_red');">红</td>
+          <td align="left">2</td>
+        </tr>
+        <tr>
+          <td class="color_orange cursor" onclick="set('color1',3,'color_orange');">橙</td>
+          <td align="left">3</td>
+        </tr>
+        <tr>
+          <td class="color_yellow cursor" onclick="set('color1',4,'color_yellow');">黄</td>
+          <td align="left">4</td>
+        </tr>
+        <tr>
+          <td class="color_green cursor" onclick="set('color1',5,'color_green');">绿</td>
+          <td align="left">5</td>
+        </tr>
+        <tr>
+          <td class="color_blue cursor" onclick="set('color1',6,'color_blue');">蓝</td>
+          <td align="left">6</td>
+        </tr>
+        <tr>
+          <td class="color_purple cursor" onclick="set('color1',7,'color_purple');">紫</td>
+          <td align="left">7</td>
+        </tr>
+        <tr>
+          <td class="color_gray cursor" onclick="set('color1',8,'color_gray');">灰</td>
+          <td align="left">8</td>
+        </tr>
+        <tr>
+          <td class="color_write cursor" onclick="set('color1',9,'color_write');">白</td>
+          <td align="left">9</td>
+        </tr>
+        <tr>
+          <td class="color_golden cursor" onclick="set('color1','','none');">金</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_silvery cursor" onclick="set('color1','','none');">银</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_local cursor" onclick="set('color1','','none');">本色</td>
+          <td align="left"></td>
+        </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;"><input name="textfield" id="color1" type="text"  size="6" maxlength="1" /></div>
+    
+    
+    </td>
+    <td>
+      <div class="headbg">第2位数字</div>
+      <table width="200" border="1">
+        <tr>
+          <td>颜色</td>
+          <td align="left">参数</td>
+        </tr>
+        <tr>
+          <td class="color_black cursor" onclick="set('color2',0,'color_black');">黑</td>
+          <td align="left">0</td>
+        </tr>
+        <tr>
+          <td class="color_brown cursor" onclick="set('color2',1,'color_brown');">棕</td>
+          <td align="left">1</td>
+        </tr>
+        <tr>
+          <td class="color_red cursor" onclick="set('color2',2,'color_red');">红</td>
+          <td align="left">2</td>
+        </tr>
+        <tr>
+          <td class="color_orange cursor" onclick="set('color2',3,'color_orange');">橙</td>
+          <td align="left">3</td>
+        </tr>
+        <tr>
+          <td class="color_yellow cursor" onclick="set('color2',4,'color_yellow');">黄</td>
+          <td align="left">4</td>
+        </tr>
+        <tr>
+          <td class="color_green cursor" onclick="set('color2',5,'color_green');">绿</td>
+          <td align="left">5</td>
+        </tr>
+        <tr>
+          <td class="color_blue cursor" onclick="set('color2',6,'color_blue');">蓝</td>
+          <td align="left">6</td>
+        </tr>
+        <tr>
+          <td class="color_purple cursor" onclick="set('color2',7,'color_purple');">紫</td>
+          <td align="left">7</td>
+        </tr>
+        <tr>
+          <td class="color_gray cursor" onclick="set('color2',8,'color_gray');">灰</td>
+          <td align="left">8</td>
+        </tr>
+        <tr>
+          <td class="color_write cursor" onclick="set('color2',9,'color_write');">白</td>
+          <td align="left">9</td>
+        </tr>
+        <tr>
+          <td class="color_golden cursor" onclick="set('color2','','none');">金</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_silvery cursor" onclick="set('color2','','none');">银</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_local cursor" onclick="set('color2','','none');">本色</td>
+          <td align="left"></td>
+        </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;"><input name="color3"  id="color2" type="text"  size="6" maxlength="1" /></div>
+    </td>
+    <td id="three" style="display:none;"><div class="headbg">第3位数字<br />
+      3th  figure </div>
+      <table width="200" border="1">
+        <tr>
+          <td>颜色</td>
+          <td align="left">参数</td>
+        </tr>
+        <tr>
+          <td class="color_black cursor" onclick="set('color5',0,'color_black');">黑</td>
+          <td align="left">0</td>
+        </tr>
+        <tr>
+          <td class="color_brown cursor" onclick="set('color5',1,'color_brown');">棕</td>
+          <td align="left">1</td>
+        </tr>
+        <tr>
+          <td class="color_red cursor" onclick="set('color5',2,'color_red');">红</td>
+          <td align="left">2</td>
+        </tr>
+        <tr>
+          <td class="color_orange cursor" onclick="set('color5',3,'color_orange');">橙</td>
+          <td align="left">3</td>
+        </tr>
+        <tr>
+          <td class="color_yellow cursor" onclick="set('color5',4,'color_yellow');">黄</td>
+          <td align="left">4</td>
+        </tr>
+        <tr>
+          <td class="color_green cursor" onclick="set('color5',5,'color_green');">绿</td>
+          <td align="left">5</td>
+        </tr>
+        <tr>
+          <td class="color_blue cursor" onclick="set('color5',6,'color_blue');">蓝</td>
+          <td align="left">6</td>
+        </tr>
+        <tr>
+          <td class="color_purple cursor" onclick="set('color5',7,'color_purple');">紫</td>
+          <td align="left">7</td>
+        </tr>
+        <tr>
+          <td class="color_gray cursor" onclick="set('color5',8,'color_gray');">灰</td>
+          <td align="left">8</td>
+        </tr>
+        <tr>
+          <td class="color_write cursor" onclick="set('color5',9,'color_write');">白</td>
+          <td align="left">9</td>
+        </tr>
+        <tr>
+          <td class="color_golden cursor" onclick="set('color5','','none');">金</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_silvery cursor" onclick="set('color5','','none');">银</td>
+          <td align="left"></td>
+        </tr>
+        <tr>
+          <td class="color_local cursor" onclick="set('color5','','none');">本色</td>
+          <td align="left"></td>
+        </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;"><input name="color4"  id="color5" type="text"  size="6" maxlength="1" /></div>
+    </td>
+    <td><div class="headbg">倍率(乘数)</div>
+      <table border="1">
+        <tr>
+          <td>颜色</td>
+          <td align="left">参数</td>
+        </tr>
+        <tr>
+          <td class="color_black cursor" onclick="set('color3',1,'color_black','multi');">黑</td>
+          <td align="left">10<i class="mi">0</i>/1倍</td>
+        </tr>
+        <tr>
+          <td class="color_brown cursor" onclick="set('color3',10,'color_brown','multi');">棕</td>
+          <td align="left">10<i class="mi">1</i>/10倍</td>
+        </tr>
+        <tr>
+          <td class="color_red cursor" onclick="set('color3',100,'color_red','multi');">红</td>
+          <td align="left">10<i class="mi">2</i>/100倍</td>
+        </tr>
+        <tr>
+          <td class="color_orange cursor" onclick="set('color3',1000,'color_orange','multi');">橙</td>
+          <td align="left">10<i class="mi">3</i>/1 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_yellow cursor" onclick="set('color3',10000,'color_yellow','multi');">黄</td>
+          <td align="left">10<i class="mi">4</i>/10 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_green cursor" onclick="set('color3',100000,'color_green','multi');">绿</td>
+          <td align="left">10<i class="mi">5</i>/100 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_blue cursor" onclick="set('color3',1000000,'color_blue','multi');">蓝</td>
+          <td align="left">10<i class="mi">6</i>/1000 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_purple cursor" onclick="set('color3',10000000,'color_purple','multi');">紫</td>
+          <td align="left">10<i class="mi">7</i>/10 000 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_gray cursor" onclick="set('color3',100000000,'color_gray','multi');">灰</td>
+          <td align="left" style="font-size:14px;">10<i class="mi">8</i>/100 000 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_write cursor" onclick="set('color3',1000000000,'color_write','multi');">白</td>
+          <td align="left">10<i class="mi">9</i>/1 000 000 000倍</td>
+        </tr>
+        <tr>
+          <td class="color_golden cursor" onclick="set('color3',0.1,'color_golden','multi');">金</td>
+          <td align="left">10<i class="mi">-1</i>/0.1倍</td>
+        </tr>
+        <tr>
+          <td class="color_silvery cursor" onclick="set('color3',0.01,'color_silvery','multi');">银</td>
+          <td align="left">10<i class="mi">-2</i>/0.01</td>
+        </tr>
+        <tr>
+          <td class="color_local cursor" onclick="set('color3','','none','multi');">本色</td>
+          <td align="left">&nbsp;</td>
+        </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;">乘以 <input name="color2" id="color3" type="text"  size="6"  maxlength="9" /> 倍</div>
+    </td>
+    <td><div class="headbg">电阻值允差(误差)</div>
+      <table width="200" border="1">
+        <tr>
+          <td>颜色</td>
+          <td align="left">参数</td>
+        </tr>
+        <tr>
+          <td class="color_black cursor" onclick="set('color4','','none','wucha');">黑</td>
+          <td align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="color_brown cursor" onclick="set('color4',1,'color_brown','wucha');">棕</td>
+          <td align="left">1%(F)</td>
+        </tr>
+        <tr>
+          <td class="color_red cursor" onclick="set('color4',2,'color_red','wucha');">红</td>
+          <td align="left">2%(G)</td>
+        </tr>
+        <tr>
+          <td class="color_orange cursor" onclick="set('color4',3,'color_orange','wucha');">橙</td>
+          <td align="left">3%</td>
+        </tr>
+        <tr>
+          <td class="color_yellow cursor" onclick="set('color4','','none','wucha');">黄</td>
+          <td align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="color_green cursor" onclick="set('color4',0.5,'color_green','wucha');">绿</td>
+          <td align="left">0.5%(D)</td>
+        </tr>
+        <tr>
+          <td class="color_blue cursor" onclick="set('color4',0.25,'color_blue','wucha');">蓝</td>
+          <td align="left">0.25%(C)</td>
+        </tr>
+        <tr>
+          <td class="color_purple cursor" onclick="set('color4',0.1,'color_purple','wucha');">紫</td>
+          <td align="left">0.1%(B)</td>
+        </tr>
+        <tr>
+          <td class="color_gray cursor" onclick="set('color4',0.05,'color_gray','wucha');">灰</td>
+          <td align="left">0.05%(A)</td>
+        </tr>
+        <tr>
+          <td class="color_write cursor" onclick="set('color4','','none','wucha');">白</td>
+          <td align="left">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="color_golden cursor" onclick="set('color4',5,'color_golden','wucha');">金</td>
+          <td align="left">5%(J)</td>
+        </tr>
+        <tr>
+          <td class="color_silvery cursor" onclick="set('color4',10,'color_silvery','wucha');">银</td>
+          <td align="left">10%(K)</td>
+        </tr>
+        <tr>
+          <td class="color_local cursor" onclick="set('color4','20','self','wucha');">本色</td>
+          <td align="left">20%(M)</td>
+        </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;"><span style="font-size:20px; margin-right:5px;">±</span><input name="color" id="color4" type="text" size="4" maxlength="4" /><span style="font-size:20px; margin-left:5px;">%</span> 误差</div>
+    </td>
+    <td  id="six" style="display:none;"><div class="headbg">温度系数<br />
+    TRC（PPM℃ ）</div>
+<table width="200" border="1">
+      <tr>
+        <td>颜色</td>
+        <td align="left">参数</td>
+      </tr>
+      <tr>
+        <td class="color_black cursor" onclick="set('color6',250,'color_black','wendu');">黑</td>
+        <td align="left">±250℃ </td>
+      </tr>
+      <tr>
+        <td class="color_brown cursor" onclick="set('color6',100,'color_brown','wendu');">棕</td>
+        <td align="left">±100℃ </td>
+      </tr>
+      <tr>
+        <td class="color_red cursor" onclick="set('color6',50,'color_red','wendu');">红</td>
+        <td align="left">±50℃ </td>
+      </tr>
+      <tr>
+        <td class="color_orange cursor" onclick="set('color6',15,'color_orange','wendu');">橙</td>
+        <td align="left">±15℃ </td>
+      </tr>
+      <tr>
+        <td class="color_yellow cursor" onclick="set('color6',25,'color_yellow','wendu');">黄</td>
+        <td align="left">±25℃ </td>
+      </tr>
+      <tr>
+        <td class="color_green cursor" onclick="set('color6',20,'color_green','wendu');">绿</td>
+        <td align="left">±20℃ </td>
+      </tr>
+      <tr>
+        <td class="color_blue cursor" onclick="set('color6',10,'color_blue','wendu');">蓝</td>
+        <td align="left">±10℃ </td>
+      </tr>
+      <tr>
+        <td class="color_purple cursor" onclick="set('color6',5,'color_purple','wendu');">紫</td>
+        <td align="left">±5℃ </td>
+      </tr>
+      <tr>
+        <td class="color_gray cursor" onclick="set('color6','','none','wendu');">灰</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="color_write cursor" onclick="set('color6',1,'color_write','wendu');">白</td>
+        <td align="left">±1℃ </td>
+      </tr>
+      <tr>
+        <td class="color_golden cursor" onclick="set('color6','','none','wendu');">金</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="color_silvery cursor" onclick="set('color6','','none','wendu');">银</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="color_local cursor" onclick="set('color6','','none','wendu');">本色</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+    </table>
+    <div class="inputbg" style="width:auto;padding: 10px 0;margin-top: 12px;border-bottom: #666 solid 2px;"><span style="font-size:20px; margin-right:5px;">±</span><input name="color5" id="color6" type="text" size="4" maxlength="8" />    ℃</div>
+ </td>
+  </tr>
+  </table>
+</div>
+
+<div style="width:190px; padding:10px;  text-align:left; margin:0 auto; position:fixed; top:20px; right:10px; background-color:#fff; border:#CCC solid 1px; ">
+    <span style="font-size:12px; width:300px; text-align:left; ">阻值: <span id="nval"></span></span>
+    <span id="rang" style="font-size:12px; width:300px; text-align:left; display:none;"><br />误差: <span id="sval"></span>    ~ <span id="bval"></span></span>
+    <div id="trc" style="font-size:12px; width:300px; text-align:left; display:none;">温度： <span id="trcval"></span> <a href="javascript:void(0);" onclick="shownote();" style="font-size:12px; ">参数说明</a><br />
+    
+    </div>
+</div>
+<div id="note" style="width:190px; padding:10px; font-size:12px; text-align:left; margin:0 auto; position:fixed; top:89px; right:10px; background-color:#ff0; z-index:1000; display:none;" onclick="shownote();">
+    电阻温度系数（temperature coefficient of resistance，简称TCR）表示电阻当温度改变1摄氏度时，电阻值的相对变化，单位为ppm/℃(ppm = part per million 百万分一 = 0.000001 = 10e-6(10的-6次方)),一般代表阻值和精度。有负温度系数、正温度系数及在某一特定温度下电阻值会发生突变的临界温度系数。<br />
+    例如，铂的温度系数是0.00374/℃。它是一个百分数。在20℃时，一个1000欧的铂电阻，当温度升高到21℃时，它的电阻将变为1003.74欧。铜的电阻温度系数大约是3000至6000ppm。
+    </div>
+<div style="width:190px; text-align:center; padding:10px; position:fixed; top:89px; right:10px; background-color:#fff; border:#CCC solid 1px;">
+	<input class="button" type="button" name="button2" id="button4" value=" 计算 " onclick="cal4color(4);" style=" margin-top:15px; margin-bottom:15px;  border-radius:10px;" />
+	<input class="button" type="button" name="button3" id="button5" value=" 计算 " onclick="cal4color(5);" style=" margin-top:15px; margin-bottom:15px;  border-radius:10px; display:none;" />
+	<input class="button" type="button" name="button4" id="button6" value=" 计算 " onclick="cal4color(6);" style=" margin-top:15px; margin-bottom:15px;  border-radius:10px; display:none;" />
+</div>
+
+
+
+<div style="width:190px; padding:10px; font-size:12px; text-align:left;  margin:0 auto; position:fixed; top:200px; right:10px; background-color:#fff; border:#CCC solid 1px; ">
+    <a href="javascript:void(0);" onclick="showcolorringnote();" style="font-size:12px; ">色环方向识别方法</a>
+    <div id="colorringnote" style="width:100%; text-align:left; display:none; font-size:12px; height:350px; overflow:scroll; ">
+
+    <p><strong>方法一：误差环定位法</strong><br />
+误差环位于色环最右侧，常见颜色为金色、银色或棕色。其中金色和银色因特性特殊，不会出现在第一、第二环。若色环中出现这两种颜色，可直接判定为误差环（末尾环）。  </p>
+    <p><strong>方法二：间距观察法</strong><br />
+观察色环之间的空白间距，误差环（末尾环）与其他色环的间隔通常更大。若某一侧间距明显较宽，则该侧为末尾环所在方向。  </p>
+    <p><strong>方法三：标称值验证法</strong><br />
+尝试读取色环数值并与标称阻值对比。若读值不符合常规标称范围，则方向有误。例如：五色环“棕、黑、黑、黄、棕”对应阻值100×10?Ω=1MΩ（正常），反方向则读为140Ω（非标称值），可判定正向为正确方向。  </p>
+    <p><strong>方法四：实测对比法</strong><br />
+当正反色序的标称值均合理时，用万用表实测电阻值，对比两种色序的计算结果。实测阻值与某一方向计算值更接近时，该方向即为正确方向。  
+
+    <p>四色环电阻（普通精度）与五色环电阻（高精度）均可参考以上方法，优先结合误差环和间距法快速定位，再通过数值验证或实测确保准确性。</p>
+    </div>
+</div>
+<script>
+
+window.onload=function(){	
+	sel(4);
+}
+function set(idname,val,classname,circlename){
+	var j = 0;
+	var newval = val
+	
+	if(circlename == 'multi'){
+		
+		for(var i=0; i<25; i++){
+			newval = newval/10;
+			
+			j = j + 1;
+			if(newval==0.00001){
+				break;
+			}
+		}
+		j = (j-5);
+	}
+	
+	
+	console.log(j);
+	
+	if(circlename == 'multi'){
+		document.getElementById(idname+"-text").innerText = '10^'+j;
+	}else if(circlename == 'wendu'){
+		document.getElementById(idname+"-text").innerText = '±'+val+'℃';
+	}else if(circlename == 'wucha'){
+		document.getElementById(idname+"-text").innerText = '±'+val+'%';
+	}else{
+		document.getElementById(idname+"-text").innerText = val;		
+	}
+	
+	if(classname!='none'){
+		document.getElementById(idname).value = val;
+		document.getElementById(idname).parentNode.setAttribute("class", classname);
+		
+		document.getElementById(idname+"-color").setAttribute("class", classname);
+		document.getElementById(idname+"-line").setAttribute("class", classname);
+		document.getElementById(idname+"-text").style.display = "block";
+		
+		document.getElementById(idname+"-color").style.border = "none";
+	}else{
+		document.getElementById(idname).value = '';
+		document.getElementById(idname).parentNode.setAttribute("class", "inputbg");
+		
+		document.getElementById(idname+"-color").setAttribute("class", classname);
+		document.getElementById(idname+"-line").setAttribute("class", classname);
+		document.getElementById(idname+"-text").style.display = "none";
+	}
+	
+	if(classname=='self'){
+		document.getElementById(idname+"-color").style.display = "block";
+		document.getElementById(idname+"-color").style.borderLeft = "#1389ac solid 1px";
+		document.getElementById(idname+"-color").style.borderRight = "#1389ac solid 1px";
+		
+	}
+	
+		
+	
+	
+	
+	
+}
+function shownote(){
+	var note = document.getElementById('note').style.display;
+	if(note==""){
+		document.getElementById('note').style.display = "none";
+	}else{
+		document.getElementById('note').style.display = "";
+	}
+}
+function showcolorringnote(){
+	var note = document.getElementById('colorringnote').style.display;
+	if(note==""){
+		document.getElementById('colorringnote').style.display = "none";
+	}else{
+		document.getElementById('colorringnote').style.display = "";
+	}
+}
+function sel(n){
+	document.getElementById('sel4').style.backgroundColor = "gray";
+	document.getElementById('sel5').style.backgroundColor = "gray";
+	document.getElementById('sel6').style.backgroundColor = "gray";
+		document.getElementById('six').style.display = "none";
+	if (n==4){
+		document.getElementById('three').style.display = "none";
+		document.getElementById('six').style.display = "none";
+		document.getElementById('sel4').style.backgroundColor = "#f60";
+		
+		document.getElementById('sel4').style.paddingBottom = "12px";
+		document.getElementById('sel5').style.paddingBottom = "10px";
+		document.getElementById('sel6').style.paddingBottom = "10px";
+		
+		document.getElementById('button4').style.display = "";
+		document.getElementById('button5').style.display = "none";
+		document.getElementById('button6').style.display = "none";
+		
+		document.getElementById('color1-color').style.display = "";
+		document.getElementById('color2-color').style.display = "";
+		document.getElementById('color5-color').style.display = "none";<!-- threeth -->
+		document.getElementById('color3-color').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-color').style.display = "";<!-- wucha -->
+		document.getElementById('color6-color').style.display = "none";<!-- wendu -->
+		
+		document.getElementById('color5-color').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-color').style.left = "90px";<!-- chengshu -->
+		document.getElementById('color4-color').style.left = "180px";<!-- wucha --> 
+		document.getElementById('color4-color').style.height = "80px";<!-- wucha -->
+		document.getElementById('color4-color').style.top = "0px";<!-- wucha --> 
+		
+		document.getElementById('color1-line').style.display = "";
+		document.getElementById('color2-line').style.display = "";
+		document.getElementById('color5-line').style.display = "none";<!-- threeth -->
+		document.getElementById('color3-line').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-line').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-line').style.display = "none";<!-- wendu -->
+		
+		document.getElementById('color5-line').style.left = "95px";<!-- threeth -->
+		document.getElementById('color3-line').style.left = "95px";<!-- chengshu -->
+		document.getElementById('color4-line').style.left = "185px";<!-- wucha --> 
+		document.getElementById('color4-line').style.height = "30px";<!-- wucha -->
+		document.getElementById('color4-line').style.top = "-35px";<!-- wucha --> 
+		
+		document.getElementById('color1-text').style.display = "";
+		document.getElementById('color2-text').style.display = "";
+		document.getElementById('color5-text').style.display = "none";<!-- threeth -->
+		document.getElementById('color3-text').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-text').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-text').style.display = "none";<!-- wendu -->
+		
+		document.getElementById('color5-text').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-text').style.left = "90px";<!-- chengshu -->
+		document.getElementById('color4-text').style.left = "180px";<!-- wucha -->
+		
+		
+		document.getElementById('color3-text').style.fontSize = "14px";<!-- chengshu -->
+		document.getElementById('color4-text').style.fontSize = "14px";<!-- wucha --> 
+		document.getElementById('color6-text').style.fontSize = "14px";<!-- wendu -->
+		
+		return false;
+	}
+	if (n==5){
+		document.getElementById('three').style.display = "";
+		document.getElementById('six').style.display = "none";
+		document.getElementById('sel5').style.backgroundColor = "#f60";
+		
+		document.getElementById('sel4').style.paddingBottom = "10px";
+		document.getElementById('sel5').style.paddingBottom = "12px";
+		document.getElementById('sel6').style.paddingBottom = "10px";
+		
+		document.getElementById('button4').style.display = "none";
+		document.getElementById('button5').style.display = "";
+		document.getElementById('button6').style.display = "none";
+		
+		document.getElementById('color1-color').style.display = "";
+		document.getElementById('color2-color').style.display = "";
+		document.getElementById('color5-color').style.display = "";<!-- threeth -->
+		document.getElementById('color3-color').style.display = "";<!-- chengshu -->		
+		document.getElementById('color4-color').style.display = "";<!-- wucha --> 		
+		document.getElementById('color6-color').style.display = "none";<!-- wendu -->
+				
+		document.getElementById('color5-color').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-color').style.left = "120px";<!-- chengshu -->
+		document.getElementById('color4-color').style.left = "180px";<!-- wucha --> 
+		document.getElementById('color4-color').style.height = "80px";<!-- wucha -->
+		document.getElementById('color4-color').style.top = "0px";<!-- wucha --> 
+		
+		document.getElementById('color1-line').style.display = "";
+		document.getElementById('color2-line').style.display = "";
+		document.getElementById('color5-line').style.display = "";<!-- threeth -->
+		document.getElementById('color3-line').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-line').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-line').style.display = "none";<!-- wendu -->
+		
+		document.getElementById('color5-line').style.left = "95px";<!-- threeth -->
+		document.getElementById('color3-line').style.left = "125px";<!-- chengshu -->
+		document.getElementById('color4-line').style.left = "185px";<!-- wucha --> 
+		document.getElementById('color4-line').style.height = "30px";<!-- wucha -->
+		document.getElementById('color4-line').style.top = "-35px";<!-- wucha --> 
+		
+		document.getElementById('color1-text').style.display = "";
+		document.getElementById('color2-text').style.display = "";
+		document.getElementById('color5-text').style.display = "";<!-- threeth -->
+		document.getElementById('color3-text').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-text').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-text').style.display = "none";<!-- wendu -->
+		
+		document.getElementById('color5-text').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-text').style.left = "120px";<!-- chengshu -->
+		document.getElementById('color4-text').style.left = "180px";<!-- wucha --> 
+		
+		document.getElementById('color3-text').style.fontSize = "14px";<!-- chengshu -->
+		document.getElementById('color4-text').style.fontSize = "14px";<!-- wucha --> 
+		document.getElementById('color6-text').style.fontSize = "14px";<!-- wendu -->
+		
+		return false;
+	}
+	if (n==6){
+		document.getElementById('three').style.display = "";
+		document.getElementById('six').style.display = "block";
+		document.getElementById('sel6').style.backgroundColor = "#f60";
+		
+		document.getElementById('sel4').style.paddingBottom = "10px";
+		document.getElementById('sel5').style.paddingBottom = "10px";
+		document.getElementById('sel6').style.paddingBottom = "12px";
+		
+		document.getElementById('button4').style.display = "none";
+		document.getElementById('button5').style.display = "none";
+		document.getElementById('button6').style.display = "";
+		
+		document.getElementById('color1-color').style.display = "";
+		document.getElementById('color2-color').style.display = "";
+		document.getElementById('color5-color').style.display = "";<!-- threeth -->
+		document.getElementById('color3-color').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-color').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-color').style.display = "";<!-- wendu -->
+		
+		document.getElementById('color5-color').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-color').style.left = "120px";<!-- chengshu -->
+		document.getElementById('color4-color').style.left = "150px";<!-- wucha --> 
+		document.getElementById('color4-color').style.height = "60px";<!-- wucha -->
+		document.getElementById('color4-color').style.top = "10px";<!-- wucha --> 
+		
+		
+		document.getElementById('color1-line').style.display = "";
+		document.getElementById('color2-line').style.display = "";
+		document.getElementById('color5-line').style.display = "";<!-- threeth -->
+		document.getElementById('color3-line').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-line').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-line').style.display = "";<!-- wendu -->
+		
+		document.getElementById('color5-line').style.left = "95px";<!-- threeth -->
+		document.getElementById('color3-line').style.left = "125px";<!-- chengshu -->
+		document.getElementById('color4-line').style.left = "155px";<!-- wucha --> 
+		document.getElementById('color4-line').style.height = "40px";<!-- wucha -->
+		document.getElementById('color4-line').style.top = "-35px";<!-- wucha --> 
+		
+		document.getElementById('color1-text').style.display = "";
+		document.getElementById('color2-text').style.display = "";
+		document.getElementById('color5-text').style.display = "";<!-- threeth -->
+		document.getElementById('color3-text').style.display = "";<!-- chengshu -->
+		document.getElementById('color4-text').style.display = "";<!-- wucha --> 
+		document.getElementById('color6-text').style.display = "";<!-- wendu -->
+		
+		document.getElementById('color5-text').style.left = "90px";<!-- threeth -->
+		document.getElementById('color3-text').style.left = "110px";<!-- chengshu -->
+		document.getElementById('color4-text').style.left = "145px";<!-- wucha --> 
+		
+		document.getElementById('color3-text').style.fontSize = "6px";<!-- chengshu -->
+		document.getElementById('color4-text').style.fontSize = "6px";<!-- wucha --> 
+		document.getElementById('color6-text').style.fontSize = "6px";<!-- wendu -->
+		
+		return false;
+	}
+}
+function cal4color(n){
+	var color1 = document.getElementById('color1').value;
+	var color2 = document.getElementById('color2').value;
+	var color3 = document.getElementById('color3').value;
+	var color4 = document.getElementById('color4').value;
+	var color5 = document.getElementById('color5').value;
+	var color6 = document.getElementById('color6').value;
+	
+	var ppm = 1000000;
+	
+	if (color1==''){
+		swal({
+                    title: '请填写第1色环系数',
+                    type: 'error',
+                });
+		document.getElementById('color1').focus();
+		return false;
+	}
+	
+	if (color2==''){
+		swal({
+                    title: '请填写第2色环系数',
+                    type: 'error',
+                });
+		document.getElementById('color2').focus();
+		return false;
+	}
+	if (color3=='' && n==4){
+		swal({
+                    title: '请填写第3色环倍数',
+                    type: 'error',
+                });
+		document.getElementById('color3').focus();
+		return false;
+	}
+	if (color5=='' && (n==5 || n==6)){
+		swal({
+                    title: '请填写第3色环倍数',
+                    type: 'error',
+                });
+		document.getElementById('color5').focus();
+		return false;
+	}
+	
+	if (color3=='' && (n==5 || n==6)){
+		swal({
+                    title: '请填写第4色环倍数',
+                    type: 'error',
+                });
+		document.getElementById('color3').focus();
+		return false;
+	}
+	
+	if(color4!=''){
+		document.getElementById('rang').style.display = "";
+	}else{
+		document.getElementById('rang').style.display = "none";
+	}
+	
+	if (color6!=''){
+		var trcval = color6 / ppm;
+		document.getElementById('trcval').innerHTML = trcval+"/℃";
+		document.getElementById('trc').style.display = "";
+	}else{
+		document.getElementById('trc').style.display = "none";
+	}
+	
+	
+	
+	if (n==4){
+		var normalval = Number(color1+""+color2)*color3;
+	}
+	if (n==5 || n==6){
+		var normalval = Number(color1+""+color2+""+color5)*color3;
+	}
+	
+	var perval = normalval*(color4/100)
+	var smallval = normalval - perval;
+	var bigval = normalval + perval;
+	
+	if(normalval>=1000000000){
+		var newnormalval = parseFloat((normalval/1000000000).toFixed(3));
+		var newsmallval = parseFloat((smallval/1000000000).toFixed(3));
+		var newbigval = parseFloat((bigval/1000000000).toFixed(3));
+		
+		var normalval2 = ""+newnormalval+"TΩ ";
+		var smallval = newsmallval+"TΩ";
+		var bigval = newbigval+"TΩ";
+	}else if(normalval>=1000000){		
+		var newnormalval = parseFloat((normalval/1000000).toFixed(3));
+		var newsmallval = parseFloat((smallval/1000000).toFixed(3));
+		var newbigval = parseFloat((bigval/1000000).toFixed(3));
+		
+		var normalval2 = ""+newnormalval+"MΩ ";
+		var smallval = newsmallval+"MΩ";
+		var bigval = newbigval+"MΩ";
+		
+	}else if(normalval>=1000){
+		var newnormalval = parseFloat((normalval/1000).toFixed(4));
+		var newsmallval = parseFloat((smallval/1000).toFixed(4));
+		var newbigval = parseFloat((bigval/1000).toFixed(4));
+		
+		var normalval2 = ""+newnormalval+"KΩ ";
+		var smallval = newsmallval+"KΩ";
+		var bigval = newbigval+"KΩ";
+	}else{
+		var normalval2 = normalval;
+		var smallval = smallval+"Ω";
+		var bigval = bigval+"Ω";
+	}
+	
+
+	document.getElementById('nval').innerHTML = normalval2+"("+ normalval+"Ω)";
+	document.getElementById('sval').innerHTML = smallval;
+	document.getElementById('bval').innerHTML = bigval;
+}
+</script>
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/tool/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></a></noscript></div>
+</footer>
+
+
+</body>
+</html>
