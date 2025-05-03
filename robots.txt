@@ -2,7 +2,7 @@
 
 # robots.txt for Hi Official Website
 
-# robots generate from https://wangzi-kai.github.io/
+# robots generated from https://wangzi-kai.github.io/
 
 #
 
