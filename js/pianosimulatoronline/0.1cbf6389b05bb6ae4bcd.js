@@ -2496,6 +2496,14 @@ webpackJsonp([0], {
 	FwAT: function(t, e, i) {
 		"use strict";
 		e.a = [{//快速入门歌曲列表
+			name: "第四首完整音乐",
+			content: "RWR0 WE0W TQTE YR0Q RETW W0WR WYEU IUTW TQTE YR0Q RETW W0WR W9E0 WRE0 W0WT WRW0 WTWR RETE TQTE YR0Q RETW W0WR WYEU IUTW YETW RQW0 <br> R0EW TWYI TYTU YUOA USPS OPUT IUWR UAUP OAOA UPTU OAUP TUIO UPOU TYPO OAOA ITOU <br> IUTE WQWT RWUW UWTE QTWR RETW UTUQ EWRQ TTWT RREQ",
+			degree: 3,
+			lyrics: "站长自创音乐",
+			author: "汪子凯本人",
+			authorLink: ""
+		},
+		{
 			name: "祝你生日快乐",
 			content: "oopo sa<br> oopo ds <br> oo h f s a p<br> gg f s d s<br>\n              oopo sa<br> oopo ds <br> oo h f s a p<br> gg f s d fs",
 			degree: 1,
