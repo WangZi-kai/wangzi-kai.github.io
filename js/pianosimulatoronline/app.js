@@ -84,16 +84,16 @@ webpackJsonp([3], {
 		a.a.use(r.a),
 		t.a = new r.a({
 			mode: "hash",
-			routes: [/*{
+			routes: [{
 				path: "/",
-				name: "AutoPianoPC",
+				name: "",
 				component: function() {
 					return e.e(0).then(e.bind(null, "dUU9"))
 				}
 			},
 			{
-				path: "/links",
-				name: "FriendLinks",
+				path: "/",
+				name: "",
 				component: function() {
 					return e.e(1).then(e.bind(null, "itpV"))
 				}
