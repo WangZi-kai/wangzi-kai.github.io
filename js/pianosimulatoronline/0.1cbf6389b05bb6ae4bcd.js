@@ -2492,186 +2492,186 @@ webpackJsonp([0], {
 		}
 	},
 	FwAT: function(t, e, i) {
-		"use strict";
+		"use strict";//这里是手动曲谱
 		e.a = [{
 			name: "祝你生日快乐",
 			content: "oopo sa<br> oopo ds <br> oo h f s a p<br> gg f s d s<br>\n              oopo sa<br> oopo ds <br> oo h f s a p<br> gg f s d fs",
 			degree: 1,
 			lyrics: "Happy Birthday to You <br>\n            Happy Birthday to You<br>\n            Happy Birthday to You <br>\n            Happy Birthday to You <br>",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "小星星",
 			content: "sshhjjh ggffdds <br/> hhggffd hhggffd <br/> sshhjjh ggffdds",
 			degree: 1,
 			lyrics: "Little Star <br>\n            Twinkle, twinkle, little star <br>\n            How I wonder what you are <br>\n            Up above the world so high <br>\n            Like a diamond in the sky <br>\n            When the blazing sun is gone",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "新年好",
 			content: "ssso fffs sfhhgfd dfgg fdfs sfdo ads <br/> ssso fffs sfhhgfd dfgg fdfs sfdo ads",
 			degree: 1,
 			lyrics: "新年好呀，新年好呀<br>\n            祝贺大家新年好<br>\n            我们唱歌，我们跳舞<br>\n            祝贺大家新年好",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "因为爱情",
 			content: "opsspsdfd spfdpfdsp passpfd fdd dff <br/>opsspsdfd spfdpfdsp passpfd spsfhd <br/> dfhf hhfdhh jklllklkkhf <br/> hfhj hjhhs psfdpfdpjh <br/> dfhf hhfdhh jklllklkkhf <br/> hfhj hjhhs psfdpfdpfd fdfs",
 			degree: 3,
 			lyrics: "",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "隐形的翅膀",
 			content: "osf hf dsss spoo <br> osf hhh jh hdfd sdd <br> jhf hhhjh fdsdp <br> ops fd fs <br> fhl lk jhjl fds ss sl jh fd sdd <br> 停顿 <br> fhl lk jhjl fds ss sl jh fd ds s",
 			degree: 2,
 			lyrics: "",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "蒲公英的约定",
 			content: " uio ooo pas ~ sadp ooo dsdf <br> sdff fgf df s ~ pasd ssp fg d <br> uo sf f gd dhas fghs sdf <br> uo sf f gd dhas fghs sd s <br> jh fds fgd jh as fghs sdf <br> uo sf f gd dhas fghs s d s",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "纸短情长",
 			content: "o fffd fs ddds dh ~ ss spsp o dddf po <br>\n              gggf gs ddds dh ~ sssp sp o fddss <br>\n              ssd f ff fds a jh ~ hjkl ff lkl kfh <br>\n              hjlh j ~ jhg hf ds ~ ps fdds dh sd <br>\n              ssd ffdf fds hhfh ~ hjk llll lkjk jf h <br>\n              hjlh j jhg hf ds ~ ps fdds dsps",
 			degree: 4,
 			lyrics: "纸短情长 <br>\n    你陪我步入蝉夏 越过城市喧嚣 <br>\n    歌声在游走 你榴花般的双眸 <br>\n    不见你的温柔 丢失花间欢笑 <br>\n    岁月无法停留 流云的等候 <br>\n    我真的好想你 在每一个雨季 <br>\n    你选择遗忘的 是我最不舍的 <br>\n    纸短情长啊 道不尽太多涟漪 <br>\n    我的故事都是关于你呀 <br>\n    怎么会爱上了他 并决定跟他回家 <br>\n    放弃了我的所有我的一切无所谓 <br>\n    纸短情长啊 诉不完当时年少 <br>\n    我的故事还是关于你啊 <br>\n    我真的好想你 在每一个雨季 <br>\n    你选择遗忘的 是我最不舍的 <br>\n    纸短情长啊 道不尽太多涟漪 <br>\n    我的故事都是关于你呀 <br>\n    关于你呀 <br>\n    怎么会爱上了他 并决定跟他回家 <br>\n    放弃了我的所有我的一切无所谓 <br>\n    纸短情长啊 诉不完当时年少 <br>\n    我的故事还是关于你啊",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "同桌的你",
 			content: "ooo oui o a ~ ppp pip o <br>\n              ooo oap i i ~ iii iuy t <br>\n              sss sop s f ~ ddd d s ap <br>\n              aaa aas d o ~ aas d s as\n              sss sop s f ~ ddd d s ap <br>\n              aaa aas d o ~ aas d s as",
 			degree: 1,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "晴天",
 			content: "fdgf shk lkhs ~ sjj jhh hgf dfgf <br>\n              fghf ghk zkll ~ llh hjhg dfgh js j kk <br>\n              fdgf shk lkhs ~ sjj jhh hgf dfgf <br>\n              fghf ghk zkll ~ llh hjhg pasd fd s s<br>",
 			degree: 2,
 			lyrics: "晴天 ~ 周杰伦 <br>\n      刮风这天我试过握着你手 <br>\n      但偏偏雨渐渐大到我看你不见 <br>\n      还要多久我才能在你身边 <br>\n      等到放晴的那天也许我会比较好一点 <br>\n      从前从前有个人爱你很久 <br>\n      但偏偏风渐渐把距离吹得好远 <br>\n      好不容易又能再多爱一天 <br>\n      但故事的最后你好像还是说了拜拜",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "千与千寻主题曲",
 			content: "fg hhhh hjhg ffff fgfd ss sapa as d dfdf d <br>\n              fg hhhh hjhg ffff fgfd ss sapa asos df d ddss <br>\n              sdfs h f dhd spf sa sapa asos dfg gfds d <br>\n              sdfs h f dhd spp aso o p a sdos dfd ddss",
 			degree: 3,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "We Wish You A Merry Christmas",
 			content: "o s sdsa ppp ~ d dfds aoo <br>\n              f fgfd s p ~ oo pdas <br>\n              s s sa a s a p o ~ d f d s h o <br>\n              oo pdas ~",
 			degree: 1,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "明天你好",
 			content: "fhhfdhh sffsaff pssp ossf gfdsd <br>\n              ssdfd hh as ~ ppasa ff op <br>\n              psgf fs d fd ofd ~ ssdfd hh as <br>\n              ppasa ff op psgf hs dfg fgfgh fd ~ <br>\n              o dsf ssfjh hjkl llkjh hjkl llkjh hfs psdfd <br>\n              o dsf ssfjh hjkl llkjh hjkl llkjh hfs fd s a s ~",
 			degree: 4,
 			lyrics: "明天你好 <br>\n    看昨天的我们 走远了<br>\n    在命运广场中央 等待<br>\n    那模糊的 肩膀<br>\n    越奔跑 越渺小<br>\n    曾经 并肩往前的 伙伴<br>\n    在举杯 祝福后都 走散<br>\n    只是那个 夜晚<br>\n    我深深 的都留藏在心坎<br>\n    长大以后 我只能奔跑<br>\n    我多害怕 黑暗中跌倒<br>\n    明天你好 含着泪微笑<br>\n    越美好 越害怕得到<br>\n    每一次哭 又笑着 奔跑<br>\n    一边失去 一边在寻找<br>\n    明天你好 声音多渺小<br>\n    却提醒我 勇敢是什么<br>\n    ...",
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "青花瓷",
 			content: "hhfdfdsp dfdso dfdsp sd of<br>\n              sdfh hf f d s ds p sdf h<br>\n              dsps sps spspo dsps sps sfdss<br>\n              opff fdf fdfhf fff dddd dsfd<br>\n              dsps sps spspo opfh hfh hfdss<br>\n              dsd fdds d sp dssp s s s<br>\n              hhfdfp dfhfd hhfdfo dfhds<br>\n              sdf hjhf hffd d sds d sd f hf<br>\n              hhfdfp dfhfd hhfdfo dfhds<br>\n              sdf hjhf hffd d o fd ds~",
 			degree: 4,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "一直很安静",
 			content: "fhdfs sa s p gf d~ fhdfs osd ss ss<br>\n              fhdfs ss j j jh f~ fhdfs df gfds psas s~<br>\n              fhlk lh j h f~ fgfds hhh df<br>\n              fhlk lh j h f~ fgfds s ass~<br>\n\n              fhdfs sa s p gf d~ fhdfs osd ss ss<br>\n              fhdfs ss j j jh f~ fhdfs df gfds psas s~<br>\n              fhlk lh j h f~ fgfds hhh jf~<br>\n              fhlk l z x x~ fgfds s ass~",
 			degree: 3,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "好好",
 			content: "fosf dgfd sdfs o~ gpsg fdgs spsf d<br>\n              dfg hhhd sp jf gfgh j~ jjkl lljs ddf gpsf f d ~<br>\n              停顿<br>\n              fosf dgfd sdfs o~ gpsg fdgs spsf d<br>\n              dfg hhhd sp jf gfgh j~ jjkl lljl ll j xz~<br>\n              高潮<br>\n              hlz xhcx zlz lk lf zl kjh jsgj jhh kl <br>\n              h cxzl h~<br>\n              hlz xhcx zlz lk lf zl kjh jsgj jhh kl <br>\n              h cxzl z~<br>\n              hlz xhcx zlz lk lf vv bv jsgj jhh kl <br>\n              h cxzl  xz bn m mmmmm~",
 			degree: 5,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "突然好想你(选段)",
 			content: "W U UT YT R T~ T I IU IU I O Y<br>\n    T R T PP A D S A P OO P U<br>\n    T R T O OO I E R T<br>\n    W U UT YT R T~ T I IU IU I O Y<br>\n    T R T P~ P A DSAP O OPU<br>\n    T R T O OO IERT<br>\n    P A S F D<br>\n    S D O D S<br>\n    P A S F D S F<br>\n    P A S F D<br>\n    H D G FDFS<br>\n    P A S F D S S",
 			degree: 2,
 			lyrics: "\n      最怕空气突然安静<br>\n      最怕朋友突然的关心<br> \n      最怕回忆突然翻滚<br> \n      绞痛着不平息<br> \n      最怕突然听到你的消息<br> \n      想念如果会有声音<br> \n      不愿那是悲伤的哭泣<br> \n      事到如今<br> \n      终於让自已属於我自已<br> \n      只剩眼泪还骗不过自己<br> \n      突然好想你<br> \n      你会在哪里<br> \n      过的快乐或委屈<br> \n      突然好想你<br> \n      突然锋利的回忆<br> \n      突然模糊的眼睛",
-			author: "YuetAu",
-			authorLink: "https://yuetau.net/"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "送别",
 			content: "O UOS P S O<br/>\n    O TYU YTY<br/>\n    O UOS AP S O<br/>\n    O YUI RT<br/>\n    PSS A PAS<br/>\n    PASPPOUTY<br/>\n    O UOS AP SO<br/>\n    O YUI RT",
 			degree: 1,
 			lyrics: "长亭外，古道边，<br/>\n    芳草碧连天。<br/>\n    晚风拂柳笛声残，<br/>\n    夕阳山外山。<br/>\n    天之涯，地之角，<br/>\n    知交半零落；<br/>\n    一壶浊酒尽余欢，<br/>\n    今宵别梦寒。<br/>\n    长亭外，古道边，<br/>\n    芳草碧连天。<br/>\n    问君此去几时还，<br/>\n    来时莫徘徊。<br/>\n    天之涯，地之角，<br/>\n    知交半零落；<br/>\n    人生难得是欢聚，<br/>\n    惟有别离多。",
-			author: "Fake"
+			author: "hi科技"
 		},
 		{
 			name: "天之大",
 			content: "JH JLJH LZX ZLJL<br/>\n    JHJLZXZLZ<br/>    \n    JH JLJH LZX ZLJL<br/>    \n    JHJLZXZLL<br/>    \n    XVV XVBMB XXVZL<br/>    \n    XVV XVBMBXZ<br/>    \n    XVV XVBMB XXVZL<br/>    \n    JHJLZXZLL",
 			degree: 1,
 			lyrics: "妈妈 月光之下 静静的 我想你了<br/>\n    静静淌在血里的牵挂<br/>    \n    妈妈 你的怀抱 我一生 爱的襁褓<br/>    \n    有你晒过的衣服味道<br/>    \n    天之大 唯有你的爱 是完美无瑕<br/>    \n    天之大 记得你用心传话<br/>    \n    天之大 唯有你的爱 我交给了他<br/>    \n    让他的笑像极了 妈妈",
-			author: "翾"
+			author: "hi科技"
 		},
 		{
 			name: "天空之城",
 			content: "PAS ASFA~ UP OPSO~ IUI UISU SSSA (^I) IAA <br/>\n\n    PAS ASFA~ UP OPSO~ YUI SA SD FS~ SAP AOP <br/>\n    \n    SDF DFHD OOS ASFF <br/>\n    \n    PAS ASD SOO~ GFDSF~ F J J H H FDS<br/>\n    \n    S DS DHF~ F J J H H FDS ~ S DS DAP",
 			degree: 2,
-			author: "ShawNa"
+			author: "hi科技"
 		},
 		{
 			name: "小幸运",
 			content: "uuo ossa apup~ ppa affa aouo<br/>\n              uuo ossa apup~ pa pa f d s<br>\n              uuo ossa apup~ ppa affa aouo<br>\n              uuo ossa asup~ pa pa f d s<br>\n              fdsa pppp pf d~ dsap ooou od s~<br>\n              sso ot u yp~ ppp sp sp ssss fd d~<br>\n              o fdsd fodf odf~ dd fgfda sups upa~<br>\n              aaf hfsa pgg~ hgf off~ gfs idd~ dsf ds f d s~<br>\n              fodf odf~ dd fghda sups upa~<br>\n              aaf hfsa pgg~ hgf off~ gfs idd~ fss f d s~",
 			degree: 4,
-			author: "棱镜jh",
-			authorLink: "https://github.com/WarpPrism/AutoPiano"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "莫斯科郊外的晚上",
 			content: "t(^y)o(^y)i ~ (^y)y oit <br>\n    (^y)o(^p)(^p)s(^p)(^o)o <br>\n    padso <br>\n    ytoi(^o) <br>\n    (^p)(^o)oi(^y) oit",
 			degree: 2,
 			lyrics: "《莫斯科郊外的晚上》<br/>\n    深夜花园里四处静悄悄<br/>\n    只有树叶在沙沙响<br/>\n    夜色多么好<br/>\n    令人心神往<br/>\n    多么迷人的晚上<br/>\n    我的心上人坐在我身旁<br/>\n    悄悄看着我不声响<br/>\n    我愿对你讲<br/>\n    不知怎样讲<br/>\n    多少话儿留在心上<br/>\n    长夜快过去天色蒙蒙亮<br/>\n    衷心祝福你好姑娘<br/>\n    但愿从今后<br/>\n    你我永不忘<br/>\n    莫斯科郊外的晚上",
-			author: "LalalalavaZ"
+			author: "hi科技"
 		},
 		{
 			name: "Lemon【Unnatural主题曲】",
 			content: "SDF SP D A OU APOT OU<br/>\n    YUI S ASO IUI S APO<br/>\n    SD F SP D A OU A P OT O U<br/>\n    YUI O IO U O S F D DD SS<br/>\n    P AS AP OFF D FG FD SDO<br/>\n    I OP OI UOSS A AP AS<br/>\n    DFDS PS FH DS DFDS PS FH DS<br/>\n    DFDS PS FH JH HI KH FH D<br/>\n    DFDS PS FH DS SSDF GFDAS<br/>\n    SA PASD SOUO PDA SS<br/>\n    SA PASD SOSD FGD SS",
 			degree: 3,
-			author: "Fake"
+			author: "hi科技"
 		},
 		{
 			name: "西海情歌",
 			content: "\n    U OP SP D~ S DF FD DSP~ <br/>\n    U O PS D D D DS D DF FD DSP~ <br/>\n    U OP SP D~ DS S DF FD DSP~ <br/>\n    SS DF HHHF HJJH JJJHF HJLLLL LJJL JJJHF <br/>\n    HFDDDSP SDD DFHJJHF <br/>\n    SDHHHFHJJHJJJHF HJLLLLLJJLJJJHF <br/>\n    HFDDDSP SDD DFD S~ P~",
 			degree: 2,
-			author: "javacBT"
+			author: "hi科技"
 		},
 		{
 			name: "绿色",
 			content: "\n      fdfp ppph d dd <br/>\n      fdfooouoh f ff<br/>\n      fhfspss <br/>\n      fhfspsd <br/>\n      sdsgffddsdsg fdf",
 			lyrics: "\n    若不是你突然闯进 我生活 <br/>\n\n    我怎会把死守的寂寞 放任了 <br/>\n    \n    爱我的话你都说 <br/>\n    \n    爱我的事你不做 <br/>\n    \n    我却把甜言蜜语当做你爱我的躯壳\n    ",
 			degree: 1,
-			author: "iPeng6"
+			author: "hi科技"
 		},
 		{
 			name: "我的中国心",
 			content: "e uyutre upo uytyu uop apouy ttyu yurewe <br/>\n              e uyutre upo uytyu uop apouy ttyu yurewe <br/>\n              uouu uspp pspo tytyu <br/>\n              uspp psdf fdaop <br/>\n              e u yutre upouytyu <br/>\n              uop apo uy ttyu y u apop",
 			degree: 2,
-			author: "HesperusArcher",
-			authorLink: "https://github.com/HesperusArcher",
+			author: "hi科技",
+			authorLink: "/",
 			lyrics: "河山只在我梦萦 <br>\n             祖国已多年未亲近 <br>\n             可是不管怎样也改变不了 <br>\n             我的中国心 <br>\n             洋装虽然穿在身 <br>\n             我心依然是中国心 <br>\n             我的祖先早已把我的一切 <br>\n             烙上中国印 <br>\n             长江 长城 黄山 黄河 <br>\n             在我心中重千斤 <br>\n             无论何时 无论何地 <br>\n             心中一样亲 <br>\n             流在心里的血 <br>\n             澎湃着中华的声音 <br>\n             就算身在他乡也改变不了 <br>\n             我的中国心"
 		},
 		{
@@ -2679,16 +2679,16 @@ webpackJsonp([0], {
 			content: "\n    E(^T)YUPOIU TURYE <br/>\n    WEUIOUYAO UOPUOPUYEOU <br/>  \n    E(^T)YUPOIU TURYE <br/> \n    WEUIOUYAO UOPUOPUYEOU <br/> \n    (^T)YUPOIU TUOUP <br/>\n    PSAOUPFA OPASAPASDAF <br/> \n    UPASAPOUYYTOU ERTYTYIUYU <br/>\n    UPASASDODGFDS ERTYUEWE <br/>\n    UPASAPOUYYTOU ERTYTYIUYU <br/>\n    UPASASDODGFDS HSPFAODAAP",
 			lyrics: "",
 			degree: 3,
-			author: "HikamaiC",
-			authorLink: "https://github.com/Gu-Miao"
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "cannon in D",
 			content: "\n    [tf] [wd] [es] [0a] [qp] [8o] [qp] [wa] <br/>\n    [tsf] o [wad] o [eps] u [0oa] u [qip] t [8uo] t [qip] t [woa] y <br/>\n    [tus] a s [wa] [es] f [0h] j [qg] f d g [8f] d s a [qp] o i u [wy] u i <br/>\n    [tuo] o [wo] p o i [etu] u [0u] i u y [qt] E e E [8t] t [qt] E e t [wr] t y <br/>\n    [8wu] [5ry] [6et] [3r] [4e] [1w] [4e] [5t] r [18wtu]",
 			lyrics: "",
 			degree: 3,
-			author: "iamjiangmioamiao",
-			authorLink: ""
+			author: "hi科技",
+			authorLink: "/"
 		},
 		{
 			name: "遇见",
@@ -3516,8 +3516,9 @@ webpackJsonp([0], {
 		i("crlp")("asyncIterator")
 	},
 	PT5K: function(t, e, i) {
-		"use strict";
-		var n = ["长亭外，古道边，芳草碧连天，晚风拂柳笛声残，夕阳山外山...", "你可知Macau，不是我真姓...", "what time will you be here now? it's a quater past seven now...", "君の前前前世から仆は, 君を探しはじめたよ", "你会不会忽然的出现，在街角的咖啡店", "时间它总说谎，我从不曾失去那些肩膀。", "不怕要多少时间多少代价，青春是我的筹码。", "如果还有梦就追，至少不会遗憾后悔", "Believe me I can fly  I'm singing in the sky", "我相信十年后的八月 我们还能再相遇 你最后一直在心底呼喊著『谢谢你』", "长大后 世界像一张网 网住我们的翅膀", "有了你开心D 乜都称心满意 咸鱼白菜也好好味", "Now please don't go Most nights I hardly sleep when I'm alone ", "我依然爱你 就是唯一的退路 我依然珍惜 时时刻刻的幸福", "只会傻傻的看着天上的星星 你就是那么的纯静", "我的眼睛望向窗外 幻想我对你的表白", "让蜡烛代替所有灯 让音乐代替话语声 此时无声胜有声", "当你觉得外面的世界很精彩 我会在这里衷心的祝福你", "苦海翻起爱恨 在世间难逃避命运", "不管按怎过按怎变 按怎的人 永远的永远我是彼个人", "Rage your dream 風も　光満ちてゆく Rage your dream 忘れないでいて ", "我喜欢 入学时我们稚气的脸庞 我喜欢 毕业季上写满留言的墙", "如今这里荒草丛生 没有了鲜花 好在曾经拥有你们的春秋和冬夏", "白云山高 珠江水长 吾校矗立 蔚为国光", "突然好想你 突然锋利的回忆 突然模糊的眼睛", "我站在你左侧，却像隔着银河", "多少人曾爱慕你年轻时的容颜，可知谁愿承受岁月无情的变迁。", "往事不要再提，人生已多风雨", "天空海阔你与我，可会变", "一生何求,常判断放弃与拥有", "让我再看你一眼 星空和黑夜 西去而旋转的飞鸟", "但是每一天，当我在左转，你便行向右，终不会遇见", "回忆这理想不够理想 沿途逛世间一趟只有向上", "模糊的迷恋你一场就当风雨下潮涨", "如蝴蝶破茧吹过春风 我展翅 可不可得到认同", "剪影的你轮廓太好看 凝住眼泪才敢细看", "山顶一起俯瞰过 这花花世界灯火处处", "彼此之间即使各有车票 失散于凡嚣 灰风的初吻 至少感动 一两秒", "静待紫色天空 闪出清风 有降雪跳动", "你未忘 我未忘 犹胜伴在旁", "冷雨狂风历尽，人格更光耀，披荆斩棘汉子心里磊落永不折腰", "你是空气但是好闻胜过了空气，你是阳光但是却能照进半夜里", "我心如月拂过长夜未有声 久照长门流光只影向一人", "所谓的彩虹，不过就是光，只要心还透明，就能折射希望", "本来就一无所有，才会幻想它是白鸽，飞到渴望的尽头，坠落到无名的山丘", "我若是游子，你便是人间", "我把美梦放冰箱 长大再拿行不行", "天空好想下雨 我好想住你隔壁", "许多年前 你有一双清澈的双眼 奔跑起来 像是一道春天的闪电", "乱世慷慨我行歌，千万人中有相和", "将心愿种在出发之前，我们说好走多远也不改变", "春烟柳绿，不如望你。叹这天下谁人不识君", "时间是星星的眼睛 望穿我的困惑", "确认过眼神，我遇上对的人", "如果全世界都对你恶语相加，我就对你说上一世情话", "走在地安门外，没有人不动真情", "我未入过繁华之境 未听过喧嚣的声音", "问君此去几时还，来时莫徘徊。", "乘着风游荡在蓝天边 一片云掉落在我面前", "那些你很冒险的梦，我陪你去疯。", "风筝有风 海豚有海 而你有我", "沿路旅途如歌变幻 在游览，还给大地昨天的喜怒和烦忧", "天雨粟，鬼夜哭，思念漫太古", "永远自由自我，永远高唱我歌，走遍千里", "檐下窗棂斜映枝丫 与你席地对坐饮茶", "情深深雨蒙蒙 多少楼台烟雨中 记得当初你侬我侬 车如流水马如龙"];
+		"use strict";//这是上面的随机内容标题
+		//var n = ["长亭外，古道边，芳草碧连天，晚风拂柳笛声残，夕阳山外山...", "你可知Macau，不是我真姓...", "what time will you be here now? it's a quater past seven now...", "君の前前前世から仆は, 君を探しはじめたよ", "你会不会忽然的出现，在街角的咖啡店", "时间它总说谎，我从不曾失去那些肩膀。", "不怕要多少时间多少代价，青春是我的筹码。", "如果还有梦就追，至少不会遗憾后悔", "Believe me I can fly  I'm singing in the sky", "我相信十年后的八月 我们还能再相遇 你最后一直在心底呼喊著『谢谢你』", "长大后 世界像一张网 网住我们的翅膀", "有了你开心D 乜都称心满意 咸鱼白菜也好好味", "Now please don't go Most nights I hardly sleep when I'm alone ", "我依然爱你 就是唯一的退路 我依然珍惜 时时刻刻的幸福", "只会傻傻的看着天上的星星 你就是那么的纯静", "我的眼睛望向窗外 幻想我对你的表白", "让蜡烛代替所有灯 让音乐代替话语声 此时无声胜有声", "当你觉得外面的世界很精彩 我会在这里衷心的祝福你", "苦海翻起爱恨 在世间难逃避命运", "不管按怎过按怎变 按怎的人 永远的永远我是彼个人", "Rage your dream 風も　光満ちてゆく Rage your dream 忘れないでいて ", "我喜欢 入学时我们稚气的脸庞 我喜欢 毕业季上写满留言的墙", "如今这里荒草丛生 没有了鲜花 好在曾经拥有你们的春秋和冬夏", "白云山高 珠江水长 吾校矗立 蔚为国光", "突然好想你 突然锋利的回忆 突然模糊的眼睛", "我站在你左侧，却像隔着银河", "多少人曾爱慕你年轻时的容颜，可知谁愿承受岁月无情的变迁。", "往事不要再提，人生已多风雨", "天空海阔你与我，可会变", "一生何求,常判断放弃与拥有", "让我再看你一眼 星空和黑夜 西去而旋转的飞鸟", "但是每一天，当我在左转，你便行向右，终不会遇见", "回忆这理想不够理想 沿途逛世间一趟只有向上", "模糊的迷恋你一场就当风雨下潮涨", "如蝴蝶破茧吹过春风 我展翅 可不可得到认同", "剪影的你轮廓太好看 凝住眼泪才敢细看", "山顶一起俯瞰过 这花花世界灯火处处", "彼此之间即使各有车票 失散于凡嚣 灰风的初吻 至少感动 一两秒", "静待紫色天空 闪出清风 有降雪跳动", "你未忘 我未忘 犹胜伴在旁", "冷雨狂风历尽，人格更光耀，披荆斩棘汉子心里磊落永不折腰", "你是空气但是好闻胜过了空气，你是阳光但是却能照进半夜里", "我心如月拂过长夜未有声 久照长门流光只影向一人", "所谓的彩虹，不过就是光，只要心还透明，就能折射希望", "本来就一无所有，才会幻想它是白鸽，飞到渴望的尽头，坠落到无名的山丘", "我若是游子，你便是人间", "我把美梦放冰箱 长大再拿行不行", "天空好想下雨 我好想住你隔壁", "许多年前 你有一双清澈的双眼 奔跑起来 像是一道春天的闪电", "乱世慷慨我行歌，千万人中有相和", "将心愿种在出发之前，我们说好走多远也不改变", "春烟柳绿，不如望你。叹这天下谁人不识君", "时间是星星的眼睛 望穿我的困惑", "确认过眼神，我遇上对的人", "如果全世界都对你恶语相加，我就对你说上一世情话", "走在地安门外，没有人不动真情", "我未入过繁华之境 未听过喧嚣的声音", "问君此去几时还，来时莫徘徊。", "乘着风游荡在蓝天边 一片云掉落在我面前", "那些你很冒险的梦，我陪你去疯。", "风筝有风 海豚有海 而你有我", "沿路旅途如歌变幻 在游览，还给大地昨天的喜怒和烦忧", "天雨粟，鬼夜哭，思念漫太古", "永远自由自我，永远高唱我歌，走遍千里", "檐下窗棂斜映枝丫 与你席地对坐饮茶", "情深深雨蒙蒙 多少楼台烟雨中 记得当初你侬我侬 车如流水马如龙"];
+        var n = ["欢迎使用hi游戏-在线钢琴模拟器"];
 		e.a = n
 	},
 	PzxK: function(t, e, i) {
@@ -3687,8 +3688,8 @@ webpackJsonp([0], {
 		e = t.exports = i("FZ+f")(!1),
 		e.push([t.i, '.component-page-header{width:100%;height:60px;line-height:60px;margin:10px auto;padding:0 5%}.component-page-header .trade-mark{display:block;width:350px;position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;float:left}.component-page-header .trade-mark .icon-piano{display:block;-webkit-transform:scale(.7);transform:scale(.7);-webkit-transform-origin:50% 30%;transform-origin:50% 30%}.component-page-header .trade-mark .trade-mark-txt{font-size:28px;font-weight:500;color:#000;margin:0 0 0 10px}.component-page-header .trade-mark .trade-mark-txt .trade-mark-txt--en{font-style:italic;font-size:20px;color:#666;margin-left:7px}.component-page-header .menu{float:right;height:45px;line-height:45px;margin-top:5px}.component-page-header .menu .menu-item{display:inline-block;width:80px;margin:0 7px;text-align:center;position:relative;cursor:pointer}.component-page-header .menu .menu-item:before{height:1px;-webkit-transform:scaleX(1);transform:scaleX(1);background:#ccc}.component-page-header .menu .menu-item:after,.component-page-header .menu .menu-item:before{content:"";width:100%;position:absolute;left:0;bottom:0;-webkit-transition:.3s;transition:.3s}.component-page-header .menu .menu-item:after{height:5px;-webkit-transform:scaleX(0);transform:scaleX(0);background:#1295db}.component-page-header .menu .menu-item-active:after,.component-page-header .menu .menu-item:hover:after{-webkit-transform:scaleX(1);transform:scaleX(1)}', ""])
 	},
-	WyC5: function(t, e, i) {
-		t.exports = i.p + "/f.bmcx.com/file/gangqin/img/aliqr.7bf1e6c.png"
+	WyC5: function(t, e, i) {//二维码
+		//t.exports = i.p + "/f.bmcx.com/file/gangqin/img/aliqr.7bf1e6c.png"
 	},
 	XYsL: function(t, e, i) {
 		"use strict";
@@ -3771,9 +3772,11 @@ webpackJsonp([0], {
 		},
 		u = {
 			minify: !1,
-			ext: ".[mp3|ogg]",
-			baseUrl: "//f.bmcx.com/file/gangqin/samples/",
-			list: ["bass-electric", "bassoon", "cello", "clarinet", "contrabass", "flute", "french-horn", "guitar-acoustic", "guitar-electric", "guitar-nylon", "harmonium", "harp", "organ", "piano", "saxophone", "trombone", "trumpet", "tuba", "violin", "xylophone"],
+			ext: ".[mp3|ogg]",//更多种乐器
+			/*baseUrl: "//f.bmcx.com/file/gangqin/samples/",
+			list: ["bass-electric", "bassoon", "cello", "clarinet", "contrabass", "flute", "french-horn", "guitar-acoustic", "guitar-electric", "guitar-nylon", "harmonium", "harp", "organ", "piano", "saxophone", "trombone", "trumpet", "tuba", "violin", "xylophone"],*/
+            baseUrl: "/audio/pianosimulatoronline/",
+			list: ["piano"],
 			onload: null,
 			setExt: function(t) {
 				var e;
