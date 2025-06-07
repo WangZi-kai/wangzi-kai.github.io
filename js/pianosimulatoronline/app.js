@@ -22,7 +22,7 @@ webpackJsonp([3], {
 		var a = e("bOdI"),
 		r = e.n(a),
 		u = {
-			wallpaper: "//f.bmcx.com/file/gangqin/images/bg_default.jpg"
+			wallpaper: "/i/pianosimulatoronline/bg_default.jpg"
 		},
 		o = r()({},
 		"SET_WALLPAPER",
@@ -84,7 +84,7 @@ webpackJsonp([3], {
 		a.a.use(r.a),
 		t.a = new r.a({
 			mode: "hash",
-			routes: [{
+			routes: [/*{
 				path: "/",
 				name: "AutoPianoPC",
 				component: function() {
@@ -97,7 +97,7 @@ webpackJsonp([3], {
 				component: function() {
 					return e.e(1).then(e.bind(null, "itpV"))
 				}
-			}]
+			}*/]
 		})
 	},
 	nwGS: function(n, t, e) {
