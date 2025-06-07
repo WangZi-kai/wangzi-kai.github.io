@@ -171,7 +171,7 @@ webpackJsonp([0], {
 		function() {
 			return o
 		});
-		var n = "/audio/pianosimulatoronline/";
+		var n = "/audio/pianosimulatoronline/piano/";
 		e.a = [{
 			id: 1,
 			name: "C2",
