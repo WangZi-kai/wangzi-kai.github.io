@@ -32,11 +32,11 @@ webpackJsonp([0], {
 					exact: ""
 				}
 			},
-			[t._v("首页")]), t._v(" "), i("router-link", {
+			/*[t._v("首页")]), t._v(" "), i("router-link", {
 				staticClass: "menu-item",
 				attrs: {
 					to: {
-						path: "/links"
+						path: "/"
 					},
 					"active-class": "menu-item-active",
 					exact: ""
@@ -52,7 +52,7 @@ webpackJsonp([0], {
 				}
 			},
 			[t._v("更换壁纸")])], 1)])
-		},
+		},*/
 		o = [function() {
 			var t = this,
 			e = t.$createElement,
@@ -61,7 +61,7 @@ webpackJsonp([0], {
 				staticClass: "trade-mark",
 				attrs: {
 					target: "_blank",
-					href: "https://gangqin.bmcx.com/"
+					href: "/"
 				}
 			},
 			[i("i", {
@@ -72,7 +72,7 @@ webpackJsonp([0], {
 			[t._v("在线钢琴"), i("span", {
 				staticClass: "trade-mark-txt--en"
 			},
-			[t._v("便民查询网")])])])
+			[t._v("")])])])
 		}],
 		s = {
 			render: n,
@@ -171,7 +171,7 @@ webpackJsonp([0], {
 		function() {
 			return o
 		});
-		var n = "//f.bmcx.com/file/gangqin/notes/";
+		var n = "/audio/pianosimulatoronline/";
 		e.a = [{
 			id: 1,
 			name: "C2",
@@ -1380,45 +1380,45 @@ webpackJsonp([0], {
 		}
 	},
 	"3KBG": function(t, e, i) {
-		"use strict";
+		"use strict";//这里添加自己的json曲谱
 		var n = [{
 			name: "成都",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/cd.json",
+			url: "/audio/pianosimulatoronline/xmlscore/cd.json",
 			degree: 5
 		},
 		{
 			name: "千与千寻 - Always With Me",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/qyqx.json",
+			url: "/audio/pianosimulatoronline/xmlscore/qyqx.json",
 			degree: 4
 		},
 		{
 			name: "后来",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/hl.json",
+			url: "/audio/pianosimulatoronline/xmlscore/hl.json",
 			degree: 3
 		},
 		{
 			name: "告白气球",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/gbqq.json",
+			url: "/audio/pianosimulatoronline/xmlscore/gbqq.json",
 			degree: 2
 		},
 		{
 			name: "蒲公英的约定",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/pgydyd.json",
+			url: "/audio/pianosimulatoronline/xmlscore/pgydyd.json",
 			degree: 5
 		},
 		{
 			name: "时间煮雨",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/sjzy.json",
+			url: "/audio/pianosimulatoronline/xmlscore/sjzy.json",
 			degree: 4
 		},
 		{
 			name: "下一个天亮",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/xygtl.json",
+			url: "/audio/pianosimulatoronline/xmlscore/xygtl.json",
 			degree: 2
 		},
 		{
 			name: "海角七号 1945",
-			url: "/web_system/bmcx_com_www/system/file/gangqin/static/xmlscore/hjqh.json",
+			url: "/audio/pianosimulatoronline/xmlscore/hjqh.json",
 			degree: 3
 		}];
 		n.forEach(function(t) {
