@@ -46,6 +46,26 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
+	name: "Yesterday Once More",
+	url: "YesterdayOnceMore.mid",
+	degree: 5
+},
+{
+	name: "Someone You Loved - Lewis Capaldi",
+	url: "SomeoneYouLoved.mid",
+	degree: 3
+},
+{
+	name: "Zedd - Beautiful Now",
+	url: "BeautifulNow.mid",
+	degree: 3
+},
+{
+	name: "Count On Me",
+	url: "CountOnMe.mid",
+	degree: 3
+},
+{
 	name: "你一定要幸福",
 	url: "你一定要幸福.mid",
 	degree: 5
