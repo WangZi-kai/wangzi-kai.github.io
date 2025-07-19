@@ -46,6 +46,11 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
+	name: "茉莉花",
+	url: "茉莉花.mid",
+	degree: 1
+},
+{
 	name: "Yesterday Once More",
 	url: "YesterdayOnceMore.mid",
 	degree: 5
