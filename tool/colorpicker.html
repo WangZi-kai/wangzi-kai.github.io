@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
+<meta name="applicable-device" content="pc,mobile" />
+<link rel="dns-prefetch" href="f.bmcx.com" />
+<link rel="canonical" href="https://www.bmcx.com/colorpicker/" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="//f.bmcx.com/file/colorpicker/i_c_o_57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//f.bmcx.com/file/colorpicker/i_c_o_72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//f.bmcx.com/file/colorpicker/i_c_o_114x114.png" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="keywords" content="取色器，颜色拾取,屏幕取色器,图片取色器,颜色名称识别,颜色代码" />
+<meta name="description" content="本取色器支持屏幕任意位置取色、图片上传取色。" />
+<title>取色器 - 颜色拾取 - 屏幕取色器 - 图片取色器 - 颜色名称识别 - 颜色代码</title>
+<link href="/css/bmstyle.css" rel="stylesheet" type="text/css" />
+<script aysnc="aysnc" src="/js/sweetalert.js"></script>
+<link rel="stylesheet" href="/css/colorpicker.css">
+<script src="/js/clipboard.min.js"></script>
+<script src="//f.bmcx.com/public/crypto-js/4.0.0/crypto-js.min.js?v=483b127ded4069d6_47992"></script>
+</head>
+
+<body>
+<div id="main_left">
+<div class="kuang" style="margin-bottom: 8px;">
+<div id="main_content"><div class="nry_bt">
+<img src="/i/colorpicker.png" alt="取色器">
+<h1>取色器</h1>
+</div>
+<div class="huisefengexian"></div>
+<div class="card">
+	<div class="btn-row">
+	  <button id="screen-color-btn">屏幕取色</button>
+	  <button id="upload-btn">上传图片取色</button>
+	  <button id="camera-btn">拍摄照片取色</button>
+	  <input type="file" id="upload-input" accept="image/*">
+	  <input type="file" id="camera-input" capture="camera" accept="image/*">
+	</div>
+	<div id="color-result">
+	  <input type="text" id="color-result-focus" style="display:none">
+	  <span id="color-show"></span>
+	  <div id="color-codes">
+		<div><strong>名称</strong><span id="color-name"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#color-name"></div>
+		<div><strong>HEX</strong><span id="code-hex"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-hex"></div>
+		<div><strong>RGB</strong><span id="code-rgb"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-rgb"></div>
+		<div><strong>HSL</strong><span id="code-hsl"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-hsl"></div>
+		<div><strong>HSV</strong><span id="code-hsv"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-hsv"></div>
+		<div><strong>CMYK</strong><span id="code-cmyk"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-cmyk"></div>
+		<div><strong>CIELAB</strong><span id="code-lab"></span><input class="copy_btn" type="button" title="复制" data-clipboard-target="#code-lab"></div>
+	  </div>
+	</div>
+	<div id="img-container">
+	  <img id="preview-img">
+	  <div id="magnifier"><canvas id="mag-canvas"></canvas></div>
+	</div>
+</div>
+<canvas id="canvas" style="display:none;"></canvas>
+<script src="/js/colorpicker.js"></script>
+<div align="center">
+<p>注：PC端支持屏幕任意位置取色、图片上传取色，手机端长按图片也可取色</p>
+<p>移动鼠标至您想要提取颜色的屏幕区域，按下鼠标左键，即可快速完成取色操作</p>
+<p>若需拾取网页外的颜色，建议先将本网页窗口适当缩小，这样能够更便捷地进行取色操作</p>
+<p>使用本工具可以获取颜色名称、颜色HEX、颜色RGB、颜色HSL、颜色HSV、颜色CMYK等数值信息</p>
+</div>
+</div>
+</div>
+</body>
+</html>
