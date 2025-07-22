@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <title>在线记分板 - hi工具</title>
+    <link rel="stylesheet" href="/css/scoreboard.css">
+<meta name="description" content="hi工具，方便你的的生活！" />
+<meta name="keywords" content="hi,工具,方便,实用,在线,实时,记分板,记录,赛事,比分情况" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<script src="/js/antidebugger.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+</head>
+<body>
+<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+css+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
+<br />
+    <!-- 导航条 -->
+    <nav class="navigation-bar">
+        <div class="navigation-logo">在线计分板</div>
+        <div class="navigation-links">
+            <a href="/tool/" class="navigation-link">点击这里进入首页</a>
+            <!-- 可以继续添加更多链接 -->
+        </div>
+
+        <div class="navigation-actions">
+            <button class="navigation-action" id="fullscreen-btn">全屏</button>
+            <button class="navigation-action" id="exit-fullscreen-btn" style="display: none;">退出全屏</button>
+        </div>
+    </nav>
+	
+    <!-- 倒计时 -->
+    <div class="timer-container">
+        <audio id="mp3audio" preload="none">
+			<source src="/audio/scoreboard/m.ogg" type="audio/ogg">
+			<source src="/audio/scoreboard/m.mp3" type="audio/mpeg">
+        </audio>
+        <div class="timer-strip-row">
+            <div class="timer-left-btn">
+                <button class="timer-btn" id="startPauseBtn" title="开始"><img src="/i/scoreboard/start.svg"></button>
+            </div>
+            <div class="timer-center">
+                <input id="minInput" class="timer-part" maxlength="2" value="10" />
+                <span class="timer-sep">:</span>
+                <input id="secInput" class="timer-part" maxlength="2" value="00" />
+            </div>
+            <div class="timer-right-btn">
+                <button class="timer-btn" id="resetBtn" title="重置"><img src="/i/scoreboard/reset.svg"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- 左侧团队 A 的记分板 -->
+        <div class="scoreboard" id="scoreboard-a">
+            <div class="team">
+                <div class="team-name" id="team-a-name" contenteditable="true">主队</div>
+                <div class="score" id="score-a" onclick="increment('A')">0</div>
+                <button class="score-decrement" onclick="decrement('A')" style="display:none">-1</button>
+            </div>
+        </div>
+
+        <!-- 中间的游戏次数计数器 -->
+        <div class="games-container" id="games-container-1" style="display:none">
+            <div class="games-counter" onclick="incrementGames('1')">
+                <div class="games-score" id="games-score-1">0</div>
+            </div>
+            <button class="games-decrement" onclick="decrementGames('1')" style="display:none">-1</button>
+        </div>
+
+        <div class="games-container" id="games-container-2" style="display:none">
+            <div class="games-counter" onclick="incrementGames('2')">
+                <div class="games-score" id="games-score-2">0</div>
+            </div>
+            <button class="games-decrement" onclick="decrementGames('2')" style="display:none">-1</button>
+        </div>
+
+        <!-- 右侧团队 B 的记分板 -->
+        <div class="scoreboard" id="scoreboard-b">
+            <div class="team">
+                <div class="team-name" id="team-b-name" contenteditable="true">客队</div>
+                <div class="score" id="score-b" onclick="increment('B')">0</div>
+                <button class="score-decrement" onclick="decrement('B')" style="display:none">-1</button>
+            </div>
+        </div>
+    </div>
+    <!-- 底部控制按钮 -->
+    <div class="toggle-controls-container">
+        <div class="dropdown-container">
+            <button class="toggle-theme-btn" onclick="toggleThemeDropdown()">模板</button>
+            <div class="dropdown-menu" id="theme-dropdown" style="display:none">
+                <button onclick="setTheme('default')">默认</button>
+                <button onclick="setTheme('red-blue')">红蓝</button>
+                <button onclick="setTheme('bright')">明亮</button>
+                <button onclick="setTheme('led')">LED</button>
+            </div>
+        </div>
+        <div class="dropdown-container">
+            <button class="toggle-games-btn" onclick="toggleGamesDropdown()">局数</button>
+            <div class="dropdown-menu" id="games-dropdown" style="display:none">
+                <button onclick="showGames(0)">不显示</button>
+                <button onclick="showGames(1)">一个局数</button>
+                <button onclick="showGames(2)">两个局数</button>
+            </div>
+        </div>
+        <button class="toggle-decrement-btn" onclick="toggleDecrementButtons()">-1</button>
+        <button class="toggle-team-names-btn" onclick="toggleTeamNames()">队名</button>
+        <button class="reset-btn" onclick="resetScores()">重置</button>
+    </div>
+    <script src="/js/scoreboard.js"></script>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<footer style="display:none;">
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/tool/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></a></noscript></div>
+</footer>
+</body>
+</html>
