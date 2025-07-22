@@ -152,14 +152,14 @@ function emptyCode(id)
 </script>
 </head>
 
-<body style="display:none;">
+<body style="display:none;" id="body">
 <script type="text/javascript">
-if (window.self == window.top)
+if (window.top.location.href != "https://wangzi-kai.github.io/tool/pinyinimeonline.html")
 {
-    document.getElementByTagName("body").style.display = "none";
-    window.location.href = "/tool/pinyinimeonline.html";
+    document.getElementById("body").style.display = "none";
+    window.location.href = "https://wangzi-kai.github.io/tool/pinyinimeonline.html";
 }else{
-    document.getElementByTagName("body").style.display = "block";
+    document.getElementById("body").style.display = "block";
 }
 </script>
 
