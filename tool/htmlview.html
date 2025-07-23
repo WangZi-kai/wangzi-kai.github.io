@@ -20,6 +20,12 @@
 <script type="text/javascript" src="/js/favorite.js"></script>
 <link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
 <link rel="stylesheet" href="/css/htmlview.css" type="text/css" />
+
+<link rel="stylesheet" href="/css/codemirror.css" type="text/css" />
+<link rel="stylesheet" href="/css/codemirror/idea.min.css">
+<link rel="stylesheet" href="/css/codemirror/show-hint.css">
+<script src="/js/codemirror.js"></script>
+
 <meta name="copyright" content="3429442539@qq.com" />
 <title>html在线运行 - hi工具</title>
 <script src="/js/antidebugger.js"></script>
@@ -109,6 +115,27 @@
 </body>
 </html>
 </textarea>
+
+
+<script src="/js/codemirror/xml.min.js"></script>
+<script src="/js/codemirror/css.min.js"></script>
+<script src="/js/codemirror/javascript.min.js"></script>
+<script src="/js/codemirror/htmlmixed.min.js"></script>
+<script>
+    const editor = CodeMirror.fromTextArea(document.getElementById("content"), {
+        lineNumbers: true, // 显示行号
+        lineWrapping: true, // 自动换行
+        indentWithTabs: true, // 缩进替换tab为空格
+        mode: "htmlmixed", // 语法高亮
+        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"], // 显示行号和折叠区域
+        lint: true, // 自动纠错
+        tabSize: 4, // 设置Tab键的缩进大小
+        theme: "idea", // 主题
+        cursorHeight: 1 // 光标高度 最大值1
+    });
+    // 宽度自适应 高度100%
+    editor.setSize('auto','100vh');
+</script>
                 <div class="WSt1" style=" text-align:center">
                     <br>
                     <input class="Sub" type="button" name="Submit" value="运行代码" onclick="runCode('content')"
