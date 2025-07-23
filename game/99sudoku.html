@@ -1,0 +1,853 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>9×9数独 - hi游戏</title>
+<meta name="description" content="hi游戏，缓解你的的压力！" />
+<meta name="keywords" content="hi,游戏,9×9,数独,Sudoku,娱乐,解压,分级" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+<script src="/js/antidebugger.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
+<script src="/js/wechatqq.js"></script>
+<link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
+</head>
+<body ondragstart='return false' oncontextmenu='self.event.returnValue=false' id="body">
+<!--2.遮罩实现（div里面的就是遮罩内容）-->
+<div class="weixin-tip">
+<p>
+<img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
+</p>
+<br />
+<p>
+<font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/99sudoku.html">https://wangzi-kai.github.io/game/99sudoku.html</a></mark></u></b></font>
+</p>
+<p>
+<mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
+</p>
+</div>
+<noscript><div align="center"><font size="50" color="red">本游戏为CSS+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
+<br />
+
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/game/" title="点击这里返回首页">点击这里返回首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></noscript></div>
+</footer>
+</body>
+<script>
+	// 默认游戏等级参数
+	var gamelevel = 24;
+	// 记录填写错误次数
+	var errorNumber = 0;
+	// 记录已经填写的数字的数组
+	const havefillvalue = Array.from({ length: 9 }, () => Array(9).fill(0));
+	// 记录当前选择的数字框的坐标
+	var focusPosition = [];
+
+	// 游戏面板单元格的背景颜色
+	var tdBackgroundColor = '#F0FFA9';
+	// 数字框选中后，单元格已填入的数字与其他已填入数字的单元格和笔记中相同的数字的提示颜色,
+	var sameNumberBackgroundColor = '#0CFF27';
+	// 选中的单元格所在宫、同行、同列的单元格相同的背景颜色
+	var relatedBackgroundColor = '#FFE27E';
+	// 选中的单元格,有数字时显示的背景颜色
+	var haveNumberBackgroundColor = '#AD924A';
+	// 选中的单元格，没有数字时显示的背景颜色
+	var haveNotNumberBackgroundColor = '#A8AD0B';
+	// 笔记中的数字颜色
+	var noteNumberColor = 'orange';
+	// 单元格已填入的数字颜色
+	var fillNumberColor = 'black';
+	// 错误提示的数字颜色
+	var errorColor = 'red';
+
+	// 初始化一个游戏容器div
+	var gameDiv = document.createElement("div");
+
+    var gameBoard;
+    var sudokuGrid;
+
+	// 创建游戏面板界面方法
+	function createGameBoard() {
+		// 生成数独表格数据
+		sudokuGrid = generateSudoku();
+		// 按游戏等级生成游戏界面显示的数字
+		var gameBoardErrorCount = 0
+		while (gameBoardErrorCount < 10) {
+            try {
+                gameBoard = randomizeZerosWithUniqueSolution(sudokuGrid, gamelevel);
+                break;
+            } catch (error) {
+                gameBoardErrorCount++;
+                console.log('gameBoardErrorCount:', gameBoardErrorCount);
+            }
+		}
+		if (gameBoardErrorCount >= 10) {
+		    alert("游戏创建失败，请重新开始游戏！");
+		    return;
+		}
+
+		//console.log('sudokuGrid', sudokuGrid.map(row => row.join(' ')).join('\n'));
+		//console.log('gameBoard', gameBoard.map(row => row.join(' ')).join('\n'));
+		// 清空上次的游戏内容
+		gameDiv.innerHTML = '';
+		// 动态生成一个9*9的表格
+		var table = document.createElement("table");
+		// 给table添加样式，添加边框，第3行和第3列加粗，第6行和第6列加粗
+		table.style.border = "1px solid #000";
+		for(var i=0;i<9;i++){
+			var tr = document.createElement("tr");
+			for(var j=0;j<9;j++){
+				// 创建一个单元格td
+				var td = document.createElement("td");
+				// 设置单元格id的属性值
+				td.setAttribute('id', 'out_td_' + i+"_"+j);
+				// 设置单元格坐标的属性值
+				td.setAttribute('data-position', i+"_"+j);
+				// 设置单元格正确的数字的属性值
+				td.setAttribute('data-correctvalue', sudokuGrid[i][j]);
+				// 给每个单元格添加点击事件
+				td.onclick = function(event) {
+					event.stopPropagation();
+					// 数字单元格所在的td
+					var tdelement = null;
+					// 获取当前元素
+					const clickelement = event.target;
+					console.log('click element:', clickelement);
+					// 判断点击的是否笔记模式的td，来确认数字单元格所在的td
+					if (clickelement.getAttribute('data-innertd')) {
+						tdelement = clickelement.parentElement.parentElement.parentElement;
+					} else {
+						tdelement = clickelement.parentElement;
+					}
+
+					// 获取选择的td单元格的坐标
+					focusPosition = tdelement.getAttribute('data-position').split('_');
+					console.log('focusPosition:', focusPosition);
+					// 先将所有单元格背景颜色回复默认
+					for (let i = 0; i < 9; i++) {
+						for (let j = 0; j < 9; j++) {
+							document.getElementById('out_td_' + i + "_" + j).style.backgroundColor = tdBackgroundColor;
+						}
+					}
+					// 获取当前选择的单元格内已填的数字
+					let fillnumber = document.getElementById('fill_' + focusPosition[0] + "_" + focusPosition[1]).innerHTML;
+					// 如果已填入数字，则将相同数字的单元格背景颜色设置为相同的颜色，同时将笔记中相同数字的字体颜色设置为相同的颜色
+					if (fillnumber) {
+						// 数字录入单元格
+						const outelements = document.querySelectorAll('[data-filldom="out"]');
+						// 笔记单元格
+						const innerelements = document.querySelectorAll('[data-filldom="inner"]');
+						// 遍历数字录入单元格，将相同数字的单元格背景颜色设置为相同的颜色
+					    outelements.forEach((el) => {
+							if (el.innerHTML == fillnumber) {
+								el.parentElement.style.backgroundColor = sameNumberBackgroundColor;
+							} else {
+								el.parentElement.style.backgroundColor = tdBackgroundColor;
+							}
+					    });
+						// 遍历笔记单元格，将笔记中相同数字的字体颜色设置为相同的颜色
+						innerelements.forEach((el) => {
+							if (el.innerHTML == fillnumber) {
+								el.style.color = sameNumberBackgroundColor;
+							} else {
+								el.style.color = noteNumberColor;
+							}
+					    });
+					}
+
+					// 将与单元格同行、同列的单元格设置相同的背景颜色,
+					for(var k=0;k<9;k++){
+						document.getElementById('out_td_' + focusPosition[0] + "_" + k).style.backgroundColor = relatedBackgroundColor;
+						document.getElementById('out_td_' + k + "_" + focusPosition[1]).style.backgroundColor = relatedBackgroundColor;
+					}
+					// 计算选择的单元格所在宫的起始位置坐标
+					const boxRowStart = Math.floor(focusPosition[0] / 3) * 3;	// 横坐标
+					const boxColStart = Math.floor(focusPosition[1] / 3) * 3;	// 纵坐标
+					// 将单元格所在宫内的单元格设置相同的背景颜色,
+					for (let i = 0; i < 3; i++) {
+						for (let j = 0; j < 3; j++) {
+							document.getElementById('out_td_' + (boxRowStart + i) + "_" + (boxColStart + j)).style.backgroundColor = relatedBackgroundColor;
+						}
+					}
+					// 判断数字单元格是否已录入的数字，使用不同颜色背景
+					if (fillnumber) {
+						tdelement.style.backgroundColor = haveNumberBackgroundColor;
+					} else {
+						tdelement.style.backgroundColor = haveNotNumberBackgroundColor;
+					}
+				}
+				// 设置单元格样式
+				td.style.fontSize = "20px";
+				td.style.color = fillNumberColor;
+				td.style.backgroundColor = tdBackgroundColor;
+				td.style.width = "60px";
+				td.style.height = "60px";
+				td.style.border = "2px solid #000";
+				td.style.textAlign = "center";
+				td.style.verticalAlign = "middle";
+				td.style.lineHeight = "60px";
+				td.style.fontWeight = "bold";
+				// 添加边框，来区分每个宫
+				if(i==2 || i==5){
+					td.style.borderBottom = "10px solid blue";
+				}
+				if(j==2 ||j==5){
+					td.style.borderRight = "10px solid blue";
+				}
+				// 创建用于存放填入的数字容器
+				var filldiv = document.createElement("div");
+				filldiv.setAttribute('id', 'fill_' + i + '_' + j)
+				filldiv.style.width = "60px";
+				filldiv.style.height = "60px";
+				filldiv.setAttribute('data-filldom', 'out');
+				// 将未知的数字单元格属性设置为可编辑
+				if (gameBoard[i][j] == 0) {
+					td.setAttribute('data-editable', true);
+				} else { // 将已知的数字单元格属性设置为不可编辑，并填入已知的数字
+					td.setAttribute('data-editable', false);
+					filldiv.innerHTML = gameBoard[i][j];
+					havefillvalue[i][j] = gameBoard[i][j]
+				}
+				// 将数字容器添加到数字单元格td中
+				td.appendChild(filldiv);
+				// 将数字单元格td添加到同行中
+				tr.appendChild(td);
+				// 在td单元格内，再创建一个3*3的table,用于记录笔记
+				var table2 = document.createElement("table");
+				table2.setAttribute('id', 'inner_tabindex_' + i + '_' + j);
+				table2.style.display = 'none';
+				var innerValue = 1
+				for(var k=0;k<3;k++){
+					var tr2 = document.createElement("tr");
+					for(var l=0;l<3;l++){
+						var td2 = document.createElement("td");
+						td2.setAttribute('id', 'inner_td_' + i + '_' + j + '_' + innerValue);
+						// 添加属性，用于判断是笔记表格的td还是数字录入的td
+						td2.setAttribute('data-filldom', 'inner');
+						innerValue = innerValue + 1;
+						td2.setAttribute('data-innertd', true);
+						td2.style.fontSize = "14px";
+						td2.style.color = noteNumberColor;
+						td2.style.width = "15px";
+						td2.style.height = "15px";
+						td2.style.textAlign = "center";
+						td2.style.verticalAlign = "middle";
+						td2.style.lineHeight = "14px";
+						tr2.appendChild(td2);
+					}
+					table2.appendChild(tr2);
+				}
+				td.appendChild(table2);
+			}
+			table.appendChild(tr);
+		}
+		gameDiv.appendChild(table);
+		// 开始计时
+		startTimer();
+	}
+
+	// 创建数字选择表
+	var table3 = document.createElement("table");
+	var tr3 = document.createElement("tr");
+	table3.appendChild(tr3);
+	for(var i=0;i<9;i++){
+		var td = document.createElement("td");
+		td.setAttribute('data-value', i + 1);
+		// 给数字选择框添加点击事件
+		td.onclick = function(event) {
+			const tdel = event.target;
+			var elvalue = tdel.getAttribute('data-value');
+			// 判断当前的输入模式，是否为笔记模式
+			if (inputModel) { // 笔记模式
+				// 获取选择的数字框内笔记表格，并将当前选择的数字进行显示
+				const showtd = document.getElementById('inner_td_' + focusPosition[0] + '_' + focusPosition[1] + '_' + elvalue);
+				if (showtd.innerHTML) {
+					showtd.innerHTML = '';
+				} else {
+					showtd.innerHTML = elvalue;
+				}
+			} else { // 非笔记模式
+				// 获取当前选择的数字框
+				const lastfocus = document.getElementById('out_td_' + focusPosition[0] + "_" + focusPosition[1]);
+				// 当前选择的数字框应该填入的正确数字值
+				const correctvalue = lastfocus.getAttribute('data-correctvalue');
+				// 如果选择的数字框不可编辑 直接返回，不执行之后的代码
+				if (lastfocus.getAttribute('data-editable') == 'false') {
+					return;
+				}
+				// 获取当前选择的数字框的dom元素
+				var filldiv = document.getElementById('fill_' + focusPosition[0] + '_' + focusPosition[1]);
+				// 如果数字框内的值与选择的数字值相同，清除当前框内的值，否则填入新的数字
+				if (filldiv.innerHTML && filldiv.innerHTML == elvalue) {
+					filldiv.innerHTML = '';
+				} else {
+					filldiv.innerHTML = elvalue;
+				}
+				// 如果填入的数字不是正确的数字，标红进行提示, 并记录错误次数
+				if (correctvalue != elvalue) {
+					filldiv.style.color = errorColor;
+					errorNumber = errorNumber + 1;
+					document.getElementById('recordErrorNumber').innerHTML = errorNumber;
+				} else { // 如果填入的数字是正确的，将单元格颜色设置为黑色
+					filldiv.style.color = fillNumberColor;
+					// 同时当前选中的单元格，所在的行、列中将记录的笔记中的相同的数字清除掉
+					for(var k=0;k<9;k++){
+						document.getElementById('inner_td_' + focusPosition[0] + "_" + k + '_' + elvalue).innerHTML = '';
+						document.getElementById('inner_td_' + k + "_" + focusPosition[1] + '_' + elvalue).innerHTML = '';
+					}
+					// 同时当前选中的单元格，所在的宫中将记录的笔记中的相同的数字清除掉
+					const boxRowStart = Math.floor(focusPosition[0] / 3) * 3;
+					const boxColStart = Math.floor(focusPosition[1] / 3) * 3;
+					for (let i = 0; i < 3; i++) {
+						for (let j = 0; j < 3; j++) {
+							document.getElementById('inner_td_' + (boxRowStart + i) + "_" + (boxColStart + j) + '_' + elvalue).innerHTML = '';
+						}
+					}
+				}
+				// 数字填入后，隐藏笔记，显示填入的数字
+				var innerTab = document.getElementById('inner_tabindex_' + focusPosition[0] + '_' + focusPosition[1]);
+				filldiv.style.display = 'block';
+				innerTab.style.display = 'none';
+				// 记录已经填写的数字
+				havefillvalue[focusPosition[0]][focusPosition[1]] = elvalue
+				// 1秒后 验证所有数字是否已经正确填入，正确的话，则提示游戏通关
+				setTimeout(() => {
+					valideAllFillValue();
+				}, 1000);
+			}
+		}
+		// 添加鼠标滑过事件监听器
+		td.addEventListener('mouseover', function() {
+			// 修改鼠标指针样式为小手
+			this.style.cursor = 'pointer';
+		});
+
+		// 可选：添加鼠标离开事件监听器，恢复默认鼠标样式
+		td.addEventListener('mouseout', function() {
+			// 恢复默认鼠标样式
+			this.style.cursor = 'default';
+		});
+		td.style.fontSize = "62px";
+		td.style.color = "yellow";
+		td.style.backgroundColor = "pink";
+		td.style.width = "62px";
+		td.style.height = "62px";
+		td.style.border = "2px solid #000";
+		td.style.textAlign = "center";
+		td.style.verticalAlign = "middle";
+		td.style.lineHeight = "62px";
+		tr3.appendChild(td);
+		td.innerHTML = (i + 1);
+	}
+	document.body.appendChild(table3);
+
+	// 验证所有数字是否已经正确填入
+	function valideAllFillValue() {
+		var isAllRight = true
+		for(var i=0;i<9;i++){
+			for(var j=0;j<9;j++){
+				if (sudokuGrid[i][j] != havefillvalue[i][j]) {
+					isAllRight = false;
+				}
+			}
+		}
+		if (isAllRight) {
+		    // 停止游戏计时
+		    stopTimer();
+			alert("恭喜通关, 游戏耗时： " + (totalTime/1000) + "秒, 错误次数： " + errorNumber);
+		}
+	}
+
+	//输入模式是否笔记模式,true为笔记模式，false为非笔记模式
+	var inputModel = false;
+	// 创建用于切换模式的按钮
+	var inputModelButton = document.createElement("button");
+	inputModelButton.style.width = "100px";
+	inputModelButton.style.height = "40px";
+	inputModelButton.style.backgroundColor = noteNumberColor;
+	inputModelButton.style.cursor = 'pointer';
+	inputModelButton.innerHTML = '非笔记模式';
+	// 给切换模式的按钮添加点击事件
+	inputModelButton.onclick = function(){
+		// 在按钮上显示当前的模式
+		if (!inputModel) {
+			inputModelButton.innerHTML = '笔记模式';
+		} else {
+			inputModelButton.innerHTML = '非笔记模式';
+		}
+		inputModel = !inputModel
+		// 切换模式后，控制笔记是否显示
+		for(var i=0;i<9;i++){
+			for(var j=0;j<9;j++){
+				var outtd = document.getElementById('out_td_' + i + '_' + j);
+				var innerTab = document.getElementById('inner_tabindex_' + i + '_' + j);	// 笔记框
+				var filldiv = document.getElementById('fill_' + i + '_' + j);	// 数字录入框
+				if (outtd.getAttribute('data-editable') == 'true') {
+					if (inputModel) { // 笔记模式，如果选择的数字框已填入正确的数字，则不显示笔记，否则显示笔记
+						if (filldiv.innerHTML == filldiv.parentElement.getAttribute('data-correctvalue')) {
+							filldiv.style.display = 'block';
+							innerTab.style.display = 'none';
+						} else {
+							filldiv.style.display = 'none';
+							innerTab.style.display = 'block';
+						}
+					} else { // 非笔记模式，如果选择的数字框已经填入数字，则不显示笔记，否则显示笔记
+						if (filldiv.innerHTML == '') {
+							filldiv.style.display = 'none';
+							innerTab.style.display = 'block';
+						} else {
+							filldiv.style.display = 'block';
+							innerTab.style.display = 'none';
+						}
+					}
+				}
+			}
+		}
+	}
+	document.body.appendChild(inputModelButton);
+
+	// 创建用于清除单元内数字的按钮
+	var clearButton = document.createElement("button");
+	clearButton.style.width = "100px";
+	clearButton.style.height = "40px";
+	clearButton.style.backgroundColor = noteNumberColor;
+	clearButton.style.marginLeft = '20px';
+	clearButton.style.cursor = 'pointer';
+	clearButton.innerHTML = '清除';
+	// 给清除按钮添加点击事件
+	clearButton.onclick = function(){
+		// 获取当前选择的数字框的dom元素
+		var filldiv = document.getElementById('fill_' + focusPosition[0] + '_' + focusPosition[1]);
+		// 获取当前选择的数字框
+		const lastfocus = document.getElementById('out_td_' + focusPosition[0] + "_" + focusPosition[1]);
+		// 只能在非笔记模式下，且只可以清除可编辑的数字框内的数据
+		if (!inputModel && lastfocus.getAttribute('data-editable') == 'true') {
+			filldiv.innerHTML = '';
+		}
+	}
+	document.body.appendChild(clearButton);
+
+	// 创建游戏等级选择表格
+	var levelSelectTable = document.createElement("table");
+	var levelSelectTr = document.createElement("tr");
+	levelSelectTable.appendChild(levelSelectTr);
+	var levelSelectTd1 = document.createElement("td");
+	var levelSelectTd2 = document.createElement("td");
+	levelSelectTd2.style.width = '80px';
+	var levelSelectTd3 = document.createElement("td");
+	levelSelectTr.appendChild(levelSelectTd1);
+	levelSelectTr.appendChild(levelSelectTd2);
+	levelSelectTr.appendChild(levelSelectTd3);
+
+	levelSelectTd1.innerHTML = '选择游戏难度等级：'
+	levelSelectTd1.style.fontWeight = 'bold';
+	// 游戏难度等级选择框
+	var levelSelectTd2Input = document.createElement("select");
+	levelSelectTd2Input.style.fontSize = '15px';
+	levelSelectTd2Input.style.fontWeight = 'bold';
+	levelSelectTd2Input.style.width = '50px'
+	for (let i=1;i<=56;i++) {
+		var option = document.createElement("option");
+		option.setAttribute('value', i);
+		option.innerHTML = i
+		option.style.fontWeight = 'bold';
+		option.style.fontSize = '15px';
+		levelSelectTd2Input.appendChild(option);
+	}
+	levelSelectTd2Input.setAttribute('id', 'level_input');
+	levelSelectTd2Input.value = gamelevel;
+	levelSelectTd2.appendChild(levelSelectTd2Input);
+
+	// 游戏开始按钮
+	var levelSelectTd3Button = document.createElement("button");
+	levelSelectTd3Button.style.cursor = 'pointer';
+	levelSelectTd3Button.style.width = "100px";
+	levelSelectTd3Button.style.height = "40px";
+	levelSelectTd3Button.style.backgroundColor = noteNumberColor;
+	levelSelectTd3Button.innerHTML = '开始游戏';
+	levelSelectTd3.appendChild(levelSelectTd3Button);
+	// 开始游戏按钮点击事件
+	levelSelectTd3Button.onclick = function() {
+		gamelevel = document.getElementById('level_input').value;
+		if (!gamelevel || gamelevel < 1 || gamelevel > 56) {
+			alert("请输入合理的游戏等级！！");
+			return;
+		}
+		// 重新生成游戏面板
+		createGameBoard();
+		// 重置错误次数
+		errorNumber = 0;
+		document.getElementById('recordErrorNumber').innerHTML = errorNumber;
+	}
+
+	document.body.appendChild(levelSelectTable);
+
+	// 创建记录填写错误次数记录 及 计时器
+	var recordErrorNumberTable = document.createElement("table");
+	var recordErrorNumberTr = document.createElement("tr");
+	recordErrorNumberTable.appendChild(recordErrorNumberTr);
+	var recordErrorNumberTd1 = document.createElement("td");
+	var recordErrorNumberTd2 = document.createElement("td");
+	var timerTd3 = document.createElement("td");
+	recordErrorNumberTr.appendChild(recordErrorNumberTd1);
+	recordErrorNumberTr.appendChild(recordErrorNumberTd2);
+	recordErrorNumberTr.appendChild(timerTd3);
+	recordErrorNumberTd1.innerHTML = '错误次数：'
+	recordErrorNumberTd2.innerHTML = '0'
+	recordErrorNumberTd2.style.color = errorColor;
+	recordErrorNumberTd2.style.fontSize = 'xx-large';
+	recordErrorNumberTd2.style.fontWeight = 'bold';
+	recordErrorNumberTd1.style.color = errorColor;
+	recordErrorNumberTd1.style.fontWeight = 'bold';
+	recordErrorNumberTd2.setAttribute('id', 'recordErrorNumber');
+	timerTd3.style.color = errorColor;
+	timerTd3.style.fontSize = 'xx-large';
+	timerTd3.style.fontWeight = 'bold';
+	timerTd3.innerHTML = '00:00:00'
+	timerTd3.style.paddingLeft = '380px';
+
+	document.body.appendChild(recordErrorNumberTable);
+
+	document.body.appendChild(gameDiv);
+
+	// 创建计时器
+	var intervalId;
+	var totalTime = 0; // 总时间，以毫秒为单位
+    /**
+     * 将毫秒格式化为时间字符串
+     * @param {number} ms - 需要格式化的毫秒数
+     * @returns {string} 格式化后的时间字符串，格式为hh:mm:ss
+     */
+    function formatTime(ms) {
+        // 将毫秒转换为总秒数
+        const totalSeconds = Math.floor(ms / 1000);
+        // 计算小时数
+        const hours = Math.floor(totalSeconds / 3600);
+        // 计算分钟数
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        // 计算秒数
+        const seconds = totalSeconds % 60;
+
+        // 将小时、分钟和秒数格式化为字符串，不足两位前补0，并用冒号连接
+        return [
+            pad(hours),
+            pad(minutes),
+            pad(seconds)
+        ].join(':');
+    }
+
+    /**
+     * 在数字小于10时，在其左侧填充0
+     * @param {number} num - 需要填充的数字
+     * @returns {string} 填充后的两位字符串
+     */
+    function pad(num) {
+        // 将数字转换为字符串，并在左侧填充0直到长度为2
+        return num.toString().padStart(2, '0');
+    }
+
+    // 初始化定时器，将时间显示设置为00:00:00，总时间重置为0
+    function startTimer() {
+        timerTd3.innerHTML = '00:00:00';
+        totalTime = 0;
+        // 如果已存在定时器，则清除，以避免重复计时
+        if (intervalId) {
+            clearInterval(intervalId);
+        }
+        // 设置一个新的定时器，每秒更新一次时间显示
+        intervalId = setInterval(() => {
+            totalTime += 1000;
+            timerTd3.innerHTML = formatTime(totalTime);
+        }, 1000);
+    }
+
+
+    /**
+     * 停止定时器函数
+     *
+     * 本函数用于清除已存在的定时器，通过清除intervalId引用的定时器
+     * 来停止其继续执行
+     */
+    function stopTimer() {
+        clearInterval(intervalId); // 清除定时器
+    }
+
+	/**
+	 * 随机打乱一个数组的顺序
+	 *
+	 * @param {Array} array - 需要被打乱顺序的数组
+	 * @returns {Array} - 返回打乱顺序后的数组
+	 */
+	function shuffle(array) {
+	    // 从数组的最后一个元素开始，逐个向前交换元素
+	    for (let i = array.length - 1; i > 0; i--) {
+	        // 随机选择一个从0到当前元素位置的索引
+	        const j = Math.floor(Math.random() * (i + 1));
+	        // 交换当前元素与随机选中的元素的位置
+	        [array[i], array[j]] = [array[j], array[i]];
+	    }
+	    // 返回打乱顺序后的数组
+	    return array;
+	}
+
+	/**
+	 * 生成一个数独谜题
+	 *
+	 * 该函数使用回溯算法来生成一个完整的数独谜题
+	 * 首先创建一个9x9的二维数组来表示数独网格，然后通过递归尝试在每个空位上填入数字
+	 * 在尝试填入数字之前，会检查该数字是否符合数独的规则：即在同一行、同一列和同一个3x3宫格内不重复
+	 * 如果生成成功，返回填充了数字的二维数组；如果生成失败，返回false
+	 *
+	 * @returns {Array} 一个9x9的二维数组，表示生成的数独谜题
+	 */
+	function generateSudoku() {
+	    // 数独网格的大小
+	    const size = 9;
+	    // 初始化数独网格，所有位置填充为0，表示空位
+	    const grid = Array.from({ length: size }, () => Array(size).fill(0));
+
+	    /**
+	     * 递归解决数独谜题
+	     *
+	     * 该函数尝试从指定的行和列开始填充数字，如果成功填充完整个网格，则返回true
+	     * 如果当前位已经有数字，则跳过当前位，尝试填充下一个位置
+	     *
+	     * @param {number} row 当前行号
+	     * @param {number} col 当前列号
+	     * @returns {boolean} 如果成功解决数独谜题，则返回true，否则返回false
+	     */
+	    function solve(row, col) {
+	        // 如果已经填充到最后一行的最后一列，表示数独已经解决，返回true
+	        if (row === size) return true;
+	        // 如果已经填充到最后一列，跳转到下一行的第一列
+	        if (col === size) return solve(row + 1, 0);
+
+	        // 如果当前位置已经有数字，跳过当前位，尝试填充下一个位置
+	        if (grid[row][col] !== 0) return solve(row, col + 1);
+
+	        // 生成可能的数字列表，即1到9
+	        const possibleNumbers = Array.from({ length: 9 }, (_, i) => i + 1);
+	        // 打乱可能的数字列表，以确保生成的数独谜题是随机的
+	        shuffle(possibleNumbers);
+
+	        // 遍历可能的数字，尝试填充到当前位置
+	        for (const num of possibleNumbers) {
+	            // 检查当前数字是否可以填充到当前位置
+	            if (isValid(row, col, num)) {
+	                // 如果可以，填充数字并尝试填充下一个位置
+	                grid[row][col] = num;
+	                if (solve(row, col + 1)) return true;
+	                // 如果填充失败，回溯，将当前位置重置为0
+	                grid[row][col] = 0;
+	            }
+	        }
+
+	        // 如果所有数字都无法填充到当前位置，返回false
+	        return false;
+	    }
+
+	    /**
+	     * 检查数字是否可以填充到指定的位置
+	     *
+	     * 该函数检查在同一行、同一列和同一个3x3宫格内是否有重复的数字
+	     * 如果没有重复的数字，表示当前数字可以填充到当前位置
+	     *
+	     * @param {number} row 当前行号
+	     * @param {number} col 当前列号
+	     * @param {number} num 要填充的数字
+	     * @returns {boolean} 如果当前数字可以填充到当前位置，则返回true，否则返回false
+	     */
+	    function isValid(row, col, num) {
+	        // 检查同一行和同一列是否有重复的数字
+	        for (let i = 0; i < size; i++) {
+	            if (grid[row][i] === num || grid[i][col] === num) return false;
+	        }
+
+	        // 计算当前位置所在的3x3宫格的起始行号和列号
+	        const boxRowStart = Math.floor(row / 3) * 3;
+	        const boxColStart = Math.floor(col / 3) * 3;
+
+	        // 检查同一个3x3宫格内是否有重复的数字
+	        for (let i = 0; i < 3; i++) {
+	            for (let j = 0; j < 3; j++) {
+	                if (grid[boxRowStart + i][boxColStart + j] === num) return false;
+	            }
+	        }
+
+	        // 如果没有找到重复的数字，表示当前数字可以填充到当前位置
+	        return true;
+	    }
+
+	    // 从第一行第一列开始尝试填充数字
+	    solve(0, 0);
+	    // 返回填充了数字的二维数组
+	    return grid;
+	}
+
+	/**
+     * 随机化游戏板上的零，确保生成的谜题具有唯一解
+     *
+     * 该函数用于根据游戏难度随机化游戏板上的一些数字，将其设置为零。这通常用于游戏的初始化过程，
+     * 根据不同的游戏难度，将不同数量的数字清零，以生成不同难度的游戏板。优化后的版本确保生成的谜题具有唯一解。
+     *
+     * @param {number[][]} board - 一个二维数组，表示初始的游戏板
+     * @param {number} gamelevel - 游戏难度级别，决定了将被清零的数字的数量
+     * @returns {number[][]} - 返回一个二维数组，表示经过随机化清零后的游戏板
+     */
+    function randomizeZerosWithUniqueSolution(board, gamelevel) {
+        const size = 9;
+        const gameBoard = Array.from({ length: size }, () => Array(size).fill(0));
+        const positions = [];
+
+        // 复制初始游戏板数据到gameBoard中
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                positions.push([i, j]);
+                gameBoard[i][j] = board[i][j];
+            }
+        }
+
+        // 回溯算法检查游戏板是否有唯一解
+        function hasUniqueSolution(board) {
+            let count = 0;
+            function solve(board, row = 0, col = 0) {
+                if (row === size) {
+                    count++;
+                    return;
+                }
+                const nextRow = col === size - 1 ? row + 1 : row;
+                const nextCol = (col + 1) % size;
+
+                if (board[row][col] !== 0) {
+                    solve(board, nextRow, nextCol);
+                } else {
+                    for (let num = 1; num <= size; num++) {
+                        if (isValid(board, row, col, num)) {
+                            board[row][col] = num;
+                            solve(board, nextRow, nextCol);
+                            board[row][col] = 0;
+                        }
+                    }
+                }
+            }
+
+            function isValid(board, row, col, num) {
+                for (let i = 0; i < size; i++) {
+                    if (board[row][i] === num || board[i][col] === num) {
+                        return false;
+                    }
+                }
+                const boxRowStart = Math.floor(row / 3) * 3;
+                const boxColStart = Math.floor(col / 3) * 3;
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        if (board[boxRowStart + i][boxColStart + j] === num) {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            solve(board);
+            return count === 1;
+        }
+
+        // 逐步增加难度，确保每次随机化后游戏板仍然有唯一解
+        let currentLevel = 0;
+        while (currentLevel < gamelevel) {
+            const index = Math.floor(Math.random() * positions.length);
+            const [row, col] = positions[index];
+            const temp = gameBoard[row][col];
+            gameBoard[row][col] = 0;
+            positions.splice(index, 1);
+
+            if (hasUniqueSolution(gameBoard)) {
+                currentLevel++;
+            } else {
+                gameBoard[row][col] = temp;
+            }
+        }
+
+        return gameBoard;
+    }
+
+
+
+	function solveSudoku(board) {
+	    const gameBoard = Array.from({ length: 9 }, () => Array(9).fill(0));
+	    // 遍历游戏板，记录所有位置，并将初始游戏板数据复制到gameBoard中
+	    for (let i = 0; i < 9; i++) {
+	        for (let j = 0; j < 9; j++) {
+	            gameBoard[i][j] = board[i][j];
+	        }
+	    }
+
+        function isValid(board, row, col, num) {
+            // 检查行是否有重复
+            for (let i = 0; i < 9; i++) {
+                if (board[row][i] === num) return false;
+            }
+
+            // 检查列是否有重复
+            for (let i = 0; i < 9; i++) {
+                if (board[i][col] === num) return false;
+            }
+
+            // 检查所在宫是否有重复
+            const startRow = Math.floor(row / 3) * 3;
+            const startCol = Math.floor(col / 3) * 3;
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[startRow + i][startCol + j] === num) return false;
+                }
+            }
+
+            return true;
+        }
+
+        function solve(board) {
+            for (let row = 0; row < 9; row++) {
+                for (let col = 0; col < 9; col++) {
+                    if (board[row][col] === 0) {
+                        for (let num = 1; num <= 9; num++) {
+                            if (isValid(board, row, col, num)) {
+                                board[row][col] = num;
+                                if (solve(board)) {
+                                    return true;
+                                }
+                                board[row][col] = 0; // 回溯
+                            }
+                        }
+                        return false; // 无解
+                    }
+                }
+            }
+            return true; // 找到解
+        }
+
+        solve(gameBoard);
+        return gameBoard;
+    }
+
+	// 调用创建游戏面板界面方法
+	createGameBoard();
+
+
+</script>
+</html>
