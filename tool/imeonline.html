@@ -34,7 +34,7 @@
 <iframe id="funcbox" width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="/tool/imeonlineservice.html?zaixianpinyinshuru"></iframe>
 <div style="text-align:conter;">
 <script>
-function type(value)
+function typechange(value)
 {
     document.getElementById("titlepic").setAttribute("src","/i/imeonline/"+value+".png");
     document.getElementById("funcbox").setAttribute("src","/tool/imeonlineservice.html?"+value);
@@ -70,7 +70,7 @@ function type(value)
 }
 </script>
 <p style="font-size:20px;">可在下方选择输入法类型：</p>
-<select id="type" onchange="type(this.value)">
+<select id="type" onchange="typechange(this.value)">
 <option value="zaixianpinyinshuru">在线拼音输入法</option>
 <option value="zaixianwubishuru">在线五笔输入法 86版</option>
 <option value="cangjieshurufa">在线仓颉输入法</option>
