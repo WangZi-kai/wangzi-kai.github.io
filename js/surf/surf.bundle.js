@@ -10430,7 +10430,7 @@
                   a.createElement(
                     x.nv,
                     null,
-                    "Jonathan Merrin, Charles Duval, Addison Kaufmann, Rachel Weil, Joseph Oak, Amanda Velasco Gallardo, Ramya Challa, Chris Pirih"
+                    "汪子凯本人, Jonathan Merrin, Charles Duval, Addison Kaufmann, Rachel Weil, Joseph Oak, Amanda Velasco Gallardo, Ramya Challa, Chris Pirih"
                   )
                 )
               ),
