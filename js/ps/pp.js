@@ -2651,7 +2651,7 @@ ao.qx=function(F){var P=F[0],o=new Uint8Array(P.profile.v);return o.buffer};ao.P
 ao.ac4=function(F,P){var o=new cB,X=128;o.cj(0,128);var Y=[0,0,14,204,65,68,66,69,4,0,0,0,108,105,110,107,82,71,66,32,82,71,66,32,7,227,0,7,0,27,0,8,0,6,0,49,97,99,115,112,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,246,214,0,1,0,0,0,0,211,45,65,68,66,69,219,126,245,21,206,223,186,23,165,212,201,219,250,10,33,62];
 for(var w=0;w<Y.length;w++)o.data[w]=Y[w];var y=["desc","A2B0"],z=y.length,s=128+4+z*12;r.oL(o,X,z);
 X+=4;for(var t=0;t<z;t++){var d=y[t];r.bh(o,X,d);X+=4;r.oL(o,X,s);X+=4;var U=s;if(d=="desc"){r.bh(o,U,"mluc");
-U+=4;U+=4;r.oL(o,U,1);U+=4;r.oL(o,U,12);U+=4;r.bh(o,U,"enUS");U+=4;var v="ICC by Photopea\0",A=v.length*2+2;
+U+=4;U+=4;r.oL(o,U,1);U+=4;r.oL(o,U,12);U+=4;r.bh(o,U,"enUS");U+=4;var v="ICC by hi-tech\0",A=v.length*2+2;
 r.oL(o,U,A);U+=4;r.oL(o,U,28);U+=4;o.cj(U,A);for(var w=0;w<v.length;w++)o.data[U+w*2+1]=v.charCodeAt(w);
 U+=A}if(d=="A2B0"){r.bh(o,U,"mAB ");U+=4;U+=4;o.cj(U,4);o.data[U]=3;o.data[U+1]=3;U+=4;o.cj(U,4*5);U+=4*3;
 r.oL(o,U,U+8-s);U+=4;U+=4;o.cj(U,20);o.data[U]=F;o.data[U+1]=F;o.data[U+2]=F;U+=16;o.data[U]=2;U+=4;
@@ -8936,7 +8936,7 @@ i.TD(P);this.C8=[];this.qs=[];P.textContent="Saved scripts: ";for(var o in F.qU)
 this.C8.push(X);this.qs.push(o);X.$("click",this.a8N,this);P.appendChild(X.u)}}};dM.prototype.AK=function(F,P){this.yH=F;
 if(P==ge.gq)this.kL()};dM.prototype.ahX=function(F){var P=new l(i.E.L,!0);P.data={e:i.B.Xk,link:"https://www.adobe.com/content/dam/acom/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref-2019.pdf"};
 this.w(P)};dM.prototype.ja=function(F){var P=new l(i.E.L,!0);P.data={e:i.B.kP,YS:this.Lo.value};this.w(P)};
-dM.prototype.af5=function(F){var P=this.abN.indexOf(F.currentTarget);this.Lo.value=dM.tM[P].Uh};dM.tM=[{Bj:"Hello",Uh:"\nalert(\"Hello Photopea!\");\n"},{Bj:"Process Layers",Uh:"\nvar lays = app.activeDocument.layers;\n\nfor(var i=0; i<lays.length; i++)\n{\n"+"\t//lays[i].visible = false;\n"+"\t//lays[i].opacity = 50;\n"+"\tlays[i].name = \"My Layer \"+i;\n}"},{Bj:"Clone Layers",Uh:"\nvar orig = app.activeDocument.activeLayer;\n"+"var cnt = 12;\n"+"var angle = Math.floor(360 / cnt);\n"+"\n"+"for(var i=1; i<cnt; i++)\n"+"{\n"+"\tvar nlay = orig.duplicate();\n"+"\t//nlay.translate(30*i, 20*i);\n"+"\tnlay.rotate(angle * i, AnchorPosition.BOTTOMCENTER);\n"+"}"}];
+dM.prototype.af5=function(F){var P=this.abN.indexOf(F.currentTarget);this.Lo.value=dM.tM[P].Uh};dM.tM=[{Bj:"Hello",Uh:"\nalert(\"Hello hi-tech!\");\n"},{Bj:"Process Layers",Uh:"\nvar lays = app.activeDocument.layers;\n\nfor(var i=0; i<lays.length; i++)\n{\n"+"\t//lays[i].visible = false;\n"+"\t//lays[i].opacity = 50;\n"+"\tlays[i].name = \"My Layer \"+i;\n}"},{Bj:"Clone Layers",Uh:"\nvar orig = app.activeDocument.activeLayer;\n"+"var cnt = 12;\n"+"var angle = Math.floor(360 / cnt);\n"+"\n"+"for(var i=1; i<cnt; i++)\n"+"{\n"+"\tvar nlay = orig.duplicate();\n"+"\t//nlay.translate(30*i, 20*i);\n"+"\tnlay.rotate(angle * i, AnchorPosition.BOTTOMCENTER);\n"+"}"}];
 function e0(){ai.call(this,[11,7],"newproject");this.data=null;this.vw=null;var F=i.z("div","flexrow");
 this.H8=F;this.body.appendChild(F);var P=i.z("div","form");this.xr=P;F.appendChild(P);this.v8=new f6([12,48]);
 P.appendChild(this.v8.u);i.Rf(P);this.bq=new aj(!0);this.bq.k(new aH(1280,720),72);this.bq.$(i.E.I,this.dE,this);
@@ -9074,7 +9074,7 @@ this.OB.$("click",this.ja,this);this.xr.appendChild(this.OB.u);this.$("closebtn"
 hU.prototype.go=function(){return!0};hU.prototype.t=function(){ai.prototype.t.call(this);this.zF.t()};
 hU.prototype.d5=function(F){var P=this.zF.q();this.IE({e:"warp",mD:P})};hU.prototype.IE=function(F){var P=new l(i.E.H,!0);
 P.Q=B.OX;P.data=F;P.qQ=!0;this.w(P)};hU.prototype.Te=function(F){this.IE({e:"warpCancel"})};hU.prototype.ja=function(F){this.IE({e:"warpConfirm"});
-this.close()};hU.prototype.Vp=function(F,P){var o=F.r[F.p[0]];this.zF.k(o.add.TySh.VU)};function gG(){ai.call(this,"Raw Photopea","rawpea");
+this.close()};hU.prototype.Vp=function(F,P){var o=F.r[F.p[0]];this.zF.k(o.add.TySh.VU)};function gG(){ai.call(this,"Raw hi-tech","rawpea");
 this.mJ=null;this.tb=null;this.iz=null;this.a9W=0;this.h_=null;this.gF=null;this.aiQ=500;this.aes=500;
 this.$("closebtn",this.bJ,this);i.KL(this.body,"flexrow");var F=i.z("div"),P=i.z("div"),X="<svg  class=\"autoscale gsicon\" viewBox=\"0 0 14 18\" width=\"14\" height=\"18\" fill=\"black\"><path d=\"M14,6 L10,6 L10,0 L4,0 L4,6 L0,6 L7,13 L14,6 L14,6 Z M0,14 L0,16 L14,16 L14,14 Z\" /></svg>";
 P.setAttribute("style","padding-left: 1em");this.body.appendChild(F);this.body.appendChild(P);this.w7=i.z("canvas");
@@ -9201,7 +9201,7 @@ this.w(y)}if(X==1){var d=Y.jk();y.Q=B.xC;y.data={e:h.cN,aaF:!0};this.w(y);var U=
 U.rect=z;U.color=0;U.G2=!0;H.E4(o.kw,U.channel,3);if(d){var v=U.$T(d);U.rect=v.rect;U.channel=v.channel;
 U.color=v.color}U.HZ();Y._V()}if(X==2){var A={rect:z,channel:H.R(z.M())};H.E4(o.kw,A.channel,3);y.Q=B.j1;
 y.data={e:"setsel",K:A,tP:this.CA};this.w(y)}this.close()};function fh(){ai.call(this,[1,13],"locstor");
-this.yH=null;this.BR=[];var F=this.body,P=i.z("p");P.textContent="These files are loaded every time you start Photopea.";
+this.yH=null;this.BR=[];var F=this.body,P=i.z("p");P.textContent="These files are loaded every time you start this tool.";
 F.appendChild(P);this.aeQ=0;this.$U=i.z("span");F.appendChild(this.$U);this.$U.setAttribute("style","display:inline-block;  width:12em;  font-weight:bold;");
 var o=i.z("span","form");F.appendChild(o);this.Gd=new fV([5,4],!1,null,!0);this.Gd.$("click",this.akm,this);
 o.appendChild(this.Gd.u);this.alS=new fV("Get all as ZIP",!1,null,!0);this.alS.$("click",this.B5,this);
@@ -10146,7 +10146,7 @@ this.xP.setAttribute("multiple","");this.xP.addEventListener("change",function(F
 this.FJ=null}.bind(this),!1);document.body.appendChild(this.xP);this.xP.setAttribute("style","display:none");
 this.ae3=[];this.RZ=!1;this.abk={};this.FJ=null}cz.prototype=new au;cz.aat=function(F){try{navigator.clipboard.write([new ClipboardItem(Object.defineProperty({},F.type,{value:F,enumerable:!0}))])}catch(h9){console.error(h9,h9.message)}};
 cz.ll=function(F,P){navigator.clipboard.read().then(function(o){for(var w=0;w<o.length;w++){try{var X=o[w];
-for(var Y=0;Y<X.types.length;Y++){var y=X.types[Y];if(y!="image/png")continue;X.getType(y).then(function(z){new Response(z).arrayBuffer().then(function(s){cz.qt({name:"image.png"},s,F,P)})})}}catch(h9){console.error(h9,h9.message)}}}).catch(function(o){alert("You did not give Photopea permissions to access the clibpoard. ("+o.message+")")})};
+for(var Y=0;Y<X.types.length;Y++){var y=X.types[Y];if(y!="image/png")continue;X.getType(y).then(function(z){new Response(z).arrayBuffer().then(function(s){cz.qt({name:"image.png"},s,F,P)})})}}catch(h9){console.error(h9,h9.message)}}}).catch(function(o){alert("You did not give us permissions to access the clibpoard. ("+o.message+")")})};
 cz.a0F=function(F){navigator.permissions.query({name:"clipboard-read"}).then(function(P){F(P.state)})};
 cz.prototype.pt=function(F){if(F==null)F=[23,5];var P=JSON.stringify(F),o=this.abk;if(o[P]==null)o[P]=0;
 if(o[P]==0){var X=new l(i.E.L,!0);X.data={e:i.B.Uw,kr:F};this.w(X)}o[P]++};cz.prototype.mr=function(F){if(F==null)F=[23,5];
@@ -10191,7 +10191,7 @@ t=Y[z+1];U[v]=X[s>>2];U[v+1]=X[(s&3)<<4|t>>4];U[v+2]=X[(t&15)<<2];U[v+3]=61}retu
 if(F.target instanceof XMLHttpRequest)P=F.target.response;else P=F.target.result;cz.PG(o,P,this,F.target.aig);
 this.mr();if(F.target instanceof XMLHttpRequest){this.RZ=!1;this.tJ()}};cz.PG=function(F,P,o,X){if(window.location.href.indexOf("photopea.com")==-1)cz.qt(F,P,o,X);
 else{try{cz.qt(F,P,o,X)}catch(h9){if(h9=="low_ram"){}else{var Y="Error. Please, send your file to support@photopea.com and we will solve it.";
-if(em.Xh(P)=="eps")Y="We support only basic EPS files. Convert your file into PDF (with an online converter) and open the PDF in Photopea.";
+if(em.Xh(P)=="eps")Y="We support only basic EPS files. Convert your file into PDF (with an online converter) and open the PDF with proper tools.";
 window.alm(Y,1e4)}}}};cz.qt=function(F,P,o,X){var Y;if(F.name)Y=F.name.split(".")[0];else{if(F.url.substring(0,5)=="data:"||F.url.indexOf("googleapis")!=-1)Y="image";
 else Y=F.url.substring(F.url.lastIndexOf("/")+1).split(".")[0];Y=Y.slice(0,50)}var y=F.name?F.name:F.url,z=new Uint8Array(P),s=em.Xh(P),t=window.ga;
 if(Math.random()<.25&&t&&s!=null&&em.$I(s))t("send","event","Formats",s);if(s==null)s=r.$o(z,0,4);if(y&&y.toLowerCase().endsWith(".raw")){var d=new l(i.E.L,!0);
@@ -10326,7 +10326,7 @@ if(Y!=1)y+="transform: scale("+Y+","+Y+");";if(this.xY)this.xY.setAttribute("sty
 i.so(F.JR,this.a7m)};dH.prototype.Ql=function(w){var F=this.zF[w];i.Sz(F.JR,this.a7m);gc.prototype.Ql.call(this,w)};
 dH.prototype.a63=function(F){var P=this.lA;this.lA=Date.now();if(Date.now()-P>300)return;var o=this.Im(F.currentTarget),X=this.zF[o].EA.name,Y=new l(i.E.L,!0),y={f:i.E.H,Q:B.xC,o:{e:h.FW}};
 Y.data={e:i.B.uH,W2:"namewindow",Ub:X.slice(0,X.length-4),VN:y};this.w(Y)};function dR(){au.call(this);
-hw.eo(1);this.u=i.z("div","flexrow photopea");this.uz=i.z("div");this.u.appendChild(this.uz);this.AF={x:0,y:0,Ku:!1};
+hw.eo(1);this.u=i.z("div","flexrow hi-tech");this.uz=i.z("div");this.u.appendChild(this.uz);this.AF={x:0,y:0,Ku:!1};
 this.Ea=!1;this.R3=!1;this.he=null;this.ais=0;this.aeb=0;this.Li=0;this.a7y=!1;if(i.Xn(27))i.A0=window;
 else i.A0=this.u;i.A0._cwY=i.A0[i.UR("clh]]c[",3)];setTimeout(function(){var W=window.hideCap;if(W)W()},25e3);
 window.alm=window.alert;window.alert=function(W,p){this.lQ.alert(W,p);console.log("Alert: "+W)}.bind(this);
@@ -10446,7 +10446,7 @@ if(Y==i.B.ED){var n=this.fm.JT.open,b=F.data.a5e;if(n&&b!=!0){var U=new l(i.E.L,
 this.w(U)}else this.jM.aej(b?this.VD._Y():null,F.data.ai6)}if(Y==i.B.hR){var Q=F.data.amt,_=this.C_(Q);
 if(Q==ge.Ym){var t=new c_;for(var w=0;w<_.length;w++){var L=_[w].rB.Lefx;if(L)cr.PB(L,t,this.fm.WB)}_={f1:t.add.Patt?t.add.Patt:[],hI:_}}if(Q==ge.o8){var m=this.fm.aF;
 _={Xu:[],A6:[],list:_};console.log(_)}if(Q==ge.H)_=_[F.data.q_];var I=ge.Vv[Q],z=I[2].qx(_);cz.save(z,I[1]+"."+I[0])}if(Y==i.B.Wp){var c=this.fm.Er,u=F.data.abv;
-if(c.rQ&&!c.a1l&&!u){c.a1D=window.confirm("Load \""+F.data.st+"\" also next time you use Photopea?\nManage it in Edit - Local Storage.");
+if(c.rQ&&!c.a1l&&!u){c.a1D=window.confirm("Load \""+F.data.st+"\" also next time you use hi-tech tools?\nManage it in Edit - Local Storage.");
 c.a1l=!0}if((c.a1D||u)&&c.rQ){c.qU[F.data.st]=F.data.Zs;var U=new l(i.E.L);U.data={e:i.B.Sl,S9:ge.gq};
 this.w(U)}}if(Y==i.B.Gk){var y=this.ux(),V="<!DOCTYPE HTML>";if(y==null)return;var a=em.vd(y.lD().buffer,y.Z,y.h),N=window.open();
 V+="<head><script>setTimeout(function() {window.print();}, 10);</script></head>";V+="<body><img src=\""+a+"\" /></body>";
@@ -10760,9 +10760,9 @@ for(var w=0;w<c2.fi.length;w++){var v=c2.fi[w];(v.V4?U.items[0].sub:U.items).pus
 (v.V4?U.Au[0].sub:U.Au).push({f:i.E.L,o:{e:i.B.xS,W2:v.Nc.tL}})}return U}(),function(){var U={name:[0,14],items:[],Au:[]},v={name:[0,9],sub:[]};
 U.items.push(v);var A={sub:[]};U.Au.push(A);var Z=h9.akV();for(var w=0;w<Z.length;w++){var D=Z[w],q=D.code,R=h9.Kr(q);
 v.sub.push({name:D.name,n8:q,Y:function(J,W){return{Rb:this.n8==h9.DE()}}});A.sub.push({f:i.E.L,o:{e:i.B.Sl,S9:ge.Mu,lang:R}})}v.sub.push({name:[0,12]});
-A.sub.push({f:i.E.L,o:{e:i.B.Xk,link:"https://www.photopea.com/translate/"}});var v={name:[0,15],sub:[]};
+A.sub.push({f:i.E.L,o:{e:i.B.Xk,link:""/*"https://www.photopea.com/translate/"*/}});var v={name:[0,15],sub:[]};
 U.items.push(v);var A={sub:[]};U.Au.push(A);for(var w=0;w<hw.lB.length;w++){v.sub.push({name:hw.lB[w].name,Y:function(J,W){return{Rb:this.name==hw.lB[W.hb].name}}});
-A.sub.push({f:i.E.L,o:{e:i.B.Sl,S9:ge.z_,hb:w}})}U.items.push({name:"Install Photopea",Y:function(J,W){return{Y:W.lX!=null}}});
+A.sub.push({f:i.E.L,o:{e:i.B.Sl,S9:ge.z_,hb:w}})}U.items.push({name:""/*"Install Photopea"*/,Y:function(J,W){return{Y:W.lX!=null}}});
 U.Au.push({f:i.E.L,o:{e:i.B.ez}});U.items.push({name:[11,13]});U.Au.push({f:i.E.L,o:{e:i.B.uH,W2:"shortcuts"}});
 U.items.push({name:[0,16],Y:function(J){return{Rb:k.pQ,Y:k.zW}}});U.Au.push({f:i.E.L,o:{e:i.B.$R}});
 return U}()]}();function d7(){au.call(this);this.u=i.z("div","");this._f=0;this.Hm=0;this.yH=null;this.Af=i.z("div","");
