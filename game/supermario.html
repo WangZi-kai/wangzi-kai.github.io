@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cmn-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="hi游戏，缓解你的压力！" />
+<meta name="keywords" content="hi,游戏,超级马里奥,超级马里奥游戏,免费超级马里奥,马里奥游戏,马里奥,SuperMario,SuperMarioPlay,freeSuperMario,Mariogame,Mario,娱乐,解压,分级" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+
+<meta name="viewport" content="initial-scale=1,maximum-scale=1, user-scalable=0">
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+<script src="/js/antidebugger.js"></script>
+<style>
+body {margin: 0;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;background-color: #f7f7f0;display: block;}
+*{transition:all .2s ease-in .0s;box-sizing: border-box;}
+a {color: #007bff;text-decoration: none;background-color: transparent;}
+a:hover{text-decoration: underline;}
+.h1, h1 {font-size: 2.5rem;}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {margin-bottom: 0.5rem;font-weight: 500;line-height: 1.2;}
+h1, h2, h3, h4, h5, h6 {margin-top: 0;}
+.sd-title {margin: 0 0 30px;font-size: 14px;font-weight: 400;}
+.w{margin:0 auto;width:90%;}
+.l{text-align:left;}
+nav {width:100%;text-align: center;font-weight:600;}
+
+@media(min-width:847px){
+.w{width:850px;}
+}
+
+@media(max-width:562px){
+ #logo{width:100%;}
+}
+
+#cookies-policy-popup{color:#222;font-family:arial,sans-serif;position:fixed;bottom:0;left:0;right:0;width:100%;background:#b9d1ff;padding:8px 14px;font-size:13px;text-align:left;opacity:0;transition:opacity 500ms;text-transform:none}#cookies-policy-popup a{color:#222}#cookies-policy-popup span{background:#428bca;color:#fff;padding:2px 7px;font-size:12px;cursor:pointer}#cookies-policy-popup span:hover{background:#4995d6}#cookies-policy-popup.fadein{opacity:1}
+</style><style>
+#game {background-color: var(--bs-backdrop-bg);display: block;width: 100%;max-width: 848px;height: 509px;position: relative;margin: 20px auto 10px;border: 10px solid var(--bs-backdrop-bg);-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#game.mobilegame {border: none;max-width: 848px;height: 528px;}
+#paused {
+            background: rgba(0,0,0,.3);
+            font-size: 24px;
+            text-transform: uppercase;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5em;
+        }
+
+        .bd-placeholder-img {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 200px;
+        }
+
+        .bd-placeholder-img.mob {
+            height: 450px;
+        }
+
+        .card-text {
+            color: var(--bs-body-color);
+        }
+        .card {
+            margin-bottom: 15px;
+        }
+
+        @media all and (max-width: 540px) {
+            .bd-placeholder-img {
+                height: 150px;
+            }
+
+            .bd-placeholder-img.mob {
+                height: 320px;
+            }
+        }
+
+        @font-face {
+            font-family: 'Press Start';
+            src: url('/fonts/supermario/PressStart2P-Regular.eot');
+            src: url('/fonts/supermario/PressStart2P-Regular.eot') format('embedded-opentype'), url('/fonts/supermario/PressStart2P-Regular.woff') format('woff'), url('/fonts/supermario/PressStart2P-Regular.ttf') format('truetype'), url('/i/supermario/PressStart2P-Regular.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Super Plumber Bros';
+            src: url('/fonts/supermario/super_plumber_brothers-webfont.eot');
+            src: url('/fonts/supermario/super_plumber_brothers-webfont.eot') format('embedded-opentype'), url('/fonts/supermario/super_plumber_brothers-webfont.woff') format('woff'), url('/fonts/supermario/super_plumber_brothers-webfont.ttf') format('truetype'), url('/i/supermario/super_plumber_brothers-webfont.svg') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        #game {
+            background-color: var(--bs-backdrop-bg);
+            display: block;
+            width: 100%;
+            max-width: 848px;
+            height: 509px;
+            position: relative;
+            margin: 20px auto 10px;
+            border: 10px solid var(--bs-backdrop-bg);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #game.mobilegame {
+            border: none;
+            max-width: 848px;
+            height: 528px;
+        }
+
+        .theme-switcher {
+            user-select: none;
+        }
+
+        #out_mapselect .icon {
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            margin-right: 5px;
+            background-size: 16px 16px;
+            background-image: url(/i/supermario/map_icon.png);
+        }
+
+        [data-bs-theme=dark] #out_mapselect .icon {
+            background-image: url(/i/supermario/map_icon_dark.png);
+        }
+
+        #out_fullscreen .icon {
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            margin-right: 5px;
+            background-size: 16px 16px;
+            background-image: url(/i/supermario/fullscreen.png);
+        }
+
+        [data-bs-theme=dark] #out_fullscreen .icon {
+            background-image: url(/i/supermario/fullscreen_dark.png);
+        }
+
+        #sound-toggle .icon {
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            background-size: 16px 16px;
+            margin-right: 5px;
+            background-image: url(/i/supermario/sound_on_icon.png);
+        }
+
+        [data-bs-theme=dark] #sound-toggle .icon {
+            background-image: url(/i/supermario/sound_on_icon_dark.png);
+        }
+
+        #on-button .icon {
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            background-size: 16px 16px;
+            margin-right: 5px;
+            background-image: url(/i/supermario/sound_on_icon.png);
+        }
+
+        [data-bs-theme=dark] #on-button .icon {
+            background-image: url(/i/supermario/sound_on_icon_dark.png);
+        }
+
+        #off-button .icon {
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            background-size: 16px 16px;
+            margin-right: 5px;
+            background-image: url(/i/supermario/sound_off_icon.png);
+        }
+
+        [data-bs-theme=dark] #off-button .icon {
+            background-image: url(/i/supermario/sound_off_icon_dark.png);
+        }
+
+        .theme-switcher {
+            cursor: pointer;
+        }
+
+        .theme-switcher .icon {
+            position: relative;
+            top: 4px;
+            height: 16px;
+            width: 16px;
+            display: inline-block;
+            margin-right: 5px;
+            background-size: 16px 16px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIGRhdGEtbmFtZT0iMjUtZGF5IGFuZCBuaWdodCI+PHBhdGggZD0iTTYzLjcwNy4yOTNhMSAxIDAgMCAwLTEuNDE0IDBsLTYyIDYyYTEgMSAwIDEgMCAxLjQxNCAxLjQxNGw2Mi02MmExIDEgMCAwIDAgMC0xLjQxNHoiIGZpbGw9IiMwMDAwMDAiIG9wYWNpdHk9IjEiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48Y2lyY2xlIGN4PSIxOCIgY3k9IjE4IiByPSI4IiBmaWxsPSIjMDAwMDAwIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L2NpcmNsZT48cGF0aCBkPSJtMTggMS0zIDZoNnpNMTIuMzQzIDguMSA1Ljk3OSA1Ljk3OWwyLjEyMiA2LjM2NHpNNyAxNWwtNiAzIDYgM3pNNS45NzkgMzAuMDIxbDYuMzY0LTIuMTIyLTQuMjQyLTQuMjQyek0xOCAzNWwzLTZoLTZ6TTIzLjY1NyAyNy44OTlsNi4zNjQgMi4xMjItMi4xMjItNi4zNjR6TTI5IDE1djZsNi0zek0zMC4wMjEgNS45NzkgMjMuNjU3IDguMWw0LjI0MiA0LjI0M3pNNTIuMjIxIDM0Ljc3OUExMS45NzQgMTEuOTc0IDAgMCAxIDM2Ljc4IDUwLjIyIDExLjk5MyAxMS45OTMgMCAxIDAgNTIuMjIgMzQuNzh6TTQxIDQ0YTcuMjcyIDcuMjcyIDAgMCAxIDUtNSA3LjI3MiA3LjI3MiAwIDAgMS01LTUgNy4yNzIgNy4yNzIgMCAwIDEtNSA1IDcuMjcyIDcuMjcyIDAgMCAxIDUgNXoiIGZpbGw9IiMwMDAwMDAiIG9wYWNpdHk9IjEiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSIiPjwvcGF0aD48Y2lyY2xlIGN4PSI0OSIgY3k9IjI4IiByPSIyIiBmaWxsPSIjMDAwMDAwIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIyOCIgY3k9IjU0IiByPSIyIiBmaWxsPSIjMDAwMDAwIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iIj48L2NpcmNsZT48L2c+PC9nPjwvc3ZnPg");
+        }
+
+        [data-bs-theme=dark] .theme-switcher .icon {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB4PSIwIiB5PSIwIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIGRhdGEtbmFtZT0iMjUtZGF5IGFuZCBuaWdodCI+PHBhdGggZD0iTTYzLjcwNy4yOTNhMSAxIDAgMCAwLTEuNDE0IDBsLTYyIDYyYTEgMSAwIDEgMCAxLjQxNCAxLjQxNGw2Mi02MmExIDEgMCAwIDAgMC0xLjQxNHoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjEiIGRhdGEtb3JpZ2luYWw9IiNmZmZmZmYiIGNsYXNzPSIiPjwvcGF0aD48Y2lyY2xlIGN4PSIxOCIgY3k9IjE4IiByPSI4IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjZmZmZmZmIiBjbGFzcz0iIj48L2NpcmNsZT48cGF0aCBkPSJtMTggMS0zIDZoNnpNMTIuMzQzIDguMSA1Ljk3OSA1Ljk3OWwyLjEyMiA2LjM2NHpNNyAxNWwtNiAzIDYgM3pNNS45NzkgMzAuMDIxbDYuMzY0LTIuMTIyLTQuMjQyLTQuMjQyek0xOCAzNWwzLTZoLTZ6TTIzLjY1NyAyNy44OTlsNi4zNjQgMi4xMjItMi4xMjItNi4zNjR6TTI5IDE1djZsNi0zek0zMC4wMjEgNS45NzkgMjMuNjU3IDguMWw0LjI0MiA0LjI0M3pNNTIuMjIxIDM0Ljc3OUExMS45NzQgMTEuOTc0IDAgMCAxIDM2Ljc4IDUwLjIyIDExLjk5MyAxMS45OTMgMCAxIDAgNTIuMjIgMzQuNzh6TTQxIDQ0YTcuMjcyIDcuMjcyIDAgMCAxIDUtNSA3LjI3MiA3LjI3MiAwIDAgMS01LTUgNy4yNzIgNy4yNzIgMCAwIDEtNSA1IDcuMjcyIDcuMjcyIDAgMCAxIDUgNXoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjEiIGRhdGEtb3JpZ2luYWw9IiNmZmZmZmYiIGNsYXNzPSIiPjwvcGF0aD48Y2lyY2xlIGN4PSI0OSIgY3k9IjI4IiByPSIyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjZmZmZmZmIiBjbGFzcz0iIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIyOCIgY3k9IjU0IiByPSIyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIxIiBkYXRhLW9yaWdpbmFsPSIjZmZmZmZmIiBjbGFzcz0iIj48L2NpcmNsZT48L2c+PC9nPjwvc3ZnPg");
+        }
+
+        body.fullscreen {
+            background-color: var(--bs-backdrop-bg);
+        }
+
+        body.fullscreen #main {
+            max-width: 100%;
+        }
+
+        body.fullscreen #game {
+            max-width: 100%;
+            height: 500px;
+            border: none;
+            position: static;
+            margin: 0;
+        }
+
+        body.fullscreen #out_editor {
+            position: static;
+        }
+
+        body.fullscreen #sound-toggle {
+            width: 200px;
+            position: static;
+            margin: 10px auto;
+        }
+
+        body.fullscreen #out_mapselect {
+            position: static;
+        }
+
+        body.fullscreen #go-back {
+            position: static;
+        }
+
+        body.fullscreen #go-back a {
+            color: var(--bs-body-color);
+            text-decoration: none;
+        }
+
+        #after {
+            margin: 0 0 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 21px;font-family: "Press Start";text-transform: uppercase;line-height: 117%;
+        }
+
+        .bar1 {
+            cursor: pointer;
+            margin: 10px;
+            text-align: center;
+        }
+
+        #out_editor {
+        }
+
+        #out_mapselect {
+            color: var(--bs-body-color);
+        }
+
+        #out_options {
+        }
+
+
+
+        #out_keymapping {
+            margin: 7px auto;
+        }
+
+        #in_options {
+        }
+
+        #sound-toggle {
+            color: var(--bs-body-color);
+        }
+
+        #sound-toggle:hover {
+            color: #a6ec5e;
+        }
+
+        #full-screen a {
+            color: var(--bs-body-color);
+            text-decoration: none;
+        }
+
+        #full-screen a:hover {
+            color: #a6ec5e;
+        }
+
+
+        .expander {
+            padding: 7px;
+            width: 280px;
+            height: 24px;
+            display: none;
+            z-index: 98;
+            background: #009966;
+            border: 3px solid #99ffcc;
+            border-radius: 7px;
+            box-shadow: 0 3px 7px black inset;
+            font-size: 14px;
+            margin: 0 10px;
+            position: absolute;
+        }
+
+        .bar1:hover .expander {
+            margin-top: -294px;
+            height: 280px;
+            display: block;
+        }
+
+        .bar1 div.label {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .maprectout {
+            margin: 1px 3px;
+            display: inline-block;
+            background: #ffcc33;
+            border: 3px outset;
+            cursor: pointer;
+            color: var(--bs-body-color);
+            font-size: 14px;
+        }
+
+        .maprect {
+            width: 49px;
+            height: 20px;
+        }
+
+        .maprect.off {
+            background: #996600;
+        }
+
+        .maprect.big {
+            width: 231px;
+        }
+
+        .maprect.larger {
+            margin: 14px 0;
+        }
+
+
+
+        @media (max-width: 599px) {
+            body.fullscreen .bar1 div.label {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 479px) {
+            body.fullscreen .bar1 div.label {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 359px) {
+            body.fullscreen .bar1 div.label {
+                font-size: 11px;
+            }
+        }
+        
+.o{
+	height:50px;
+	line-height:50px;    
+    background-color:#2E383C;
+    color:#A6B5BB;	
+	padding:2px 5px;
+    margin:20px 0;	
+    border-radius:50px;
+	text-align:center;
+	text-decoration:none;
+}
+.o a{
+	text-decoration:none;
+}
+.o:hover,.oo{
+	background-color:blue;
+	color:white;
+	text-decoration:none;
+}
+
+
+</style>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!--wx,qq干游戏，所以写遮罩，1，引入脚本和css（用了jq），好注释放这引入，head引入保险-->
+<script src="/js/wechatqq.js"></script>
+<link rel="stylesheet" href="/css/wechatqq.css" type="text/css" />
+</head>
+<body onload="start()">
+<!--2.遮罩实现（div里面的就是遮罩内容）-->
+<div class="weixin-tip">
+<p>
+<img src="/i/wechat.png" alt="请点击右上角三个点，选择在浏览器打开"/>
+</p>
+<br />
+<p>
+<font color="red" size="30"><b><u><mark>或者长按复制链接到浏览器打开&nbsp;<a href="/game/supermario.html">https://wangzi-kai.github.io/game/supermario.html</a></mark></u></b></font>
+</p>
+<p>
+<mark>如果您使用的是QQ浏览器，请您临时将UA切换到电脑，对界面大小无影响</mark>
+</p>
+</div>
+<noscript><div align="center"><font size="50" color="red">本游戏为CSS+JavaScript+H5游戏，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器</font></div><br /><br /></noscript>
+<br />
+<center>
+<div class="w">
+<a href="#"><img src="/i/supermario/super_mario_bros_logo.png" alt="SuperMario logo" id="logo" title="在线玩超级马里奥"></a>
+<h1 class="sd-title">在线免费玩原版超级马里奥游戏</h1>
+<hr>
+</div>
+
+
+<!-- mario -->
+<div class="w l">
+<p>如何玩超级玛丽（也叫超级马里奥兄弟）游戏？<br />使用上、下、侧箭头或<strong>W, A, S, D</strong>来移动马里奥。按住键可以让马里奥跳得更高。<br />要<strong>发射/冲刺</strong>，使用<strong>Shift/CTRL</strong>。按<strong>P</strong>暂停，按<strong>M</strong>静音。 </p>
+</div>
+<script>
+var LANG = {
+"language":"zh",
+"name":"匿名",     //昵称:匿名
+"tip":"👆点击可修改",  //点击可修改
+"lose":"没有上榜，再接再厉！",  //'没有上榜，再接再厉！'
+"win":"恭喜你，本周排第${x}名",  //'恭喜你，本周排第x名'
+"err_name":"匿名网友不参与排名，请修改昵称!",   //匿名网友不参与排名，请修改昵称。！
+"err_scorelow":"分数太低",   //分数太低
+"err_coinslow":"金币太低"   //金币太低
+};
+</script>
+<script>
+   var is_mobile = false;
+   var is_fullscreen = false;
+   var is_dev = false;
+</script>
+<div class="w">
+<iframe data-src-desk="/game/supermarioservice.html" data-src-mob="/game/supermarioservice.html" loading="lazy" id="game"></iframe>
+<script>
+// 首先检查LANG是否存在，如果不存在则初始化为一个空对象
+var LANG = LANG || {};
+// 将LANG对象转换为JSON字符串
+var langString = JSON.stringify(LANG);
+
+var iframe = document.getElementById('game');
+
+// 将LANG字符串附加到iframe的src属性中
+var src = iframe.getAttribute('data-src-desk')+'?lang='+encodeURIComponent(langString)+'&v=11';
+if (window.innerWidth < 991) {
+    src = iframe.getAttribute('data-src-mob')+'?lang='+encodeURIComponent(langString)+'&v=11';
+    iframe.setAttribute('class','mobilegame');
+}
+iframe.setAttribute('src', src);
+iframe.contentWindow.focus();
+</script>
+
+<div id="after">
+                 <div id="paused"><span>继续</span></div>
+
+                    <div id="out_mapselect" class="bar1">
+                        <div class="label"> <span class="icon"></span> 选择关卡</div>
+                        <div id="in_mapselect" class="expander"></div>
+                    </div>
+                    <div id="out_editor" class="bar1" style="display: none;">
+                      <div class="label">- 等级编辑器 -</div>
+                      <div id="in_editor" class="expander"></div>
+                   </div>
+				           <div id="out_options" class="bar1" style="display: none;">
+            <div class="label">- 选项 -</div>
+            <div id="in_options" class="expander"></div>
+        </div>
+				   
+		<div class="theme-switcher" style="visibility:hidden;">
+            <div class="label"><a href="#"><span class="icon"></span><s>分数</s></a></div>
+        </div>
+        
+                    <div id="out_fullscreen" class="bar1" style="visibility:hidden;">
+                        <div class="label">
+                            <a href="#">
+                                <span class="icon"></span><s>全屏</s></a>
+                        </div>
+                    </div>
+
+                    <div id="sound-toggle" class="bar1">
+                        <div class="label"><span class="icon"></span> 声音关</div>
+                    </div>
+                    <div id="on-button" style="display: none"><span class="icon"></span> 声音开</div>
+                    <div id="off-button" style="display: none"><span class="icon"></span> 声音关</div>
+					
+					        <div id="out_keymapping" class="bar1" style="display: none;">
+            <div class="label">- Keys Mapping -</div>
+            <div id="in_keymapping" class="expander"></div>
+        </div>
+
+</div>    
+<script>
+    function switchTheme() {
+        let body = document.querySelector('html');
+
+        if (body.getAttribute('data-bs-theme') === 'dark') {
+            body.setAttribute('data-bs-theme', 'light');
+        } else {
+            body.setAttribute('data-bs-theme', 'dark');
+        }
+    }
+</script>
+<script>
+        var is_mobile = false;
+        var is_fullscreen = false;
+        var is_dev = false;
+
+</script>
+<!--script src="/js/jquery.min.js"></script-->
+<script src="/js/supermario/ui.js"></script>
+<script>
+        // document.onload()
+        document.body.addEventListener(
+            "keydown",
+            function(event) {
+                if (event.keyCode === 32 && event.target === document.body) {
+                    event.preventDefault();
+                }
+            },
+            false
+        );
+</script>		
+</div>
+<BR>
+<div class="w l">
+<h2>关于游戏</h2>
+<p>超级马里奥是任天堂最受欢迎的经典电子游戏之一，于1985年基于马里奥兄弟街机游戏创建。超级马里奥的流行帮助推出了游戏史上最成功的特许经营权之一。同年晚些时候，它在北美为NES或任天堂娱乐系统发布。</p>
+
+<h2>如何玩</h2>
+<p>当您玩游戏时，系统会提示您选择单人或双人模式。游戏可以连续玩，但您可以选择任何32个关卡（已解锁）。另一个选择是生成一个随机地图。</p><p>按键[↑ → ↓ ←]或W, A, S, D - 移动，Shift/CTRL - 发射/冲刺。</p>
+</div>
+<div class="w l">
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/game/" title="点击这里返回首页">点击这里返回首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></noscript></div>
+</footer>
+</div>
+
+<script src="/skin/js/stat.js"></script></center>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"96b63b1e1fa1b9e0","version":"2025.7.0","r":1,"token":"1680ebd1c82748f0a17c57298cab9a2d","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
