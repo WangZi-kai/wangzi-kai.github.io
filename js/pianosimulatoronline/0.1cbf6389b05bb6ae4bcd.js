@@ -51,6 +51,11 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
+        name: "You Raise Me Up",
+        url: "You Raise Me Up.mid",
+        degree: 4
+},
+{
     name: "琵琶行",
     url: "琵琶行.mid",
     degree: 4
