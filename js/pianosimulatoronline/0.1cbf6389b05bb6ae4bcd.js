@@ -51,6 +51,11 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
+    name: "琵琶行",
+    url: "琵琶行.mid",
+    degree: 4
+},
+{
     name: "We Wish You A Merry Christmas",
     url: "WeWishYouAMerryChristmas.mid",
     degree: 3
@@ -73,12 +78,12 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 {
 	name: "Zedd - Beautiful Now",
 	url: "BeautifulNow.mid",
-	degree: 3
+	degree: 4
 },
 {
 	name: "Count On Me",
 	url: "CountOnMe.mid",
-	degree: 3
+	degree: 2
 },
 {
 	name: "你一定要幸福",
