@@ -51,6 +51,12 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
+    	name: "看得最远的地方（降B大调版）",
+        url: "看得最远的地方Bb.mid",
+        degree: 2
+},
+}
+{
     name: "Love Story",
     url: "Love Story.mid",
     degree: 5
