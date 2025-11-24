@@ -51,8 +51,8 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
 	degree: 2
 },
 {
-    name: "看得最远的地方（降B大调版）",
-    url: "看得最远的地方Bb.mid",
+    name: "看得最远的地方（降E大调版）",
+    url: "看得最远的地方bE.mid",
     degree: 4
 },
 {
