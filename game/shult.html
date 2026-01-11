@@ -170,7 +170,6 @@
 	</style>
 	<script type="text/javascript">
 		const BEST_TIME_KEY = "schult.best.time";
-		//https://play2048.co/
 		let size = 5;
 		const random = [];
 		let current = 1;
@@ -243,6 +242,11 @@
 		let gameInterval = -1;
 
 		function setHard(hard) {
+            if (hard == 3) {
+                $(".footer").hide(1000);
+            } else {
+                $(".footer").show(1000);
+            };
 			if (gameInterval > 0) {
 				clearInterval(gameInterval);
 			}
@@ -342,7 +346,7 @@
 			</div>
 		</div>
 	</div>
-<footer>
+<footer id="footer">
 <br />
 <br />
 <br /><br /><br /><br /><br /><br /><br /><br />
