@@ -1,0 +1,1202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全能时间计算器 - hi工具</title>
+<meta name="description" content="hi工具，方便你的生活！" />
+<meta name="keywords" content="hi,工具,方便,实用,全能,时间,计算,计算器,时间计算" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<script src="/js/antidebugger.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        h1 i {
+            color: #3498db;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .current-time {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 5px 0;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f2f6;
+        }
+        
+        .card-header i {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin-right: 15px;
+        }
+        
+        .card-header h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        input, select, button {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        input {
+            flex: 1;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .result h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .lunar-result {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .lunar-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .lunar-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .lunar-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .unit-conversion-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        @media (max-width: 1100px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .calculator-card {
+                padding: 20px;
+            }
+            
+            .input-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .unit-conversion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
+<br />
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-clock"></i> 全能时间计算器</h1>
+            <p class="subtitle">提供全面的时间计算、转换和格式化功能</p>
+            <div class="current-time" id="currentTime">正在加载当前时间...</div>
+        </header>
+        
+        <div class="grid-container">
+            <!-- 距离此刻时间计算 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h2>距离此刻时间计算</h2>
+                </div>
+                <div class="input-group">
+                    <label>选择目标日期和时间：</label>
+                    <div class="input-row">
+                        <input type="datetime-local" id="targetDateTime" value="">
+                    </div>
+                </div>
+                <button id="calculateFromNow">
+                    <i class="fas fa-calculator"></i> 计算距离现在的时间
+                </button>
+                <div class="result" id="fromNowResult" style="display: none;">
+                    <h3><i class="fas fa-hourglass-end"></i> 计算结果</h3>
+                    <p id="fromNowResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 日期间隔计算器 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="far fa-calendar-alt"></i>
+                    <h2>日期间隔计算器</h2>
+                </div>
+                <div class="input-group">
+                    <label>开始日期：</label>
+                    <div class="input-row">
+                        <input type="date" id="startDate" value="">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>结束日期：</label>
+                    <div class="input-row">
+                        <input type="date" id="endDate" value="">
+                    </div>
+                </div>
+                <button id="calculateDateDiff">
+                    <i class="fas fa-calculator"></i> 计算日期间隔
+                </button>
+                <div class="result" id="dateDiffResult" style="display: none;">
+                    <h3><i class="fas fa-calendar-minus"></i> 间隔结果</h3>
+                    <p id="dateDiffResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 时间间隔计算器 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="far fa-clock"></i>
+                    <h2>时间间隔计算器</h2>
+                </div>
+                <div class="input-group">
+                    <label>开始时间：</label>
+                    <div class="input-row">
+                        <input type="time" id="startTime" value="00:00">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>结束时间：</label>
+                    <div class="input-row">
+                        <input type="time" id="endTime" value="00:00">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>日期是否跨天：</label>
+                    <div class="input-row">
+                        <select id="crossDay">
+                            <option value="no">不跨天</option>
+                            <option value="yes">跨天（次日）</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="calculateTimeDiff">
+                    <i class="fas fa-calculator"></i> 计算时间间隔
+                </button>
+                <div class="result" id="timeDiffResult" style="display: none;">
+                    <h3><i class="fas fa-clock"></i> 间隔结果</h3>
+                    <p id="timeDiffResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 日期推算计算器 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-plus"></i>
+                    <h2>日期推算计算器</h2>
+                </div>
+                <div class="input-group">
+                    <label>基准日期：</label>
+                    <div class="input-row">
+                        <input type="date" id="baseDate" value="">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>推移天数：</label>
+                    <div class="input-row">
+                        <input type="number" id="daysOffset" value="0" min="-3650" max="3650">
+                    </div>
+                </div>
+                <button id="calculateDateOffset">
+                    <i class="fas fa-calculator"></i> 推算日期
+                </button>
+                <div class="result" id="dateOffsetResult" style="display: none;">
+                    <h3><i class="fas fa-calendar-day"></i> 推算结果</h3>
+                    <p id="dateOffsetResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 时间单位转换 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h2>时间单位转换</h2>
+                </div>
+                <div class="input-group">
+                    <label>输入数值：</label>
+                    <div class="input-row">
+                        <input type="number" id="timeValue" value="1" min="0" step="0.001">
+                        <select id="timeUnitFrom">
+                            <option value="ps">皮秒 (ps)</option>
+                            <option value="ns">纳秒 (ns)</option>
+                            <option value="μs">微秒 (μs)</option>
+                            <option value="ms">毫秒 (ms)</option>
+                            <option value="s" selected>秒 (s)</option>
+                            <option value="min">分钟 (min)</option>
+                            <option value="h">小时 (h)</option>
+                            <option value="d">天 (d)</option>
+                            <option value="week">周 (week)</option>
+                            <option value="month">月 (30天)</option>
+                            <option value="year">年 (365天)</option>
+                            <option value="moment">一刹那 (0.018秒)</option>
+                            <option value="kshana">一瞬间 (0.36秒)</option>
+                            <option value="tanZhi">一弹指 (7.2秒)</option>
+                            <option value="luoYu">一罗预 (144秒)</option>
+                            <option value="luoSha">一罗刹 (1.2小时)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>转换为：</label>
+                    <div class="input-row">
+                        <select id="timeUnitTo">
+                            <option value="ps">皮秒 (ps)</option>
+                            <option value="ns">纳秒 (ns)</option>
+                            <option value="μs">微秒 (μs)</option>
+                            <option value="ms">毫秒 (ms)</option>
+                            <option value="s" selected>秒 (s)</option>
+                            <option value="min">分钟 (min)</option>
+                            <option value="h">小时 (h)</option>
+                            <option value="d">天 (d)</option>
+                            <option value="week">周 (week)</option>
+                            <option value="month">月 (30天)</option>
+                            <option value="year">年 (365天)</option>
+                            <option value="moment">一刹那 (0.018秒)</option>
+                            <option value="kshana">一瞬间 (0.36秒)</option>
+                            <option value="tanZhi">一弹指 (7.2秒)</option>
+                            <option value="luoYu">一罗预 (144秒)</option>
+                            <option value="luoSha">一罗刹 (1.2小时)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="convertTimeUnit">
+                    <i class="fas fa-exchange-alt"></i> 转换单位
+                </button>
+                <div class="result" id="timeUnitResult" style="display: none;">
+                    <h3><i class="fas fa-ruler-combined"></i> 转换结果</h3>
+                    <p id="timeUnitResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 时间戳和字符串互转 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="fas fa-code"></i>
+                    <h2>时间戳与时间字符串互转</h2>
+                </div>
+                <div class="input-group">
+                    <label>时间戳 (毫秒)：</label>
+                    <div class="input-row">
+                        <input type="number" id="timestampInput" placeholder="输入时间戳">
+                        <button id="timestampToDate">转换为时间</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>日期时间字符串：</label>
+                    <div class="input-row">
+                        <input type="datetime-local" id="dateStringInput" value="">
+                        <button id="dateToTimestamp">转换为时间戳</button>
+                    </div>
+                </div>
+                <div class="result" id="timestampResult" style="display: none;">
+                    <h3><i class="fas fa-history"></i> 转换结果</h3>
+                    <p id="timestampResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 时间和日期的格式化 -->
+            <div class="calculator-card">
+                <div class="card-header">
+                    <i class="fas fa-font"></i>
+                    <h2>时间和日期的格式化</h2>
+                </div>
+                <div class="input-group">
+                    <label>选择日期时间：</label>
+                    <div class="input-row">
+                        <input type="datetime-local" id="formatDateInput" value="">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>选择格式：</label>
+                    <div class="input-row">
+                        <select id="formatSelect">
+                            <option value="full">完整格式：YYYY-MM-DD HH:mm:ss</option>
+                            <option value="dateOnly">仅日期：YYYY年MM月DD日</option>
+                            <option value="timeOnly">仅时间：HH时mm分ss秒</option>
+                            <option value="iso">ISO格式：YYYY-MM-DDTHH:mm:ss.sssZ</option>
+                            <option value="custom">自定义格式</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group" id="customFormatGroup" style="display: none;">
+                    <label>自定义格式：</label>
+                    <div class="input-row">
+                        <input type="text" id="customFormat" placeholder="如：YYYY/MM/DD HH:mm">
+                    </div>
+                </div>
+                <button id="formatDate">
+                    <i class="fas fa-code"></i> 格式化日期
+                </button>
+                <div class="result" id="formatResult" style="display: none;">
+                    <h3><i class="fas fa-font"></i> 格式化结果</h3>
+                    <p id="formatResultText"></p>
+                </div>
+            </div>
+            
+            <!-- 公历和农历互转 -->
+            <div class="calculator-card" style="display:none;">
+                <div class="card-header">
+                    <i class="fas fa-moon"></i>
+                    <h2>公历和农历互转</h2>
+                </div>
+                <div class="input-group">
+                    <label>公历日期：</label>
+                    <div class="input-row">
+                        <input type="date" id="solarDate" value="">
+                        <button id="solarToLunar">转换为农历</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>农历日期：</label>
+                    <div class="input-row">
+                        <input type="number" id="lunarYear" placeholder="年" min="1900" max="2100" style="flex: 1;">
+                        <select id="lunarMonth" style="flex: 1;">
+                            <option value="1">正月</option>
+                            <option value="2">二月</option>
+                            <option value="3">三月</option>
+                            <option value="4">四月</option>
+                            <option value="5">五月</option>
+                            <option value="6">六月</option>
+                            <option value="7">七月</option>
+                            <option value="8">八月</option>
+                            <option value="9">九月</option>
+                            <option value="10">十月</option>
+                            <option value="11">冬月</option>
+                            <option value="12">腊月</option>
+                        </select>
+                        <select id="lunarDay" style="flex: 1;">
+                            <!-- 日期选项将由JavaScript动态生成 -->
+                        </select>
+                        <button id="lunarToSolar">转换为公历</button>
+                    </div>
+                </div>
+                <div class="result" id="lunarResult" style="display: none;">
+                    <h3><i class="fas fa-moon"></i> 转换结果</h3>
+                    <div id="lunarResultText"></div>
+                </div>
+            </div>
+        </div>
+        
+        <footer style="display:none;">
+            <p>&copy;hi工具 全能时间计算器 | 本工具提供精确的时间计算和转换功能</p>
+            <p style="display:none;">注：农历转换功能基于算法计算，可能与实际农历日期有细微差异</p>
+        </footer>
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/tool/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></a></noscript></div>
+</footer>
+    </div>
+
+    <script>
+        // 当前时间显示
+        function updateCurrentTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            document.getElementById('currentTime').textContent = now.toLocaleString('zh-CN', options);
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+            
+            // 设置默认日期为今天
+            const today = new Date();
+            const todayStr = today.toISOString().slice(0, 16);
+            const todayDateStr = today.toISOString().slice(0, 10);
+            
+            // 设置默认值
+            document.getElementById('targetDateTime').value = todayStr;
+            document.getElementById('startDate').value = todayDateStr;
+            document.getElementById('endDate').value = todayDateStr;
+            document.getElementById('baseDate').value = todayDateStr;
+            document.getElementById('formatDateInput').value = todayStr;
+            document.getElementById('solarDate').value = todayDateStr;
+            
+            // 设置结束时间默认值为1小时后
+            const endTime = new Date(today.getTime() + 60 * 60 * 1000);
+            document.getElementById('endTime').value = endTime.toTimeString().slice(0, 5);
+            
+            // 生成农历日期的天数选项
+            const lunarDaySelect = document.getElementById('lunarDay');
+            lunarDaySelect.innerHTML = '';
+            for (let i = 1; i <= 30; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i + '日';
+                lunarDaySelect.appendChild(option);
+            }
+            
+            // 设置农历年份为今年
+            document.getElementById('lunarYear').value = today.getFullYear();
+            
+            // 格式化选择框事件
+            document.getElementById('formatSelect').addEventListener('change', function() {
+                const customGroup = document.getElementById('customFormatGroup');
+                if (this.value === 'custom') {
+                    customGroup.style.display = 'block';
+                } else {
+                    customGroup.style.display = 'none';
+                }
+            });
+        });
+        
+        // 距离此刻时间计算
+        document.getElementById('calculateFromNow').addEventListener('click', function() {
+            const targetDateTime = document.getElementById('targetDateTime').value;
+            if (!targetDateTime) {
+                alert('请选择目标日期和时间');
+                return;
+            }
+            
+            const targetTime = new Date(targetDateTime).getTime();
+            const now = new Date().getTime();
+            const diffMs = targetTime - now;
+            
+            if (isNaN(diffMs)) {
+                alert('请输入有效的日期时间');
+                return;
+            }
+            
+            const diffSeconds = Math.floor(diffMs / 1000);
+            const diffMinutes = Math.floor(diffSeconds / 60);
+            const diffHours = Math.floor(diffMinutes / 60);
+            const diffDays = Math.floor(diffHours / 24);
+            
+            let resultText = '';
+            
+            if (diffMs > 0) {
+                resultText = `距离 ${targetDateTime.replace('T', ' ')} 还有：<br>`;
+                resultText += `<span class="highlight">${diffDays}</span> 天 `;
+                resultText += `<span class="highlight">${diffHours % 24}</span> 小时 `;
+                resultText += `<span class="highlight">${diffMinutes % 60}</span> 分钟 `;
+                resultText += `<span class="highlight">${diffSeconds % 60}</span> 秒`;
+                
+                if (diffDays > 365) {
+                    const years = Math.floor(diffDays / 365);
+                    const remainingDays = diffDays % 365;
+                    resultText += `<br>约 <span class="highlight">${years}</span> 年 <span class="highlight">${remainingDays}</span> 天`;
+                }
+            } else if (diffMs < 0) {
+                const absDiffDays = Math.floor(Math.abs(diffMs) / (1000 * 60 * 60 * 24));
+                const absDiffHours = Math.floor(Math.abs(diffMs) / (1000 * 60 * 60)) % 24;
+                const absDiffMinutes = Math.floor(Math.abs(diffMs) / (1000 * 60)) % 60;
+                const absDiffSeconds = Math.floor(Math.abs(diffMs) / 1000) % 60;
+                
+                resultText = `${targetDateTime.replace('T', ' ')} 已经过去：<br>`;
+                resultText += `<span class="highlight">${absDiffDays}</span> 天 `;
+                resultText += `<span class="highlight">${absDiffHours}</span> 小时 `;
+                resultText += `<span class="highlight">${absDiffMinutes}</span> 分钟 `;
+                resultText += `<span class="highlight">${absDiffSeconds}</span> 秒`;
+            } else {
+                resultText = '就是现在！';
+            }
+            
+            document.getElementById('fromNowResultText').innerHTML = resultText;
+            document.getElementById('fromNowResult').style.display = 'block';
+        });
+        
+        // 日期间隔计算器
+        document.getElementById('calculateDateDiff').addEventListener('click', function() {
+            const startDateStr = document.getElementById('startDate').value;
+            const endDateStr = document.getElementById('endDate').value;
+            
+            if (!startDateStr || !endDateStr) {
+                alert('请选择开始日期和结束日期');
+                return;
+            }
+            
+            const startDate = new Date(startDateStr);
+            const endDate = new Date(endDateStr);
+            
+            if (startDate > endDate) {
+                alert('开始日期不能晚于结束日期');
+                return;
+            }
+            
+            const diffTime = Math.abs(endDate - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffWeeks = Math.floor(diffDays / 7);
+            const diffMonths = Math.floor(diffDays / 30.44); // 平均每月天数
+            const diffYears = Math.floor(diffDays / 365.25); // 考虑闰年
+            
+            const startWeekday = startDate.toLocaleDateString('zh-CN', { weekday: 'long' });
+            const endWeekday = endDate.toLocaleDateString('zh-CN', { weekday: 'long' });
+            
+            let resultText = `从 ${startDateStr} (${startWeekday}) 到 ${endDateStr} (${endWeekday})：<br>`;
+            resultText += `总共 <span class="highlight">${diffDays}</span> 天<br>`;
+            resultText += `约 <span class="highlight">${diffWeeks}</span> 周<br>`;
+            resultText += `约 <span class="highlight">${diffMonths.toFixed(1)}</span> 个月<br>`;
+            resultText += `约 <span class="highlight">${diffYears.toFixed(2)}</span> 年`;
+            
+            document.getElementById('dateDiffResultText').innerHTML = resultText;
+            document.getElementById('dateDiffResult').style.display = 'block';
+        });
+        
+        // 时间间隔计算器
+        document.getElementById('calculateTimeDiff').addEventListener('click', function() {
+            const startTimeStr = document.getElementById('startTime').value;
+            const endTimeStr = document.getElementById('endTime').value;
+            const crossDay = document.getElementById('crossDay').value;
+            
+            if (!startTimeStr || !endTimeStr) {
+                alert('请选择开始时间和结束时间');
+                return;
+            }
+            
+            const today = new Date().toISOString().slice(0, 10);
+            let startDateTime = new Date(`${today}T${startTimeStr}`);
+            let endDateTime = new Date(`${today}T${endTimeStr}`);
+            
+            if (crossDay === 'yes') {
+                endDateTime = new Date(endDateTime.getTime() + 24 * 60 * 60 * 1000);
+            }
+            
+            if (startDateTime > endDateTime) {
+                alert('开始时间不能晚于结束时间');
+                return;
+            }
+            
+            const diffMs = endDateTime - startDateTime;
+            const diffSeconds = Math.floor(diffMs / 1000);
+            const diffMinutes = Math.floor(diffSeconds / 60);
+            const diffHours = Math.floor(diffMinutes / 60);
+            
+            let resultText = `从 ${startTimeStr} 到 ${crossDay === 'yes' ? '次日 ' : ''}${endTimeStr}：<br>`;
+            resultText += `总共 <span class="highlight">${diffHours}</span> 小时 `;
+            resultText += `<span class="highlight">${diffMinutes % 60}</span> 分钟 `;
+            resultText += `<span class="highlight">${diffSeconds % 60}</span> 秒<br>`;
+            resultText += `合计 <span class="highlight">${diffHours + (diffMinutes % 60) / 60}</span> 小时<br>`;
+            resultText += `合计 <span class="highlight">${diffMinutes}</span> 分钟<br>`;
+            resultText += `合计 <span class="highlight">${diffSeconds}</span> 秒<br>`;
+            resultText += `合计 <span class="highlight">${diffMs}</span> 毫秒`;
+            
+            document.getElementById('timeDiffResultText').innerHTML = resultText;
+            document.getElementById('timeDiffResult').style.display = 'block';
+        });
+        
+        // 日期推算计算器
+        document.getElementById('calculateDateOffset').addEventListener('click', function() {
+            const baseDateStr = document.getElementById('baseDate').value;
+            const daysOffset = parseInt(document.getElementById('daysOffset').value);
+            
+            if (!baseDateStr || isNaN(daysOffset)) {
+                alert('请填写基准日期和推移天数');
+                return;
+            }
+            
+            const baseDate = new Date(baseDateStr);
+            const resultDate = new Date(baseDate.getTime() + daysOffset * 24 * 60 * 60 * 1000);
+            
+            const resultDateStr = resultDate.toISOString().slice(0, 10);
+            const weekday = resultDate.toLocaleDateString('zh-CN', { weekday: 'long' });
+            
+            const direction = daysOffset >= 0 ? '后' : '前';
+            const absDays = Math.abs(daysOffset);
+            
+            let resultText = `${baseDateStr} ${daysOffset >= 0 ? '之后' : '之前'} <span class="highlight">${absDays}</span> 天是：<br>`;
+            resultText += `<span class="highlight">${resultDateStr} (${weekday})</span><br><br>`;
+            
+            // 计算其他单位
+            const weeks = Math.floor(absDays / 7);
+            const remainingDays = absDays % 7;
+            const months = (absDays / 30.44).toFixed(1);
+            const years = (absDays / 365.25).toFixed(2);
+            
+            resultText += `相当于：<br>`;
+            if (weeks > 0) {
+                resultText += `<span class="highlight">${weeks}</span> 周 `;
+                if (remainingDays > 0) {
+                    resultText += `<span class="highlight">${remainingDays}</span> 天<br>`;
+                } else {
+                    resultText += `<br>`;
+                }
+            }
+            resultText += `约 <span class="highlight">${months}</span> 个月<br>`;
+            resultText += `约 <span class="highlight">${years}</span> 年`;
+            
+            document.getElementById('dateOffsetResultText').innerHTML = resultText;
+            document.getElementById('dateOffsetResult').style.display = 'block';
+        });
+        
+        // 时间单位转换
+        document.getElementById('convertTimeUnit').addEventListener('click', function() {
+            const timeValue = parseFloat(document.getElementById('timeValue').value);
+            const fromUnit = document.getElementById('timeUnitFrom').value;
+            const toUnit = document.getElementById('timeUnitTo').value;
+            
+            if (isNaN(timeValue) || timeValue < 0) {
+                alert('请输入有效的时间数值');
+                return;
+            }
+            
+            // 转换为秒
+            let valueInSeconds = 0;
+            
+            // 转换到秒
+            switch(fromUnit) {
+                case 'ps': valueInSeconds = timeValue / 1e12; break;
+                case 'ns': valueInSeconds = timeValue / 1e9; break;
+                case 'μs': valueInSeconds = timeValue / 1e6; break;
+                case 'ms': valueInSeconds = timeValue / 1000; break;
+                case 's': valueInSeconds = timeValue; break;
+                case 'min': valueInSeconds = timeValue * 60; break;
+                case 'h': valueInSeconds = timeValue * 3600; break;
+                case 'd': valueInSeconds = timeValue * 86400; break;
+                case 'week': valueInSeconds = timeValue * 604800; break;
+                case 'month': valueInSeconds = timeValue * 30.44 * 86400; break;
+                case 'year': valueInSeconds = timeValue * 365.25 * 86400; break;
+                case 'moment': valueInSeconds = timeValue * 0.018; break; // 一刹那 = 0.018秒
+                case 'kshana': valueInSeconds = timeValue * 0.36; break; // 一瞬间 = 0.36秒
+                case 'tanZhi': valueInSeconds = timeValue * 7.2; break; // 一弹指 = 7.2秒
+                case 'luoYu': valueInSeconds = timeValue * 144; break; // 一罗预 = 144秒
+                case 'luoSha': valueInSeconds = timeValue * 1.2 * 3600; break; // 一罗刹 = 1.2小时
+            }
+            
+            // 从秒转换到目标单位
+            let convertedValue = 0;
+            let unitName = '';
+            
+            switch(toUnit) {
+                case 'ps': convertedValue = valueInSeconds * 1e12; unitName = '皮秒'; break;
+                case 'ns': convertedValue = valueInSeconds * 1e9; unitName = '纳秒'; break;
+                case 'μs': convertedValue = valueInSeconds * 1e6; unitName = '微秒'; break;
+                case 'ms': convertedValue = valueInSeconds * 1000; unitName = '毫秒'; break;
+                case 's': convertedValue = valueInSeconds; unitName = '秒'; break;
+                case 'min': convertedValue = valueInSeconds / 60; unitName = '分钟'; break;
+                case 'h': convertedValue = valueInSeconds / 3600; unitName = '小时'; break;
+                case 'd': convertedValue = valueInSeconds / 86400; unitName = '天'; break;
+                case 'week': convertedValue = valueInSeconds / 604800; unitName = '周'; break;
+                case 'month': convertedValue = valueInSeconds / (30.44 * 86400); unitName = '月'; break;
+                case 'year': convertedValue = valueInSeconds / (365.25 * 86400); unitName = '年'; break;
+                case 'moment': convertedValue = valueInSeconds / 0.018; unitName = '一刹那'; break;
+                case 'kshana': convertedValue = valueInSeconds / 0.36; unitName = '一瞬间'; break;
+                case 'tanZhi': convertedValue = valueInSeconds / 7.2; unitName = '一弹指'; break;
+                case 'luoYu': convertedValue = valueInSeconds / 144; unitName = '一罗预'; break;
+                case 'luoSha': convertedValue = valueInSeconds / (1.2 * 3600); unitName = '一罗刹'; break;
+            }
+            
+            const fromUnitName = document.getElementById('timeUnitFrom').selectedOptions[0].text;
+            const toUnitName = document.getElementById('timeUnitTo').selectedOptions[0].text;
+            
+            let resultText = `<span class="highlight">${timeValue}</span> ${fromUnitName} = <br>`;
+            resultText += `<span class="highlight">${convertedValue.toExponential(6)}</span> ${toUnitName}<br><br>`;
+            resultText += `≈ <span class="highlight">${convertedValue.toFixed(12)}</span> ${toUnitName}<br>`;
+            
+            if (convertedValue > 1000) {
+                resultText += `≈ <span class="highlight">${convertedValue.toFixed(6)}</span> ${toUnitName}<br>`;
+            } else if (convertedValue < 0.000001) {
+                resultText += `≈ <span class="highlight">${convertedValue.toExponential(4)}</span> ${toUnitName}`;
+            } else {
+                resultText += `≈ <span class="highlight">${convertedValue}</span> ${toUnitName}`;
+            }
+            
+            document.getElementById('timeUnitResultText').innerHTML = resultText;
+            document.getElementById('timeUnitResult').style.display = 'block';
+        });
+        
+        // 时间戳转日期
+        document.getElementById('timestampToDate').addEventListener('click', function() {
+            const timestampInput = document.getElementById('timestampInput').value.trim();
+            if (!timestampInput) {
+                alert('请输入时间戳');
+                return;
+            }
+            
+            let timestamp = parseInt(timestampInput);
+            
+            // 如果时间戳是10位（秒），转换为13位（毫秒）
+            if (timestamp.toString().length === 10) {
+                timestamp *= 1000;
+            }
+            
+            const date = new Date(timestamp);
+            
+            if (isNaN(date.getTime())) {
+                alert('无效的时间戳');
+                return;
+            }
+            
+            const formattedDate = date.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            
+            const isoDate = date.toISOString();
+            const utcDate = date.toUTCString();
+            
+            let resultText = `时间戳 <span class="highlight">${timestampInput}</span> 对应的日期时间为：<br><br>`;
+            resultText += `本地时间：<span class="highlight">${formattedDate}</span><br>`;
+            resultText += `ISO格式：<span class="highlight">${isoDate}</span><br>`;
+            resultText += `UTC时间：<span class="highlight">${utcDate}</span><br>`;
+            resultText += `星期：<span class="highlight">${date.toLocaleDateString('zh-CN', {weekday: 'long'})}</span>`;
+            
+            document.getElementById('timestampResultText').innerHTML = resultText;
+            document.getElementById('timestampResult').style.display = 'block';
+        });
+        
+        // 日期转时间戳
+        document.getElementById('dateToTimestamp').addEventListener('click', function() {
+            const dateString = document.getElementById('dateStringInput').value;
+            if (!dateString) {
+                alert('请选择日期和时间');
+                return;
+            }
+            
+            const date = new Date(dateString);
+            const timestamp = date.getTime();
+            const timestampSeconds = Math.floor(timestamp / 1000);
+            
+            let resultText = `日期时间 <span class="highlight">${dateString.replace('T', ' ')}</span> 对应的时间戳为：<br><br>`;
+            resultText += `13位毫秒时间戳：<span class="highlight">${timestamp}</span><br>`;
+            resultText += `10位秒时间戳：<span class="highlight">${timestampSeconds}</span><br><br>`;
+            resultText += `ISO格式：<span class="highlight">${date.toISOString()}</span><br>`;
+            resultText += `UTC格式：<span class="highlight">${date.toUTCString()}</span>`;
+            
+            document.getElementById('timestampResultText').innerHTML = resultText;
+            document.getElementById('timestampResult').style.display = 'block';
+        });
+        
+        // 日期格式化
+        document.getElementById('formatDate').addEventListener('click', function() {
+            const dateString = document.getElementById('formatDateInput').value;
+            if (!dateString) {
+                alert('请选择日期和时间');
+                return;
+            }
+            
+            const date = new Date(dateString);
+            const formatType = document.getElementById('formatSelect').value;
+            const customFormat = document.getElementById('customFormat').value;
+            
+            let formattedDate = '';
+            
+            switch(formatType) {
+                case 'full':
+                    formattedDate = date.toLocaleString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    });
+                    break;
+                case 'dateOnly':
+                    formattedDate = date.toLocaleDateString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    });
+                    break;
+                case 'timeOnly':
+                    formattedDate = date.toLocaleTimeString('zh-CN', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    });
+                    break;
+                case 'iso':
+                    formattedDate = date.toISOString();
+                    break;
+                case 'custom':
+                    if (!customFormat) {
+                        alert('请输入自定义格式');
+                        return;
+                    }
+                    formattedDate = formatDateCustom(date, customFormat);
+                    break;
+            }
+            
+            let resultText = `原始日期：<span class="highlight">${dateString.replace('T', ' ')}</span><br><br>`;
+            resultText += `格式化结果：<br><span class="highlight">${formattedDate}</span><br><br>`;
+            resultText += `其他格式：<br>`;
+            resultText += `年-月-日：<span class="highlight">${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}</span><br>`;
+            resultText += `时:分:秒：<span class="highlight">${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}</span><br>`;
+            resultText += `星期：<span class="highlight">${date.toLocaleDateString('zh-CN', {weekday: 'long'})}</span>`;
+            
+            document.getElementById('formatResultText').innerHTML = resultText;
+            document.getElementById('formatResult').style.display = 'block';
+        });
+        
+        // 自定义日期格式化函数
+        function formatDateCustom(date, format) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            
+            return format
+                .replace('YYYY', year)
+                .replace('YY', year.toString().slice(-2))
+                .replace('MM', month.toString().padStart(2, '0'))
+                .replace('M', month)
+                .replace('DD', day.toString().padStart(2, '0'))
+                .replace('D', day)
+                .replace('HH', hours.toString().padStart(2, '0'))
+                .replace('H', hours)
+                .replace('mm', minutes.toString().padStart(2, '0'))
+                .replace('m', minutes)
+                .replace('ss', seconds.toString().padStart(2, '0'))
+                .replace('s', seconds);
+        }
+        
+        // 公历转农历
+        document.getElementById('solarToLunar').addEventListener('click', function() {
+            const solarDateStr = document.getElementById('solarDate').value;
+            if (!solarDateStr) {
+                alert('请选择公历日期');
+                return;
+            }
+            
+            const solarDate = new Date(solarDateStr);
+            const lunarInfo = solarToLunar(solarDate);
+            
+            let resultHtml = `<div class="lunar-result">`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">公历日期</div><div class="lunar-value">${solarDateStr}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">农历日期</div><div class="lunar-value">${lunarInfo.lunarDate}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">干支纪年</div><div class="lunar-value">${lunarInfo.ganzhiYear}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">生肖</div><div class="lunar-value">${lunarInfo.zodiac}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">星期</div><div class="lunar-value">${lunarInfo.weekday}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">星座</div><div class="lunar-value">${lunarInfo.constellation}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">节气</div><div class="lunar-value">${lunarInfo.solarTerm}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">农历月份</div><div class="lunar-value">${lunarInfo.lunarMonthName}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">农历日</div><div class="lunar-value">${lunarInfo.lunarDayName}</div></div>`;
+            resultHtml += `</div>`;
+            
+            document.getElementById('lunarResultText').innerHTML = resultHtml;
+            document.getElementById('lunarResult').style.display = 'block';
+        });
+        
+        // 农历转公历
+        document.getElementById('lunarToSolar').addEventListener('click', function() {
+            const lunarYear = parseInt(document.getElementById('lunarYear').value);
+            const lunarMonth = parseInt(document.getElementById('lunarMonth').value);
+            const lunarDay = parseInt(document.getElementById('lunarDay').value);
+            
+            if (isNaN(lunarYear) || isNaN(lunarMonth) || isNaN(lunarDay)) {
+                alert('请输入完整的农历日期');
+                return;
+            }
+            
+            if (lunarYear < 1900 || lunarYear > 2100) {
+                alert('年份必须在1900-2100之间');
+                return;
+            }
+            
+            if (lunarDay < 1 || lunarDay > 30) {
+                alert('农历日期必须在1-30之间');
+                return;
+            }
+            
+            // 这是一个简化的农历转公历计算
+            // 实际农历转公历算法非常复杂，这里使用近似计算
+            const solarDate = lunarToSolar(lunarYear, lunarMonth, lunarDay);
+            
+            let resultHtml = `<div class="lunar-result">`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">农历日期</div><div class="lunar-value">${lunarYear}年${lunarMonth}月${lunarDay}日</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">公历日期</div><div class="lunar-value">${solarDate.toLocaleDateString('zh-CN')}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">星期</div><div class="lunar-value">${solarDate.toLocaleDateString('zh-CN', {weekday: 'long'})}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">ISO格式</div><div class="lunar-value">${solarDate.toISOString().slice(0, 10)}</div></div>`;
+            resultHtml += `<div class="lunar-item"><div class="lunar-label">时间戳</div><div class="lunar-value">${solarDate.getTime()}</div></div>`;
+            resultHtml += `</div>`;
+            resultHtml += `<p style="margin-top: 10px; color: #666; font-size: 0.9em;">注：农历转公历为近似计算，实际日期可能有所差异。</p>`;
+            
+            document.getElementById('lunarResultText').innerHTML = resultHtml;
+            document.getElementById('lunarResult').style.display = 'block';
+        });
+        
+        // 简化的公历转农历函数
+        function solarToLunar(date) {
+            // 这里是一个简化的示例，实际农历计算需要复杂的算法
+            // 这里使用一个近似算法返回示例数据
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            
+            // 天干地支计算
+            const heavenlyStems = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+            const earthlyBranches = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+            const zodiacs = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
+            const lunarMonths = ['正月', '二月', '三月', '四月', '五月', '六月', 
+                                '七月', '八月', '九月', '十月', '冬月', '腊月'];
+            const lunarDays = ['初一', '初二', '初三', '初四', '初五', '初六', '初七', '初八', '初九', '初十',
+                            '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
+                            '廿一', '廿二', '廿三', '廿四', '廿五', '廿六', '廿七', '廿八', '廿九', '三十'];
+            
+            // 星座计算
+            const constellations = [
+                {name: '摩羯座', start: '01-01', end: '01-19'},
+                {name: '水瓶座', start: '01-20', end: '02-18'},
+                {name: '双鱼座', start: '02-19', end: '03-20'},
+                {name: '白羊座', start: '03-21', end: '04-19'},
+                {name: '金牛座', start: '04-20', end: '05-20'},
+                {name: '双子座', start: '05-21', end: '06-21'},
+                {name: '巨蟹座', start: '06-22', end: '07-22'},
+                {name: '狮子座', start: '07-23', end: '08-22'},
+                {name: '处女座', start: '08-23', end: '09-22'},
+                {name: '天秤座', start: '09-23', end: '10-23'},
+                {name: '天蝎座', start: '10-24', end: '11-22'},
+                {name: '射手座', start: '11-23', end: '12-21'},
+                {name: '摩羯座', start: '12-22', end: '12-31'}
+            ];
+            
+            // 节气（简化版）
+            const solarTerms = [
+                '小寒', '大寒', '立春', '雨水', '惊蛰', '春分',
+                '清明', '谷雨', '立夏', '小满', '芒种', '夏至',
+                '小暑', '大暑', '立秋', '处暑', '白露', '秋分',
+                '寒露', '霜降', '立冬', '小雪', '大雪', '冬至'
+            ];
+            
+            // 计算天干地支
+            const ganIndex = (year - 4) % 10;
+            const zhiIndex = (year - 4) % 12;
+            const ganzhiYear = heavenlyStems[ganIndex] + earthlyBranches[zhiIndex];
+            const zodiac = zodiacs[(year - 4) % 12];
+            
+            // 计算星期
+            const weekday = date.toLocaleDateString('zh-CN', {weekday: 'long'});
+            
+            // 计算星座
+            const dateStr = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            let constellation = '摩羯座';
+            for (const c of constellations) {
+                if (dateStr >= c.start && dateStr <= c.end) {
+                    constellation = c.name;
+                    break;
+                }
+            }
+            
+            // 随机生成一个节气（实际应根据具体日期计算）
+            const solarTerm = solarTerms[Math.floor(Math.random() * solarTerms.length)];
+            
+            // 随机生成农历日期（实际应根据具体日期计算）
+            const lunarMonth = Math.max(1, Math.min(12, month - 1));
+            const lunarDay = Math.max(1, Math.min(30, day - 1));
+            
+            return {
+                lunarDate: `${year-1}年${lunarMonths[lunarMonth-1]}${lunarDays[lunarDay-1]}`,
+                ganzhiYear,
+                zodiac,
+                weekday,
+                constellation,
+                solarTerm,
+                lunarMonthName: lunarMonths[lunarMonth-1],
+                lunarDayName: lunarDays[lunarDay-1]
+            };
+        }
+        
+        // 简化的农历转公历函数
+        function lunarToSolar(lunarYear, lunarMonth, lunarDay) {
+            // 这是一个简化的近似计算
+            // 实际算法非常复杂，这里只是返回一个示例日期
+            const baseDate = new Date(lunarYear, lunarMonth - 1, lunarDay);
+            // 添加一个偏移量模拟农历与公历的差异
+            const offsetDays = 29; // 农历通常比公历晚约一个月
+            return new Date(baseDate.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+        }
+    </script>
+</body>
+</html>
