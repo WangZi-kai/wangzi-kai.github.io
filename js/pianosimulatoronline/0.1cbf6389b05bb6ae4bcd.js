@@ -56,6 +56,11 @@ webpackJsonp([0],{"+MLA":function(t,e,i){var n=i("EqjI"),o=i("06OY").onFreeze;i(
     degree: 4
 },
 {
+    name: "Good Time",
+    url: "GoodTime.mid",
+    degree: 5
+},
+{
     name: "Baby",
     url: "Baby.mid",
     degree: 5
