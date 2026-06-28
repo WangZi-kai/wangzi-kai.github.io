@@ -46,11 +46,11 @@
         desktopExpanded = !desktopExpanded;
         if (desktopExpanded) {
             previewPane.classList.add('expanded');
-            toggleDesktop.innerHTML = '&gt;';
+            toggleDesktop.innerHTML = '<i class="fa fa-caret-right"></i>';
             updatePreview();
         } else {
             previewPane.classList.remove('expanded');
-            toggleDesktop.innerHTML = '&lt;';
+            toggleDesktop.innerHTML = '<i class="fa fa-caret-left"></i>';
         }
         refreshEditor();
     });
@@ -60,11 +60,11 @@
         mobileExpanded = !mobileExpanded;
         if (mobileExpanded) {
             previewPane.classList.add('mobile-expanded');
-            toggleMobile.innerHTML = '▼';
+            toggleMobile.innerHTML = '<i class="fa fa-caret-down"></i>';
             updatePreview();
         } else {
             previewPane.classList.remove('mobile-expanded');
-            toggleMobile.innerHTML = '▲';
+            toggleMobile.innerHTML = '<i class="fa fa-caret-up"></i>';
         }
         refreshEditor();
     });
@@ -109,10 +109,10 @@
             toggleMobile.style.display = 'flex';
             if (!mobileExpanded) {
                 previewPane.classList.remove('mobile-expanded');
-                toggleMobile.innerHTML = '▲';
+                toggleMobile.innerHTML = '<i class="fa fa-caret-up"></i>';
             } else {
                 previewPane.classList.add('mobile-expanded');
-                toggleMobile.innerHTML = '▼';
+                toggleMobile.innerHTML = '<i class="fa fa-caret-down"></i>';
             }
         } else {
             toggleDesktop.style.display = 'flex';
@@ -120,10 +120,10 @@
             previewPane.classList.remove('mobile-expanded');
             if (desktopExpanded) {
                 previewPane.classList.add('expanded');
-                toggleDesktop.innerHTML = '&gt;';
+                toggleDesktop.innerHTML = '<i class="fa fa-caret-right"></i>';
             } else {
                 previewPane.classList.remove('expanded');
-                toggleDesktop.innerHTML = '&lt;';
+                toggleDesktop.innerHTML = '<i class="fa fa-caret-left"></i>';
             }
         }
         refreshEditor();
@@ -134,13 +134,13 @@
         toggleMobile.style.display = 'flex';
         previewPane.classList.remove('mobile-expanded');
         mobileExpanded = false;
-        toggleMobile.innerHTML = '▲';
+        toggleMobile.innerHTML = '<i class="fa fa-caret-up"></i>';
     } else {
         toggleDesktop.style.display = 'flex';
         toggleMobile.style.display = 'none';
         desktopExpanded = false;
         previewPane.classList.remove('expanded');
-        toggleDesktop.innerHTML = '&lt;';
+        toggleDesktop.innerHTML = '<i class="fa fa-caret-left"></i>';
     }
 
     // 初始化刷新
