@@ -1,0 +1,165 @@
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 16px;
+        }
+        .container { max-width: 1440px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            margin-bottom: 22px;
+            font-size: 26px;
+            color: #38bdf8;
+            letter-spacing: 1px;
+        }
+        .toolbar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        .toolbar button {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: #2563eb; color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-success { background: #059669; color: white; }
+        .btn-success:hover { background: #047857; }
+        .btn-warning { background: #d97706; color: white; }
+        .btn-warning:hover { background: #b45309; }
+        .btn-danger { background: #dc2626; color: white; }
+        .btn-danger:hover { background: #b91c1c; }
+        .btn-info { background: #0891b2; color: white; }
+        .btn-info:hover { background: #0e7490; }
+        .btn-purple { background: #7c3aed; color: white; }
+        .btn-purple:hover { background: #6d28d9; }
+        .btn-outline {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #475569;
+        }
+        .btn-outline:hover { background: #1e293b; color: #e2e8f0; }
+
+        .options-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px 14px;
+            background: #1e293b;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #334155;
+            font-size: 13px;
+        }
+        .options-bar label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            color: #cbd5e1;
+        }
+        .options-bar select {
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 12px;
+        }
+        .options-bar input[type="number"] {
+            width: 60px;
+            background: #0f172a;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+            border-radius: 4px;
+            padding: 3px 6px;
+            font-size: 12px;
+        }
+        .options-bar input[type="checkbox"] { accent-color: #2563eb; }
+        .sep { color: #475569; user-select: none; }
+
+        .editor-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            height: calc(100vh - 280px);
+            min-height: 420px;
+        }
+        @media (max-width: 800px) {
+            .editor-area { grid-template-columns: 1fr; height: auto; }
+        }
+        .panel {
+            background: #1e293b;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .panel-header {
+            padding: 8px 14px;
+            background: #0f172a;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .panel-header .count { color: #64748b; font-size: 11px; }
+        .panel-body { flex: 1; position: relative; }
+        .panel-body textarea {
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            border: none;
+            outline: none;
+            color: #e2e8f0;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 12px;
+            resize: none;
+            tab-size: 2;
+        }
+        .panel-body textarea::placeholder { color: #475569; }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            padding: 8px 14px;
+            background: #0f172a;
+            border-top: 1px solid #334155;
+            font-size: 12px;
+            color: #64748b;
+            flex-wrap: wrap;
+        }
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 10px 28px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 14px;
+        }
+        .toast.show { opacity: 1; }
