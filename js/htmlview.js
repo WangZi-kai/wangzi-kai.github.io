@@ -13,21 +13,24 @@ var editor = CodeMirror.fromTextArea(textarea, {
     electricChars: true,
     extraKeys: {
         'Backspace': function(cm) {
-            // 如果光标在行首或缩进位置，删除一个缩进单位
             var cursor = cm.getCursor();
             var line = cm.getLine(cursor.line);
             var indentSize = cm.getOption('indentUnit');
-            var indentStr = ' '.repeat(indentSize);
             
-            if (cursor.ch > 0 && line.substring(0, cursor.ch).trim() === '' && cursor.ch % indentSize === 0) {
-                cm.deleteRange(
+            // 判断光标是否在缩进位置（光标前全是空白，且位置是缩进单位的整数倍）
+            var beforeCursor = line.substring(0, cursor.ch);
+            if (cursor.ch > 0 && beforeCursor.trim() === '' && cursor.ch % indentSize === 0) {
+                // 删除一个缩进单位
+                cm.replaceRange(
+                    '',
                     {line: cursor.line, ch: cursor.ch - indentSize},
                     {line: cursor.line, ch: cursor.ch}
                 );
-                } else {
-                    cm.deleteH(-1, 'char');  // 正常删除一个字符
-                }
+            } else {
+                // 正常删除一个字符
+                cm.deleteH(-1, 'char');
             }
+        }
     }
 
 });
