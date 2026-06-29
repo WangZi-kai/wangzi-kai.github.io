@@ -9,9 +9,13 @@ var editor = CodeMirror.fromTextArea(textarea, {
     indentUnit: 4,
     tabSize: 4,
     theme: 'default',
-    scrollbarStyle: 'null',
-    viewportMargin: Infinity
+    smartIndent: true,
+    electricChars: true,
+    extraKeys: {
+        'Backspace': 'indentMore'  // 按退格键时减少缩进
+    }
 });
+
 
 var previewPane = document.getElementById('previewPane');
 var toggleDesktop = document.getElementById('toggleBtnDesktop');
