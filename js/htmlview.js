@@ -9,12 +9,10 @@ var editor = CodeMirror.fromTextArea(textarea, {
     indentUnit: 4,
     tabSize: 4,
     theme: 'default',
-    smartIndent: true,
-    electricChars: true,
-    extraKeys: {
-        'Backspace': 'indentMore'  // 按退格键时减少缩进
-    }
+    smartIndent: true,   // 默认已启用，退格键智能处理缩进
+    electricChars: true
 });
+
 
 
 var previewPane = document.getElementById('previewPane');
