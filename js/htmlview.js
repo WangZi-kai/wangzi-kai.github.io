@@ -133,7 +133,7 @@ document.getElementById('runDocBtn').addEventListener('click', function() {
 });
 
 document.getElementById('downloadLink').addEventListener('click', function(e) {
-    document.getElementById('downloadLink').setAttribute("download","hitech_htmlview_" + getFormattedTime());
+    document.getElementById('downloadLink').setAttribute("download","hitech_htmlview_" + getFormattedTime() + ".html");
     var blob = new Blob([editor.getValue()], { type: 'text/html;charset=utf-8' });
     this.href = URL.createObjectURL(blob);
     setTimeout(function() {
