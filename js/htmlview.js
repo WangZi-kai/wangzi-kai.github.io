@@ -10,7 +10,26 @@ var editor = CodeMirror.fromTextArea(textarea, {
     tabSize: 4,
     theme: 'default',
     smartIndent: true,   // 默认已启用，退格键智能处理缩进
-    electricChars: true
+    electricChars: true,
+    extraKeys: {
+        'Backspace': function(cm) {
+            // 如果光标在行首或缩进位置，删除一个缩进单位
+            var cursor = cm.getCursor();
+            var line = cm.getLine(cursor.line);
+            var indentSize = cm.getOption('indentUnit');
+            var indentStr = ' '.repeat(indentSize);
+            
+            if (cursor.ch > 0 && line.substring(0, cursor.ch).trim() === '' && cursor.ch % indentSize === 0) {
+                cm.deleteRange(
+                    {line: cursor.line, ch: cursor.ch - indentSize},
+                    {line: cursor.line, ch: cursor.ch}
+                );
+                } else {
+                    cm.deleteH(-1, 'char');  // 正常删除一个字符
+                }
+            }
+    }
+
 });
 
 
