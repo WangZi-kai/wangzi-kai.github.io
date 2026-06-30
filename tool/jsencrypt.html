@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线JavaScript混淆加密解密 - hi工具</title>
+<link href="/css/jsencrypt/main.css" rel="stylesheet" type="text/css">
+<link href="/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+<meta name="description" content="hi工具，方便你的生活！" />
+<meta name="keywords" content="hi,工具,方便,实用,在线,JavaScript混淆,JS加密解密,代码混淆,JavaScript加密,JS解密工具,在线JS混淆" />
+<meta name="copyright" content="3429442539@qq.com" />
+<meta http-equiv="Server" content="Hi" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="refresh" content="86400" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="shortcut icon" href="/i/favicon.ico" sizes="32x32"/>
+<script src="/js/antidebugger.js"></script>
+<link rel="stylesheet" href="/css/nocopy.css" type="text/css" />
+</head>
+
+<body>
+<noscript><div align="center"><font size="50" color="red">本工具为JavaScript+H5工具，检测到你的浏览器不支持JavaScript，请检查是否被禁用或者更换浏览器！</font></div><br /><br /></noscript>
+    <!-- 顶部标题栏 -->
+    <div class="header">
+        <div class="header-left">
+            <h1 class="logo">
+                <i class="fa fa-code"></i>
+                JavaScript混淆加密解密工具
+            </h1>
+        </div>
+        <div class="header-right">
+            <a href="/tool/" class="back-link">
+                <i class="fa fa-arrow-left"></i>
+                工具首页
+            </a>
+            <button class="theme-toggle" id="themeToggle" title="切换主题">
+                <span class="sun-icon">
+                    <i class="fa fa-sun-o"></i>
+                </span>
+                <span class="moon-icon hidden">
+                    <i class="fa fa-moon-o"></i>
+                </span>
+            </button>
+            <div class="mode-toggle">
+                <button class="mode-btn active" id="encryptMode" data-mode="encrypt">加密混淆</button>
+                <button class="mode-btn" id="decryptMode" data-mode="decrypt">解密反混淆</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-container">
+        <!-- 左侧输入面板 -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="icon">
+                        <i class="fa fa-code"></i>
+                    </span>
+                    <span id="inputTitle">原始JavaScript代码</span>
+                </div>
+                <div class="panel-actions">
+                    <button class="action-btn" id="clearInput">清空</button>
+                    <button class="action-btn" id="pasteBtn">粘贴</button>
+                </div>
+            </div>
+            <div class="code-editor">
+                <div class="code-editor-wrapper">
+                    <textarea 
+                        id="inputCode" 
+                        class="code-textarea" 
+                        placeholder="请输入要加密混淆的JavaScript代码..."
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分割线 -->
+        <div class="divider" id="divider"></div>
+
+        <!-- 右侧输出面板 -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="icon">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                    <span id="outputTitle">加密混淆后的代码</span>
+                </div>
+                <div class="panel-actions">
+                    <button class="action-btn" id="configButton" title="配置选项" style="display: flex;align-items: center">
+                        <i class="fa fa-gear"></i>&nbsp;
+                        配置
+                    </button>
+                    <button class="action-btn primary" id="processButton">开始加密</button>
+                    <button class="action-btn" id="copyButton">复制结果</button>
+                    <button class="action-btn" id="downloadBtn">下载</button>
+                </div>
+            </div>
+            <div class="code-editor">
+                <div class="code-editor-wrapper">
+                    <textarea 
+                        id="outputCode" 
+                        class="code-textarea" 
+                        placeholder="处理结果将显示在这里..."
+                        readonly
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+                <div id="loadingIndicator" class="loading hidden">处理中...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 配置对话框 -->
+    <dialog id="configDialog" class="config-dialog">
+        <div class="config-header">
+            <div class="config-title">反混淆配置</div>
+            <button class="config-close" id="configClose">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <hr class="config-divider">
+        
+        <div class="config-content">
+            <div class="config-section">
+                <div class="section-title">解密配置</div>
+                
+                <div class="config-row">
+                    <label class="config-label">
+                        <span class="label-text">解密器定位方式</span>
+                        <select id="decoderLocationMethod" class="config-select">
+                            <option value="stringArray">字符串数组长度</option>
+                            <option value="callCount">解密器调用次数</option>
+                            <option value="evalCode">注入解密代码</option>
+                        </select>
+                    </label>
+                </div>
+                
+                <div class="config-row" id="callCountRow" style="display: none;">
+                    <label class="config-label">
+                        <span class="label-text">调用次数</span>
+                        <input type="number" id="decoderCallCount" class="config-input" min="1" step="1" value="2">
+                    </label>
+                </div>
+                
+                <div class="config-row" id="stringArrayRow">
+                    <label class="config-label">
+                        <span class="label-text">字符串数组长度</span>
+                        <input type="number" id="stringArrayLength" class="config-input" min="1" step="1" value="100">
+                    </label>
+                </div>
+                
+                <div class="config-row" id="evalCodeRow" style="display: none;">
+                    <label class="config-label">
+                        <span class="label-text">指定解密器(函数名)</span>
+                        <input type="text" id="designDecoderName" class="config-input" placeholder="函数名">
+                    </label>
+                </div>
+                
+                <div class="config-row" id="setupCodeRow" style="display: none;">
+                    <label class="config-label">
+                        <span class="label-text">注入代码</span>
+                        <textarea id="setupCode" class="config-textarea" placeholder="请输入要注入的JavaScript代码..."></textarea>
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label">
+                        <span class="label-text">解密器嵌套函数深度</span>
+                        <input type="number" id="inlineWrappersDepth" class="config-input" min="1" step="1" value="2">
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label">
+                        <span class="label-text">混淆花指令还原执行次数</span>
+                        <input type="number" id="execCount" class="config-input" min="1" max="5" step="1" value="2">
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label checkbox-label">
+                        <input type="checkbox" checked id="isRemoveDecoder" class="config-checkbox">
+                        <span class="label-text">是否移除解密器(后续用不到)</span>
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label checkbox-label">
+                        <input type="checkbox" checked id="isStrongRemove" class="config-checkbox">
+                        <span class="label-text">强力清除(会对处理后的代码再次执行)</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="config-section">
+                <div class="section-title">输出配置</div>
+                
+                <div class="config-row">
+                    <label class="config-label checkbox-label">
+                        <input type="checkbox" id="isMinifiedEnable" class="config-checkbox">
+                        <span class="label-text">是否压缩代码 (将不会有任何注释)</span>
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label checkbox-label">
+                        <input type="checkbox" checked id="mangle" class="config-checkbox">
+                        <span class="label-text">是否优化变量名</span>
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label checkbox-label">
+                        <input type="checkbox" id="isMarkEnable" class="config-checkbox">
+                        <span class="label-text">是否标记关键标识符</span>
+                    </label>
+                </div>
+                
+                <div class="config-row">
+                    <label class="config-label">
+                        <span class="label-text">标识符</span>
+                        <input type="text" id="keywordsValue" class="config-input" placeholder="关键标识符">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 底部状态栏 -->
+    <div class="status-bar">
+        <div class="status-left">
+            <span id="inputStats">输入: 0 字符, 0 行</span>
+            <span id="outputStats">输出: 0 字符, 0 行</span>
+        </div>
+        <div class="status-right">
+            <span id="processingTime">就绪</span>
+            <a href="/tools" style="color: #4F46E5; text-decoration: none;">返回工具集合</a>
+        </div>
+    </div>
+<footer>
+<br />
+<br />
+<p><div align="center"><font size="20"><a href="/tool/" title="点击这里进入首页">点击这里进入首页</a></font></div></p>
+<div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 99;">
+<a href="https://myssl.com/seal/detail?domain=wangzi-kai.github.io"><img src="/i/myssl-id.png" alt="https安全认证" title="点击查看本站https安全性" border="0" style="width:100%;height:100%"></a>
+</div>
+<div align="center"><script type="text/javascript" src="/js/cnzz.js"></script><noscript><a href="https://www.cnzz.com/stat/website.php?web_id=1279498743"><img src="https://icon.cnzz.com/img/pic1.gif" border="0" /></a></noscript></div>
+</footer>
+    <!-- 引入加密解密库 -->
+    <script src="/js/jsencrypt/encode.mini.js"></script>
+    <script src="/js/jsencrypt/runtime.decode.js"></script>
+    <script src="/js/jsencrypt/vendors.decode.js"></script>
+    <script src="/js/jsencrypt/main.decode.js"></script>
+    <!-- CodeMirror: editor and JavaScript mode -->
+    <link rel="stylesheet" href="/css/codemirror/codemirror.min.css" />
+    <link rel="stylesheet" href="/css/jsencrypt/dracula.min.css" />
+    <link rel="stylesheet" href="/css/jsencrypt/eclipse.min.css" />
+    <style>
+      .CodeMirror { height: 100%; width: 100%; }
+      .CodeMirror-scroll { font-family: 'Monaco','Menlo','Ubuntu Mono',monospace; overflow: auto; height: 100%; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+    </style>
+    <script src="/js/codemirror/codemirror.min.js"></script>
+    <script src="/js/jsencrypt/cmr-javascript.min.js"></script>
+    <script src="/js/jsencrypt/matchbrackets.min.js"></script>
+    <script src="/js/jsencrypt/index.js"></script>
+</body>
+</html>
